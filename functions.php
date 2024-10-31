@@ -19,10 +19,10 @@ add_action('after_setup_theme', 'my_theme_setup');
 // بارگذاری استایل‌ها و اسکریپت‌ها
 function my_theme_scripts() {
   // بارگذاری استایل اصلی
-  wp_enqueue_style('main-stylesheet', get_template_directory_uri() . '/style.css');
+  wp_enqueue_style('main-stylesheet', get_template_directory_uri() . 'asset/css/custom-style.css');
   
   // بارگذاری یک اسکریپت سفارشی
-  wp_enqueue_script('custom-js', get_template_directory_uri() . 'asset/javascrip/custom.js', array('jquery'), null, true);
+  wp_enqueue_script('custom-js', get_template_directory_uri() . 'asset/javascript/custom-js.js', array('jquery'), null, true);
 }
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
 
