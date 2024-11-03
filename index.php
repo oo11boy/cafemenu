@@ -1,11 +1,7 @@
-<html lang="fa">
-
 <?php get_header() ?>
 
-<body>
-    <?php get_template_part('components/test', 'single'); ?>
+<div class="landingcontainer">
+  به کافه ما خوش آمدید
+  <a href="/cafe/mainpage">مشاهده منو</a>
 
-    <?php get_footer() ?>
-</body>
-
-</html>
+</div>

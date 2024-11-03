@@ -1,0 +1,52 @@
+html{
+    margin: 0!important;
+    background-color: rgba(0, 0, 0, 0.199);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 650px;
+  margin: auto;
+  height: 100vh;
+}
+.content {
+  height: 90%;
+  background-color: red;
+  overflow-y:auto ;
+}
+.footer {
+  background-color: black;
+  height: 10%;
+}
+
+
+
+/* mainpage css start */
+
+
+/* ********************************************** */
+
+
+
+/* landingpage css start */
+
+.landingcontainer{
+    max-width: 650px;
+    margin: auto;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 255, 0.525);
+}
+
+/* ********************************************** */
+
+
+
+/* information food modal css start */
+
+
+/* ********************************************** */
