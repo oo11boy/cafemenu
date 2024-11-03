@@ -12,15 +12,23 @@ html{
   max-width: 650px;
   margin: auto;
   height: 100vh;
+
 }
 .content {
   height: 100%;
-  background-color: red;
+  background-color: white;
   overflow-y:auto ;
+  padding: 0 15px;
 }
 
 
 /* mainpage css start */
+
+@media only screen and (min-width: 460px) {
+  .viewfood div{
+ width: 30%;
+  }
+}
 
 
 /* ********************************************** */
