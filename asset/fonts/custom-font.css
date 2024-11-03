@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'peyda'; /* نام فونت را تغییر دهید */
+    src: url('Peyda.woff2') format('woff2'); /* آدرس فایل فونت را به روز کنید */
+    font-weight: normal; /* یا می‌توانید به 'bold' تغییر دهید */
+    font-style: normal; /* یا می‌توانید به 'italic' تغییر دهید */
+}
+
+@font-face {
+    font-family: 'iransans'; /* نام فونت را تغییر دهید */
+    src: url('iransans.woff2') format('woff2'); /* آدرس فایل فونت را به روز کنید */
+    font-weight: normal; /* یا می‌توانید به 'bold' تغییر دهید */
+    font-style: normal; /* یا می‌توانید به 'italic' تغییر دهید */
+}
+
