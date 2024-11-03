@@ -13,10 +13,44 @@
 }
 
 
+@font-face {
+    font-family: 'reyhaneh'; /* نام فونت را تغییر دهید */
+    src: url('reyhaneh.ttf') format('truetype'); /* آدرس فایل فونت را به روز کنید */
+    font-weight: normal; /* یا می‌توانید به 'bold' تغییر دهید */
+    font-style: normal; /* یا می‌توانید به 'italic' تغییر دهید */
+}
+
+@font-face {
+    font-family: 'vazir'; /* نام فونت را تغییر دهید */
+    src: url('vazir.ttf') format('truetype'); /* آدرس فایل فونت را به روز کنید */
+    font-weight: normal; /* یا می‌توانید به 'bold' تغییر دهید */
+    font-style: normal; /* یا می‌توانید به 'italic' تغییر دهید */
+}
+
+
+
+@font-face {
+    font-family: 'yekan'; /* نام فونت را تغییر دهید */
+    src: url('yekan.ttf') format('truetype'); /* آدرس فایل فونت را به روز کنید */
+    font-weight: normal; /* یا می‌توانید به 'bold' تغییر دهید */
+    font-style: normal; /* یا می‌توانید به 'italic' تغییر دهید */
+}
+
+
+.yekan{
+    font-family: yekan;
+}
+
+
 .iransans{
     font-family: iransans;
+}
+
+.reyhaneh{
+    font-family: reyhaneh;
 }
 
 .peyda{
     font-family: peyda;
 }
+
