@@ -5,6 +5,6 @@ Template Name: foodmodal
 get_header()
     ?>
 
-<div class="container">
+<div class="container-content">
     modal
 </div>
