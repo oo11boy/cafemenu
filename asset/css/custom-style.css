@@ -14,15 +14,10 @@ html{
   height: 100vh;
 }
 .content {
-  height: 90%;
+  height: 100%;
   background-color: red;
   overflow-y:auto ;
 }
-.footer {
-  background-color: black;
-  height: 10%;
-}
-
 
 
 /* mainpage css start */
