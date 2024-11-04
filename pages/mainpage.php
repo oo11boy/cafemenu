@@ -7,7 +7,7 @@ get_header();
 
 <?php get_template_part('components/header', 'single'); ?>
 
-<div class="flex peyda justify-between items-center">
+<div class="flex reyhaneh justify-between items-center">
     <p class="text-3xl">منو کافه یونیکد</p>
     <img class="w-[80px] h-[80px] rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
         alt="Default avatar">
