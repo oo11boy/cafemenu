@@ -5,7 +5,7 @@ Template Name: foodmodal
 get_header()
     ?>
 
-<div class="container-content food-modal relative">
+<div class="container-content yekan food-modal relative">
     <div>
       <div class="text-center flex justify-center food-container">
         <img class="w-44 mt-12" src="<?php echo get_theme_image_url('burger1.png'); ?>" alt="Burger">
@@ -19,14 +19,14 @@ get_header()
           </div>
         </div>
         <div class="flex justify-between items-center mt-5 mb-4">
-          <span class="font-bold text-xl">برگر یونیکد</span>
+          <span class="font-bold text-xl peyda">برگر یونیکد</span>
           <div>
             <span>+</span>
             <span class="font-bold">1</span>
             <span>-</span>
           </div>
         </div>
-        <small>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون رایتابهای زیادی در شصاد.</small>
+        <small class="iransans">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون رایتابهای زیادی در شصاد.</small>
         <div class="mt-5">
           <h5 class="text-lg font-bold">اضافه:</h5>
           <div class="flex justify-between mt-5">
