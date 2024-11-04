@@ -26,6 +26,18 @@ function my_theme_scripts() {
 }
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
 
+// تابع برای لود کردن تصاویر از پوشه asset
+function get_theme_image_url($image_name) {
+  return get_template_directory_uri() . '/asset/image/' . $image_name;
+}
+
+//فونت اسوم
+function load_font_awesome() {
+  wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+}
+add_action('wp_enqueue_scripts', 'load_font_awesome');
+
+
 // افزودن پشتیبانی از ویجت‌ها
 function my_custom_widget_areas() {
   register_sidebar(array(

@@ -43,5 +43,26 @@ html{
 
 /* information food modal css start */
 
+.food-modal {
+  background-color: #3B1D9B;
+}
 
+.food-container {
+  position: relative;
+  display: inline-block;
+}
+
+.food-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 250px; 
+  height: 250px; 
+  background: rgba(255, 255, 255, 0.1); 
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+  z-index: -1;
+  border-radius: 8px; 
+}
 /* ********************************************** */
