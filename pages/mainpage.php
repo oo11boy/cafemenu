@@ -18,6 +18,12 @@ get_header();
     <i class="fa fa-search absolute right-6 text-[#848484] inset-y-[25%] text-3xl" aria-hidden="true"></i>
 </form>
 
+<div class="relative">
+    <img class="rounded-xl" src="<?php echo get_theme_image_url('foodbg.jpg'); ?>" alt="" srcset="">
+    <span class="absolute top-20 z-50 right-5 text-white text-3xl">خوش‌مزه‌ترین لحظات <br> در کنار ما</span>
+</div>
+
+
 
 
 <?php get_template_part('components/foodselect', name: 'single'); ?>
