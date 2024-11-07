@@ -1,4 +1,4 @@
-<div id="waiter-modal" class="hidden p-4 yekan fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+<div id="waiter-modal" class="hidden p-4 yekan fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-[999]">
     <div class="bg-white p-5 rounded-xl shadow-lg text-center">
         <h2 class="text-2xl font-semibold mb-4">شماره میز را وارد کنید</h2>
         <input type="text" id="table-number" class="border p-2 rounded w-full mb-4" placeholder="مثلاً 5">
