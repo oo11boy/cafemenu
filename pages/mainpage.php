@@ -20,7 +20,7 @@ get_header();
 
 <div class="relative">
     <img class="rounded-xl" src="<?php echo get_theme_image_url('foodbg.jpg'); ?>" alt="" srcset="">
-    <span class="absolute top-20 z-50 right-5 text-white text-3xl">خوش‌مزه‌ترین لحظات <br> در کنار ما</span>
+    <span class="absolute top-20 z-50 right-5 text-white sm:text-3xl text-lg">خوش‌مزه‌ترین لحظات <br> در کنار ما</span>
 </div>
 
 
