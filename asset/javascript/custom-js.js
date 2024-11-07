@@ -59,20 +59,28 @@ function toggleModal() {
 // گرفتن عناصر مودال و دکمه‌ها
 var openModalBtn = document.getElementById('open-modal');
 var closeModalBtn = document.getElementById('close-modal');
-var submitRequestBtn = document.getElementById('submit-request');
 var waiterModal = document.getElementById('waiter-modal');
-var tableNumberInput = document.getElementById('table-number');
 
-// نمایش مودال
+// نمایش مودال با انیمیشن
 openModalBtn.addEventListener('click', function() {
     waiterModal.classList.remove('hidden');
+    waiterModal.classList.add('modal-enter'); // حالت اولیه انیمیشن
+    setTimeout(function() {
+        waiterModal.classList.add('modal-enter-active'); // اضافه کردن حالت فعال انیمیشن
+    }, 10); // یک تاخیر کوچک برای اعمال تغییرات
 });
 
-// بستن مودال
+// بستن مودال با انیمیشن
 closeModalBtn.addEventListener('click', function() {
-    waiterModal.classList.add('hidden');
-});
+    waiterModal.classList.add('modal-exit-active');
+    waiterModal.classList.remove('modal-enter-active');
 
+    setTimeout(function() {
+        waiterModal.classList.add('hidden'); // پس از پایان انیمیشن، مودال مخفی شود
+        waiterModal.classList.remove('modal-exit-active');
+        waiterModal.classList.remove('modal-enter');
+    }, 300); // مدت زمان انیمیشن (0.3 ثانیه)
+});
 
 
 
