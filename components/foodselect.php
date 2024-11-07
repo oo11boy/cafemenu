@@ -58,10 +58,10 @@
 </div>
 
 
-<div class="flex iransans gap-y-4   bg-white z-10 shadow-lg  z-20 mt-5 items-center p-3 flex-row justify-between w-full">
+<div class="flex iransans gap-y-4 rounded-lg bg-[#4CAF50] z-10 shadow-lg  z-20 mt-5 items-center p-3 flex-row justify-between w-full">
  
-    <input class="pricerange" type="range" id="rangeInput" min="100000" step="100000" max="1000000" value="300000" oninput="updateValue(this.value)" />
-    <div class="w-1/2 text-sm sm:text-sm text-left">
+    <input class="pricerange" style="accent-color: #1a543b" type="range" id="rangeInput" min="100000" step="100000" max="1000000" value="300000" oninput="updateValue(this.value)" />
+    <div class="w-1/2 text-sm sm:text-sm text-left  text-white">
  زیر <span id="rangeValue" class="text-[10px] sm:text-sm">300000</span> تومان
   </div>
 </div>
