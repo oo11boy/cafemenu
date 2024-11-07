@@ -66,148 +66,81 @@
   </div>
 </div>
 
-<div class="viewfood yekan flex flex-wrap gap-y-4 my-4 justify-between items-center">
-<div onclick="toggleModal()" data-price="200000" class="bg-[#e3e3e3] relative flex flex-col w-[48%] justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%] h-[100px]" src="https://pngimg.com/d/burger_sandwich_PNG96787.png" alt="Burger">
-        <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">برگر یونیکد</p>
-            <i class="fa fa-eye" aria-hidden="true"></i>
-        </div>
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p>200</p>
-            تومان
-        </div>
-    </div>
-
-    <div data-price="400000" class="bg-[#e3e3e3] relative flex flex-col w-[48%] justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%] h-[100px]" src="https://static.vecteezy.com/system/resources/thumbnails/036/303/390/small_2x/ai-generated-steaming-coffee-cup-hot-beverage-illustration-transparent-background-coffee-mug-clipart-hot-drink-graphic-brewed-coffee-icon-cafe-latte-png.png" alt="">
-        <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">قهوه امریکانو</p>
-            <i class="fa fa-eye" aria-hidden="true"></i>
-        </div>
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p>400</p>
-            تومان
-        </div>
-    </div>
-    <div data-price="120000"  class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%]  h-[100px]"
-            src="https://purepng.com/public/uploads/large/drinks-5cm.png"
-            alt="">
-           
-            <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">آب پرتغال طبیعی</p>
-            <i class="fa fa-eye " aria-hidden="true"></i>
+<div class="card-container">
+      <div class="art-board__container gap-y-4 viewfood yekan">
+         <div onclick="toggleModal()" class="card flex flex-col" data-price="100000">
+            <div class="card__image">
+               <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Salad" />
             </div>
+            <div class="card__info">
+               <div class="car__info--title">
+                  <h3>سالاد</h3>
+                  <p>تازه و خنک</p>
+               </div>
+               <div class="card__info--price">
+                  <p>100000تومان</p>
 
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p class="">
-                120
-            </p>
-            تومان
-        </div>
-    </div>
-    <div data-price="200000"  class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%]  h-[100px]"
-            src="https://www.transparentpng.com/thumb/pizza/hLgXMl-pizza-images-download.png"
-            alt="">
-           
-            <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">پیتزا پپرونی</p>
-            <i class="fa fa-eye " aria-hidden="true"></i>
+               </div>
             </div>
+         </div>
+         <div class="card flex flex-col" data-price="200000">
+            <div class="card__image">
+               <img src="https://images.pexels.com/photos/840216/pexels-photo-840216.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Fish" />
+            </div>
+            <div class="card__info">
+               <div class="car__info--title">
+                  <h3>ماهی</h3>
+                  <p>تازه و نرم</p>
+               </div>
+               <div class="card__info--price">
+                  <p>200000 تومان</p>
 
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p class="">
-                200
-            </p>
-            تومان
-        </div>
-    </div>
-    <div data-price="200000"  class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%]  h-[100px]"
-            src="https://www.pngarts.com/files/1/Ice-Cream-Desserts-Transparent-Background-PNG.png"
-            alt="">
-           
-            <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">کیک ویژه یونیکد</p>
-            <i class="fa fa-eye " aria-hidden="true"></i>
+               </div>
             </div>
-
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p class="">
-                200
-            </p>
-            تومان
-        </div>
-    </div>
-    <div data-price="140000"  class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%]  h-[100px]"
-            src="https://static.vecteezy.com/system/resources/previews/047/826/211/non_2x/raspberry-pudding-alone-against-transparent-background-free-png.png"
-            alt="">
-           
-            <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">دسر مخصوص</p>
-            <i class="fa fa-eye " aria-hidden="true"></i>
+         </div>
+         <div class="card flex flex-col" data-price="300000">
+            <div class="card__image">
+               <img src="https://images.pexels.com/photos/4001871/pexels-photo-4001871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Pizza" />
             </div>
-
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p class="">
-                140
-            </p>
-            تومان
-        </div>
-    </div>
-    <div data-price="200000"  class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%]  h-[100px]"
-            src="https://pngimg.com/d/burger_sandwich_PNG96787.png"
-            alt="">
-           
-            <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">برگر</p>
-            <i class="fa fa-eye " aria-hidden="true"></i>
+            <div class="card__info">
+               <div class="car__info--title">
+                  <h3>پیتزا</h3>
+                  <p>داغ و تازه</p>
+               </div>
+               <div class="card__info--price">
+                  <p>300000 تومان</p>
+               </div>
             </div>
-
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p class="">
-                200
-            </p>
-          تومان
-        </div>
-    </div>
-    <div data-price="400000"  class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%]  h-[100px]"
-            src="https://static.vecteezy.com/system/resources/thumbnails/036/303/390/small_2x/ai-generated-steaming-coffee-cup-hot-beverage-illustration-transparent-background-coffee-mug-clipart-hot-drink-graphic-brewed-coffee-icon-cafe-latte-png.png"
-            alt="">
-           
-            <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">قهوه امریکانو</p>
-            <i class="fa fa-eye " aria-hidden="true"></i>
+         </div>
+         <div class="card flex flex-col" data-price="400000">
+            <div class="card__image">
+               <img src="https://images.pexels.com/photos/792028/pexels-photo-792028.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sushi" />
             </div>
-
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p class="">
-                400
-            </p>
-            تومان
-        </div>
-    </div>
-    <div   data-price="500000"  class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%]  h-[100px]"
-            src="https://purepng.com/public/uploads/large/drinks-5cm.png"
-            alt="">
-           
-            <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">آب پرتغال طبیعی</p>
-            <i class="fa fa-eye " aria-hidden="true"></i>
+            <div class="card__info">
+               <div class="car__info--title">
+                  <h3>سوشی</h3>
+                  <p>تازه و نرم</p>
+               </div>
+               <div class="card__info--price">
+                  <p>400000 تومان</p>
+               </div>
             </div>
-            <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p class="">
-                500
-            </p>
-            تومان
-        </div>
-</div>
+         </div>
+         <div class="card flex flex-col" data-price="600000">
+            <div class="card__image">
+               <img src="https://images.pexels.com/photos/907142/pexels-photo-907142.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Dessert" />
+            </div>
+            <div class="card__info">
+               <div class="car__info--title">
+                  <h3>دسر</h3>
+                  <p>تازه و شیرین</p>
+               </div>
+               <div class="card__info--price">
+                  <p>600000 تومان</p>
+               </div>
+            </div>
+         </div>
+      </div>
 </div>
 
 <?php get_template_part('pages/infofoodmodal', name: 'single'); ?>

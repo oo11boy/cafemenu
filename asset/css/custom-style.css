@@ -25,7 +25,7 @@ html {
 
 @media only screen and (min-width: 460px) {
   .viewfood > div {
-    width: 30%;
+    width: 48%;
   }
   .poster span {
  line-height: 100%;
@@ -94,6 +94,73 @@ html {
 .custom-scroll::-webkit-scrollbar-track {
   background: #f1f1f1; /* رنگ پس‌زمینه اسکرول */
   border-radius: 10px; /* گرد شدن گوشه‌ها */
+}
+
+/* کارت های صفحه اصلی */
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0 50px 0;
+}
+
+.art-board__container {
+  margin: 18px 0 18px 0;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  width: 48%;
+  overflow: hidden;
+  border-radius: 25px;
+  border: 1px solid lavender;
+}
+
+@media (max-width: 420px) {
+  .card {
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+}
+
+.card__image {
+  position: relative;
+  height: 100px;
+}
+.card__image > img {
+  max-width: 100%;
+  border-bottom-left-radius: 30px;
+  transform: rotate(-10deg) translate(15px, -55px);
+  width: 100%;
+  position: absolute;
+  height: 155px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__info {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 10px 30px 20px 30px;
+}
+.card__info h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+.card__info p {
+  font-size: 14px;
+  font-weight: 600;
+}
+.card__info--price {
+  text-align: right;
+  color: orangered;
 }
 
 /* ********************************************** */
