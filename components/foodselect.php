@@ -67,7 +67,7 @@
 </div>
 
 <div class="viewfood yekan flex flex-wrap gap-y-4 my-4 justify-between items-center">
-<div data-price="200000" class="bg-[#e3e3e3] relative flex flex-col w-[48%] justify-center items-center p-2 rounded-xl">
+<div onclick="toggleModal()" data-price="200000" class="bg-[#e3e3e3] relative flex flex-col w-[48%] justify-center items-center p-2 rounded-xl">
         <img class="w-[80%] h-[100px]" src="https://pngimg.com/d/burger_sandwich_PNG96787.png" alt="Burger">
         <div class="flex text-[#3B1D9B] justify-between w-full items-center">
             <p class="text-right peyda text-md w-full">برگر یونیکد</p>
