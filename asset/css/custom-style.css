@@ -45,6 +45,7 @@ html {
 @media only screen and (max-width: 650px) {
   .poster span {
     font-size: 35px !important;
+    margin-top: 40px;
   }
   .poster p {
     font-size: 24px !important;
@@ -56,6 +57,7 @@ html {
 @media only screen and (max-width: 450px) {
   .poster span {
     font-size: 25px !important;
+    margin-top: 0px;
   }
   .poster p {
     font-size: unset !important;
