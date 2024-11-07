@@ -61,6 +61,9 @@ var openModalBtn = document.getElementById('open-modal');
 var closeModalBtn = document.getElementById('close-modal');
 var waiterModal = document.getElementById('waiter-modal');
 
+var submitRequestBtn = document.getElementById('submit-request');
+
+var tableNumberInput = document.getElementById('table-number');
 // نمایش مودال با انیمیشن
 openModalBtn.addEventListener('click', function() {
     waiterModal.classList.remove('hidden');
@@ -86,7 +89,6 @@ closeModalBtn.addEventListener('click', function() {
 
 
 
-// ارسال درخواست گارسون
 // ارسال درخواست گارسون
 submitRequestBtn.addEventListener('click', function() {
   var tableNumber = tableNumberInput.value;
