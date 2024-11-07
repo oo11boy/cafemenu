@@ -1,26 +1,18 @@
-
-    // تابع برای باز کردن مودال
-    function openModal(title, description) {
-        document.getElementById('foodTitle').innerText = title;
-       
-        document.getElementById('foodModal').classList.remove('hidden');
+function toggleModal() {
+    const modal = document.getElementById('modal');
+  
+    if (modal.classList.contains('show')) {
+      modal.classList.remove('show');
+      modal.classList.add('hide');
+  
+      // مخفی کردن مودال بعد از اتمام انیمیشن
+      setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('hide');
+      }, 1000); // باید با زمان انیمیشن uptodown یکی باشد
+    } else {
+      modal.style.display = 'block';
+      modal.classList.add('show');
     }
-
-    // تابع برای بستن مودال
-    function closeModal() {
-        document.getElementById('foodModal').classList.add('hidden');
-    }
-
-    // افزودن رویداد به دکمه بستن
-    document.getElementById('closeModal').addEventListener('click', closeModal);
-
-    // افزودن رویداد کلیک به غذاها
-    const foodItems = document.querySelectorAll('.viewfood .food-item'); // انتخاب همه غذاها
-    foodItems.forEach(item => {
-        item.addEventListener('click', function () {
-            const title = this.querySelector('p').innerText; // عنوان غذا
-            const description = this.querySelector('.food-description').value; // توضیحات غذا
-            openModal(title, description);
-        });
-    });
-
+  }
+  

@@ -57,24 +57,18 @@
 </div>
 
 
-<div class="viewfood yekan flex flex-wrap gap-y-4  my-4 justify-between items-center">
-    <div class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
-        <img class="w-[80%]  h-[100px]"
-            src="https://pngimg.com/d/burger_sandwich_PNG96787.png"
-            alt="">
-           
-            <div class="flex text-[#3B1D9B] justify-between w-full items-center">
-            <p class="text-right peyda text-md w-full">برگر</p>
-            <i class="fa fa-eye " aria-hidden="true"></i>
-            </div>
-
-        <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
-            <p class="">
-                200
-            </p>
-          تومان
-        </div>
+<div class="viewfood yekan flex flex-wrap gap-y-4 my-4 justify-between items-center">
+<div onclick="toggleModal()" class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
+    <img class="w-[80%]  h-[100px]" src="https://pngimg.com/d/burger_sandwich_PNG96787.png" alt="Burger">
+    <div class="flex text-[#3B1D9B] justify-between w-full items-center">
+        <p class="text-right peyda text-md w-full">برگر یونیکد</p>
+        <i class="fa fa-eye" aria-hidden="true"></i>
     </div>
+    <div class="flex font-semibold absolute top-2 left-2 justify-end text-[#c39c36] w-full">
+        <p>200 تومان</p>
+    </div>
+</div>
+
     <div class="bg-[#e3e3e3] relative  flex flex-col w-[48%]  flex justify-center items-center p-2 rounded-xl">
         <img class="w-[80%]  h-[100px]"
             src="https://static.vecteezy.com/system/resources/thumbnails/036/303/390/small_2x/ai-generated-steaming-coffee-cup-hot-beverage-illustration-transparent-background-coffee-mug-clipart-hot-drink-graphic-brewed-coffee-icon-cafe-latte-png.png"
@@ -204,3 +198,6 @@
             <i class="fa fa-eye " aria-hidden="true"></i>
             </div>
 </div>
+</div>
+
+<?php get_template_part('pages/infofoodmodal', name: 'single'); ?>

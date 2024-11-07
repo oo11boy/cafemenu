@@ -5,8 +5,14 @@ Template Name: foodmodal
 get_header()
     ?>
 
+
+
+
+<div class="fixed z-[999] overflow-y-auto top-0 w-full left-0 hidden" id="modal">
 <div class="container-content yekan food-modal relative">
-    <div>
+<button type="button" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2" onclick="toggleModal()"><i class="fas fa-times"></i> </button>
+
+<div>
       <div class="text-center flex justify-center food-container">
         <img class="w-44 mt-12" src="<?php echo get_theme_image_url('burger1.png'); ?>" alt="Burger">
       </div>
@@ -56,3 +62,6 @@ get_header()
       </div>
     </div>
 </div>
+</div>
+
+
