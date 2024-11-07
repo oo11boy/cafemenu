@@ -28,6 +28,27 @@ html {
   }
 }
 
+
+.pricerange{
+  width: 100%;
+  
+}
+/* تغییر ظاهر اسکرول افقی */
+.custom-scroll::-webkit-scrollbar {
+  height: 3px; /* ارتفاع اسکرول افقی */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #4CAF50; /* رنگ اسکرول */
+  border-radius: 10px; /* گرد شدن گوشه‌ها */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1; /* رنگ پس‌زمینه اسکرول */
+  border-radius: 10px; /* گرد شدن گوشه‌ها */
+}
+
+
 /* ********************************************** */
 
 /* landingpage css start */

@@ -16,3 +16,43 @@ function toggleModal() {
     }
   }
   
+
+
+  function updateValue(val) {
+    document.getElementById('rangeValue').textContent = val;
+
+    // فیلتر آیتم‌ها بر اساس قیمت
+    const items = document.querySelectorAll('.viewfood > div');
+    let visibleItems = 0; // شمارش تعداد آیتم‌های قابل مشاهده
+
+    items.forEach(item => {
+        const price = parseInt(item.getAttribute('data-price'));
+        if (price <= val) {
+            item.style.display = 'flex'; // نمایش آیتم
+            visibleItems++;
+        } else {
+            item.style.display = 'none'; // مخفی کردن آیتم
+        }
+    });
+
+    // نمایش پیام "محصولی وجود ندارد" اگر هیچ آیتمی قابل مشاهده نباشد
+    const noItemsMessage = document.getElementById('noItemsMessage');
+    if (visibleItems === 0) {
+        if (!noItemsMessage) {
+            const messageElement = document.createElement('div');
+            messageElement.id = 'noItemsMessage';
+            messageElement.textContent = 'محصولی وجود ندارد';
+            messageElement.style.color = 'red'; // رنگ پیام
+            messageElement.style.textAlign = 'center';
+            messageElement.style.width = '100%';
+            messageElement.style.marginTop = '100px';
+            document.querySelector('.viewfood').appendChild(messageElement);
+        }
+    } else {
+        if (noItemsMessage) {
+            noItemsMessage.remove();
+        }
+    }
+}
+
+
