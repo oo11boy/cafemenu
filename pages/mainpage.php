@@ -20,8 +20,14 @@ get_header();
 
 <div class="relative">
     <img class="rounded-xl" src="<?php echo get_theme_image_url('foodbg.jpg'); ?>" alt="" srcset="">
-    <span class="absolute top-20 z-50 right-5 text-white sm:text-3xl text-lg">خوش‌مزه‌ترین لحظات <br> در کنار ما</span>
-</div>
+   <div class="absolute poster flex flex-col h-[100%] justify-between py-8 top-0  z-50 right-5">
+    
+   <span class=" text-white sm:text-3xl reyhaneh">خوش‌مزه‌ترین لحظات <br> در کنار ما</span>
+<p class=" z-50 right-5 text-center text-white sm:text-xl border rounded-xl vazir sm:text-lg">درخواست گارسون</p>
+
+
+   </div>
+   </div>
 
 
 
