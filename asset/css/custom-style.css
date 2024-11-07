@@ -1,6 +1,6 @@
-html{
-    margin: 0!important;
-    background-color: rgba(0, 0, 0, 0.199);
+html {
+  margin: 0 !important;
+  background-color: rgba(0, 0, 0, 0.199);
 }
 * {
   margin: 0;
@@ -15,36 +15,37 @@ html{
 }
 .content {
   height: 100%;
-  background-color: red;
-  overflow-y:auto ;
+  background-color: white;
+  overflow-y: auto;
+  padding: 0 15px;
 }
-
 
 /* mainpage css start */
 
-
-/* ********************************************** */
-
-
-
-/* landingpage css start */
-
-.landingcontainer{
-    max-width: 650px;
-    margin: auto;
-    height: 100vh;
-    overflow-y: auto;
-    background-color: rgba(0, 0, 255, 0.525);
+@media only screen and (min-width: 460px) {
+  .viewfood > div {
+    width: 30%;
+  }
 }
 
 /* ********************************************** */
 
+/* landingpage css start */
 
+.landingcontainer {
+  max-width: 650px;
+  margin: auto;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 255, 0.525);
+}
+
+/* ********************************************** */
 
 /* information food modal css start */
 
 .food-modal {
-  background-color: #3B1D9B;
+  background-color: #3b1d9b;
 }
 
 .food-container {
@@ -53,16 +54,49 @@ html{
 }
 
 .food-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px; 
-  height: 250px; 
-  background: rgba(255, 255, 255, 0.1); 
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
   z-index: -1;
-  border-radius: 8px; 
+  border-radius: 8px;
 }
+#modal {
+  display: none;
+}
+
+#modal.show {
+  display: block;
+  animation: downtoup 0.5s forwards;
+}
+
+#modal.hide {
+  animation: uptodown 1s forwards;
+}
+
+@keyframes downtoup {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes uptodown {
+  0% {
+ 
+    transform: translateY(0);
+  }
+  100% {
+
+    transform: translateY(100%);
+  }
+}
+
 /* ********************************************** */
