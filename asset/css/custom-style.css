@@ -26,12 +26,59 @@ html {
   .viewfood > div {
     width: 30%;
   }
+  .poster span {
+ line-height: 100%;
+  }
+}
+@media only screen and (min-width: 650px) {
+  .poster span {
+    font-size: 45px !important;
+    margin-top: 40px;
+  }
+  .poster p {
+    font-size: 20px !important;
+    padding: 12px !important;
+    margin-top: 10px !important;
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .poster span {
+    font-size: 35px !important;
+    margin-top: 40px;
+  }
+  .poster p {
+    font-size: 24px !important;
+    padding: 6px !important;
+    margin-top: 10px !important;
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .poster span {
+    font-size: 25px !important;
+    margin-top: 0px;
+  }
+  .poster p {
+    font-size: unset !important;
+    padding: 4px !important;
+    margin-top: 10px !important;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .poster span {
+    font-size: 20px !important;
+  
+  }
+  .poster p {
+    font-size: unset !important;
+    padding: 4px !important;
+    margin-top: 10px !important;
+  }
 }
 
-
-.pricerange{
+.pricerange {
   width: 100%;
-  
 }
 /* تغییر ظاهر اسکرول افقی */
 .custom-scroll::-webkit-scrollbar {
@@ -39,7 +86,7 @@ html {
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-  background-color: #4CAF50; /* رنگ اسکرول */
+  background-color: #4caf50; /* رنگ اسکرول */
   border-radius: 10px; /* گرد شدن گوشه‌ها */
 }
 
@@ -47,7 +94,6 @@ html {
   background: #f1f1f1; /* رنگ پس‌زمینه اسکرول */
   border-radius: 10px; /* گرد شدن گوشه‌ها */
 }
-
 
 /* ********************************************** */
 
@@ -111,11 +157,9 @@ html {
 
 @keyframes uptodown {
   0% {
- 
     transform: translateY(0);
   }
   100% {
-
     transform: translateY(100%);
   }
 }
