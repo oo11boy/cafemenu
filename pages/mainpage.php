@@ -23,12 +23,14 @@ get_header();
    <div class="absolute poster flex flex-col h-[100%] justify-between py-8 top-0  z-50 right-5">
     
    <span class=" text-white sm:text-3xl reyhaneh">خوش‌مزه‌ترین لحظات <br> در کنار ما</span>
-<p class=" z-50 right-5 text-center text-white sm:text-xl border rounded-xl vazir sm:text-lg">درخواست گارسون</p>
+<p id="open-modal" class="cursor-pointer z-50 right-5 text-center text-white sm:text-xl border rounded-xl vazir sm:text-lg">درخواست گارسون</p>
 
 
    </div>
    </div>
 
+
+   <?php get_template_part('components/waitermodal', name: 'single'); ?>
 
 
 

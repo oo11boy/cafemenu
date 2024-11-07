@@ -1,3 +1,13 @@
+
+<div class="flex iransans gap-y-4 rounded-lg bg-[#4CAF50] z-10 shadow-lg  z-20 mt-5 items-center p-3 flex-row justify-between w-full">
+ 
+    <input class="pricerange" style="accent-color: #1a543b" type="range" id="rangeInput" min="100000" step="100000" max="1000000" value="300000" oninput="updateValue(this.value)" />
+    <div class="w-1/2 text-sm sm:text-sm text-left  text-white">
+ زیر <span id="rangeValue" class="text-[10px] sm:text-sm">300000</span> تومان
+  </div>
+
+  
+</div>
 <div class="w-full custom-scroll vazir p-4 shadow-lg overflow-x-auto sticky top-0 bg-white z-10">
     <div class="flex gap-4">
         <!-- آیتم برگر -->
@@ -58,32 +68,25 @@
 </div>
 
 
-<div class="flex iransans gap-y-4 rounded-lg bg-[#4CAF50] z-10 shadow-lg  z-20 mt-5 items-center p-3 flex-row justify-between w-full">
- 
-    <input class="pricerange" style="accent-color: #1a543b" type="range" id="rangeInput" min="100000" step="100000" max="1000000" value="300000" oninput="updateValue(this.value)" />
-    <div class="w-1/2 text-sm sm:text-sm text-left  text-white">
- زیر <span id="rangeValue" class="text-[10px] sm:text-sm">300000</span> تومان
-  </div>
-</div>
 
 <div class="card-container">
       <div class="art-board__container gap-y-4 viewfood yekan">
-         <div onclick="toggleModal()" class="card flex flex-col" data-price="100000">
+         <div onclick="toggleModal()" class="card flex shadow flex-col" data-price="120000">
             <div class="card__image">
                <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Salad" />
             </div>
             <div class="card__info">
                <div class="car__info--title">
-                  <h3>سالاد</h3>
+                  <h3>سالاد سزار </h3>
                   <p>تازه و خنک</p>
                </div>
                <div class="card__info--price">
-                  <p>100000تومان</p>
+                  <p>120000تومان</p>
 
                </div>
             </div>
          </div>
-         <div class="card flex flex-col" data-price="200000">
+         <div class="card flex shadow flex-col" data-price="200000">
             <div class="card__image">
                <img src="https://images.pexels.com/photos/840216/pexels-photo-840216.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Fish" />
             </div>
@@ -98,7 +101,7 @@
                </div>
             </div>
          </div>
-         <div class="card flex flex-col" data-price="300000">
+         <div class="card flex shadow flex-col" data-price="300000">
             <div class="card__image">
                <img src="https://images.pexels.com/photos/4001871/pexels-photo-4001871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Pizza" />
             </div>
@@ -112,7 +115,7 @@
                </div>
             </div>
          </div>
-         <div class="card flex flex-col" data-price="400000">
+         <div class="card flex shadow flex-col" data-price="400000">
             <div class="card__image">
                <img src="https://images.pexels.com/photos/792028/pexels-photo-792028.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sushi" />
             </div>
@@ -126,7 +129,7 @@
                </div>
             </div>
          </div>
-         <div class="card flex flex-col" data-price="600000">
+         <div class="card flex shadow flex-col" data-price="600000">
             <div class="card__image">
                <img src="https://images.pexels.com/photos/907142/pexels-photo-907142.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Dessert" />
             </div>
