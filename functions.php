@@ -17,14 +17,22 @@ function my_theme_setup() {
 add_action('after_setup_theme', 'my_theme_setup');
 
 // بارگذاری استایل‌ها و اسکریپت‌ها
+
+// بارگذاری استایل‌ها و اسکریپت‌ها
 function my_theme_scripts() {
     // بارگذاری استایل اصلی
     wp_enqueue_style('main-stylesheet', get_template_directory_uri() . '/asset/css/custom-style.css');
   
     // بارگذاری یک اسکریپت سفارشی
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/asset/javascript/custom-js.js', array('jquery'), null, true);
+
+    // اضافه کردن ajaxurl برای استفاده در جاوا اسکریپت
+    wp_localize_script('custom-js', 'ajax_object', array(
+        'ajax_url' => admin_url('admin-ajax.php')
+    ));
 }
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
+
 
 // تابع برای لود کردن تصاویر از پوشه asset
 function get_theme_image_url($image_name) {
@@ -179,6 +187,52 @@ function save_food_category_image($term_id, $tt_id) {
 }
 add_action('created_food_category', 'save_food_category_image', 10, 2);
 add_action('edited_food_category', 'save_food_category_image', 10, 2);
+
+
+
+
+// ثبت درخواست گارسون از طریق Ajax
+function submit_waiter_request() {
+    if (isset($_POST['table_number'])) {
+        $table_number = sanitize_text_field($_POST['table_number']);
+
+        // ایجاد یک پست سفارشی برای ذخیره درخواست‌ها
+        $post_id = wp_insert_post(array(
+            'post_title'    => 'درخواست گارسون میز ' . $table_number,
+            'post_type'     => 'waiter_request',
+            'post_status'   => 'publish',
+        ));
+
+        if ($post_id) {
+            wp_send_json_success('درخواست با موفقیت ثبت شد');
+        } else {
+            wp_send_json_error('خطا در ثبت درخواست');
+        }
+    } else {
+        wp_send_json_error('شماره میز نامعتبر است');
+    }
+
+    wp_die(); // پایان پردازش درخواست Ajax
+}
+add_action('wp_ajax_submit_waiter_request', 'submit_waiter_request');
+add_action('wp_ajax_nopriv_submit_waiter_request', 'submit_waiter_request');
+
+// ثبت نوع پست سفارشی برای درخواست گارسون
+function register_waiter_request_post_type() {
+    register_post_type('waiter_request',
+        array(
+            'labels' => array(
+                'name' => __('درخواست‌های گارسون'),
+                'singular_name' => __('درخواست گارسون')
+            ),
+            'public' => true,
+            'has_archive' => false,
+            'show_in_menu' => true,
+            'supports' => array('title'),
+        )
+    );
+}
+add_action('init', 'register_waiter_request_post_type');
 
 // پایان فایل functions.php
 ?>
