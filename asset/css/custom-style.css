@@ -98,6 +98,18 @@ html {
 
 /* کارت های صفحه اصلی */
 
+
+.card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 .card-container {
   display: flex;
   justify-content: center;
