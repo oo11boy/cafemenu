@@ -55,6 +55,34 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    document.querySelectorAll('.category-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            // حذف کلاس active از تمام دکمه‌ها
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // اضافه کردن کلاس active به دکمه کلیک شده
+            button.classList.add('active');
+            
+            // انجام دیگر تغییرات لازم (مثل فیلتر کردن آیتم‌ها بر اساس دسته‌بندی)
+            const categoryId = button.getAttribute('data-category-id');
+            filterItems(categoryId);
+        });
+    });
+    
+    function filterItems(categoryId) {
+        // مثال برای فیلتر کردن آیتم‌ها بر اساس دسته‌بندی
+        document.querySelectorAll('.card').forEach(card => {
+            const cardCategories = card.getAttribute('data-categories').split(' ');
+            if (categoryId === 'all' || cardCategories.includes(categoryId)) {
+                card.style.display = 'block'; // نمایش دادن آیتم
+            } else {
+                card.style.display = 'none'; // مخفی کردن آیتم
+            }
+        });
+    }
+    
     // مدیریت مودال غذا
     function toggleModal() {
         const modal = document.getElementById('modal');

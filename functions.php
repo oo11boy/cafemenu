@@ -236,6 +236,101 @@ add_action('init', 'register_waiter_request_post_type');
 
 
 
+// تعریف لیست آیکون‌ها
+function get_food_category_icons() {
+    return array(
+        'icon3' => '/foodicons/Chinese.png',
+        'icon4' => '/foodicons/hamburger.png',
+        'icon5' => '/foodicons/pizza.png',
+        'icon6' => '/foodicons/cocktail.png',
+        'icon7' => '/foodicons/cocktail2.png',
+        'icon8' => '/foodicons/coffee-cup.png',
+        'icon9' => '/foodicons/soft-drink.png',
+        'icon10' => '/foodicons/pizza2.png',
+        'icon11' => '/foodicons/petato.png',
+        'icon12' => '/foodicons/pastfood.png',
+        'icon13' => '/foodicons/kebab.png',
+        'icon14' => '/foodicons/petato.png',
+        'icon15' => '/foodicons/drink2.png',
+        'icon16' => '/foodicons/drink3.png',
+        'icon17' => '/foodicons/cream.png',
+        'icon18' => '/foodicons/chiken.png',
+        'icon19' => '/foodicons/bereng.png',
+    );
+}
+
+// افزودن فیلد آیکون دسته‌بندی به فرم ایجاد دسته‌بندی
+function add_food_category_icon_field($taxonomy) {
+    $icons = get_food_category_icons(); // دریافت لیست آیکون‌ها
+    ?>
+    <div class="form-field term-group">
+        <label for="category-icon"><?php _e('آیکون دسته‌بندی', 'mytheme'); ?></label>
+        <div id="category-icons">
+            <?php foreach ($icons as $value => $label) : ?>
+                <label class="category-icon-option" style="display: inline-block; margin-right: 10px;">
+                    <input type="radio" name="category-icon" value="<?php echo esc_attr($value); ?>" />
+                    <img src="<?php echo get_theme_image_url($label)?>" alt="<?php echo esc_attr($label); ?>" style="width: 30px; height: 30px;" />
+                </label>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php
+}
+add_action('food_category_add_form_fields', 'add_food_category_icon_field', 10, 2);
+
+// ویرایش فیلد آیکون دسته‌بندی هنگام ویرایش
+function edit_food_category_icon_field($term, $taxonomy) {
+    $icon_value = get_term_meta($term->term_id, 'category_icon', true);
+    $icons = get_food_category_icons(); // دریافت لیست آیکون‌ها
+    ?>
+    <tr class="form-field term-group-wrap">
+        <th scope="row"><label for="category-icon"><?php _e('آیکون دسته‌بندی', 'mytheme'); ?></label></th>
+        <td>
+            <div id="category-icons">
+                <?php foreach ($icons as $value => $label) : ?>
+                    <label class="category-icon-option" style="display: inline-block; margin-right: 10px;">
+                        <input type="radio" name="category-icon" value="<?php echo esc_attr($value); ?>" <?php checked($icon_value, $value); ?> />
+                        <img src="<?php echo get_theme_image_url($label)?>" alt="<?php echo esc_attr($label); ?>" style="width: 30px; height: 30px;" />
+                    </label>
+                <?php endforeach; ?>
+            </div>
+        </td>
+    </tr>
+    <?php
+}
+add_action('food_category_edit_form_fields', 'edit_food_category_icon_field', 10, 2);
+
+
+
+
+
+// ذخیره تصویر دسته‌بندی و حذف آیکون در صورت استفاده از تصویر
+function save_food_category_image_and_icon($term_id, $tt_id) {
+    if (isset($_POST['category-image-id']) && $_POST['category-image-id'] !== '') {
+        // ذخیره تصویر دسته‌بندی
+        add_term_meta($term_id, 'category_image', $_POST['category-image-id'], true);
+        
+        // اگر تصویری انتخاب شده است، آیکون را حذف کنید
+        delete_term_meta($term_id, 'category_icon');
+    } else {
+        // حذف تصویر دسته‌بندی اگر هیچ تصویری انتخاب نشد
+        delete_term_meta($term_id, 'category_image');
+    }
+
+    // ذخیره آیکون دسته‌بندی و حذف تصویر در صورت استفاده از آیکون
+    if (isset($_POST['category-icon']) && $_POST['category-icon'] !== '') {
+        // ذخیره آیکون دسته‌بندی
+        update_term_meta($term_id, 'category_icon', sanitize_text_field($_POST['category-icon']));
+        
+        // اگر آیکونی انتخاب شده است، تصویر را حذف کنید
+        delete_term_meta($term_id, 'category_image');
+    } else {
+        // حذف آیکون دسته‌بندی اگر هیچ آیکونی انتخاب نشد
+        delete_term_meta($term_id, 'category_icon');
+    }
+}
+add_action('created_food_category', 'save_food_category_image_and_icon', 10, 2);
+add_action('edited_food_category', 'save_food_category_image_and_icon', 10, 2);
 
 // پایان فایل functions.php
 ?>

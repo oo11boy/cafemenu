@@ -200,9 +200,16 @@ html {
 }
 
 .active-category {
-  border: 2px solid #033400;
+  background-color: #A7D397;
+  border: 1px dashed #183D3D;
+  padding: 4px;
   border-radius: 8px;
 }
+
+.category-btn {
+  transition: all 0.2s ease-in-out; /* تغییرات نرم برای رنگ، اندازه و موقعیت */
+}
+
 
 /* ********************************************** */
 
