@@ -1,22 +1,47 @@
-function toggleModal() {
-    const modal = document.getElementById('modal');
+
   
+  function toggleModal() {
+    const modal = document.getElementById('modal');
     if (modal.classList.contains('show')) {
       modal.classList.remove('show');
       modal.classList.add('hide');
-  
-      // مخفی کردن مودال بعد از اتمام انیمیشن
       setTimeout(() => {
         modal.style.display = 'none';
         modal.classList.remove('hide');
-      }, 1000); // باید با زمان انیمیشن uptodown یکی باشد
+      }, 1000); // زمان انیمیشن
     } else {
       modal.style.display = 'block';
       modal.classList.add('show');
     }
   }
   
+  function openModal(foodData) {
+    const modal = document.getElementById('modal');
+    
+    // پر کردن اطلاعات داینامیک در مودال
+    modal.querySelector('.food-container img').src = foodData.image;
+    modal.querySelector('.food-container img').alt = foodData.title;
+    modal.querySelector('.food-modal .food-price').textContent = foodData.price + ' تومان';
+    modal.querySelector('.food-modal .food-title').textContent = foodData.title;
+    modal.querySelector('.food-modal .food-description').textContent = foodData.description;
+  
+    // نمایش مودال
+    toggleModal();
+  }
+  
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => {
+      const foodData = {
+        title: card.querySelector('.card__info h3').textContent,
+        description: card.querySelector('.card__info p').textContent,
+        image: card.querySelector('.card__image img').src,
+        price: card.dataset.price
+      };
+      openModal(foodData);
+    });
+  });
 
+  
 
   function updateValue(val) {
     document.getElementById('rangeValue').textContent = val;
@@ -125,4 +150,27 @@ submitRequestBtn.addEventListener('click', function() {
   // ارسال داده‌ها به وردپرس
   xhr.send('action=submit_waiter_request&table_number=' + encodeURIComponent(tableNumber));
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const foodItems = document.querySelectorAll('.card');
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const categoryId = this.getAttribute('data-category-id');
+            
+            foodItems.forEach(item => {
+                const itemCategories = item.getAttribute('data-categories').split(' ');
+
+                if (itemCategories.includes(categoryId)) {
+                    item.style.display = 'block'; // نمایش غذا
+                } else {
+                    item.style.display = 'none'; // مخفی کردن غذا
+                }
+            });
+        });
+    });
+});
+
+
 

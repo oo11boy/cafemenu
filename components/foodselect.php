@@ -10,140 +10,77 @@
 </div>
 <div class="w-full custom-scroll vazir p-4 shadow-lg overflow-x-auto sticky top-0 bg-white z-10">
     <div class="flex gap-4">
-        <!-- آیتم برگر -->
-        <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-                <img class="w-[100%] h-[60px]" src="https://pngimg.com/d/burger_sandwich_PNG96787.png" alt="">
-            </div>
-            <p class="text-black">برگر</p>
-        </div>
+        <?php
+        // دریافت دسته‌بندی‌های غذا
+        $categories = get_terms(array(
+            'taxonomy' => 'food_category',
+            'hide_empty' => false,
+        ));
 
-        <!-- آیتم نوشیدنی گرم -->
-        <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-                <img class="w-[100%] h-[60px]"
-                    src="https://static.vecteezy.com/system/resources/thumbnails/036/303/390/small_2x/ai-generated-steaming-coffee-cup-hot-beverage-illustration-transparent-background-coffee-mug-clipart-hot-drink-graphic-brewed-coffee-icon-cafe-latte-png.png"
-                    alt="">
+        if (!empty($categories) && !is_wp_error($categories)) :
+            foreach ($categories as $category) :
+                $image_id = get_term_meta($category->term_id, 'category_image', true);
+                $image_url = ($image_id) ? wp_get_attachment_url($image_id) : get_theme_image_url('default-image.jpg');
+        ?>
+        <button class="category-btn" data-category-id="<?php echo esc_attr($category->term_id); ?>">
+            <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+                <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
+                    <img class="w-[100%] h-[60px]" src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>">
+                </div>
+                <p class="text-black"><?php echo esc_html($category->name); ?></p>
             </div>
-            <p class="text-black">نوشیدنی گرم</p>
-        </div>
-
-        <!-- آیتم نوشیدنی سرد -->
-        <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-                <img class="w-[100%] h-[60px]" src="https://purepng.com/public/uploads/large/drinks-5cm.png" alt="">
-            </div>
-            <p class="text-black">نوشیدنی سرد</p>
-        </div>
-
-        <!-- آیتم پیتزا -->
-        <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-                <img class="w-[100%] h-[60px]"
-                    src="https://www.transparentpng.com/thumb/pizza/hLgXMl-pizza-images-download.png" alt="">
-            </div>
-            <p class="text-black">پیتزا</p>
-        </div>
-
-        <!-- آیتم دسر -->
-        <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-                <img class="w-[100%] h-[60px]"
-                    src="https://static.vecteezy.com/system/resources/previews/047/826/211/non_2x/raspberry-pudding-alone-against-transparent-background-free-png.png"
-                    alt="">
-            </div>
-            <p class="text-black">دسر</p>
-        </div>
-
-        <!-- آیتم کیک -->
-        <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-                <img class="w-[100%] h-[60px]"
-                    src="https://www.pngarts.com/files/1/Ice-Cream-Desserts-Transparent-Background-PNG.png" alt="">
-            </div>
-            <p class="text-black">کیک</p>
-        </div>
+        </button>
+        <?php endforeach; else: ?>
+            <p>هیچ دسته‌بندی یافت نشد.</p>
+        <?php endif; ?>
     </div>
-    
 </div>
 
 
 
 <div class="card-container">
-      <div class="art-board__container gap-y-4 viewfood yekan">
-         <div onclick="toggleModal()" class="card flex shadow flex-col" data-price="120000">
-            <div class="card__image">
-               <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Salad" />
-            </div>
-            <div class="card__info">
-               <div class="car__info--title">
-                  <h3>سالاد سزار </h3>
-                  <p>تازه و خنک</p>
-               </div>
-               <div class="card__info--price">
-                  <p>120000تومان</p>
+    <div  class="art-board__container gap-y-4 viewfood yekan">
+        <?php
+        // کوئری برای دریافت پست‌های نوع food_item
+        $food_items_query = new WP_Query(array(
+            'post_type' => 'food_item',
+            'posts_per_page' => -1
+        ));
 
-               </div>
-            </div>
-         </div>
-         <div class="card flex shadow flex-col" data-price="200000">
+        if ($food_items_query->have_posts()) :
+            while ($food_items_query->have_posts()) : $food_items_query->the_post();
+                $food_title = get_the_title();
+                $food_description = get_the_content();
+                $food_image = get_the_post_thumbnail_url();
+                $food_price = get_post_meta(get_the_ID(), 'food_price', true);
+                // گرفتن دسته‌بندی‌های غذا
+                $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
+                $category_ids = wp_list_pluck($food_categories, 'term_id');
+        ?>
+        <div class="card flex shadow flex-col" data-price="<?php echo esc_html($food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
             <div class="card__image">
-               <img src="https://images.pexels.com/photos/840216/pexels-photo-840216.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Fish" />
+                <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
             </div>
             <div class="card__info">
-               <div class="car__info--title">
-                  <h3>ماهی</h3>
-                  <p>تازه و نرم</p>
-               </div>
-               <div class="card__info--price">
-                  <p>200000 تومان</p>
-
-               </div>
+                <div class="car__info--title">
+                    <h3><?php echo esc_html($food_title); ?></h3>
+                    <p><?php echo esc_html($food_description); ?></p>
+                </div>
+                <div class="card__info--price">
+                    <p><?php echo esc_html($food_price); ?> تومان</p>
+                </div>
             </div>
-         </div>
-         <div class="card flex shadow flex-col" data-price="300000">
-            <div class="card__image">
-               <img src="https://images.pexels.com/photos/4001871/pexels-photo-4001871.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Pizza" />
-            </div>
-            <div class="card__info">
-               <div class="car__info--title">
-                  <h3>پیتزا</h3>
-                  <p>داغ و تازه</p>
-               </div>
-               <div class="card__info--price">
-                  <p>300000 تومان</p>
-               </div>
-            </div>
-         </div>
-         <div class="card flex shadow flex-col" data-price="400000">
-            <div class="card__image">
-               <img src="https://images.pexels.com/photos/792028/pexels-photo-792028.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Sushi" />
-            </div>
-            <div class="card__info">
-               <div class="car__info--title">
-                  <h3>سوشی</h3>
-                  <p>تازه و نرم</p>
-               </div>
-               <div class="card__info--price">
-                  <p>400000 تومان</p>
-               </div>
-            </div>
-         </div>
-         <div class="card flex shadow flex-col" data-price="600000">
-            <div class="card__image">
-               <img src="https://images.pexels.com/photos/907142/pexels-photo-907142.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Dessert" />
-            </div>
-            <div class="card__info">
-               <div class="car__info--title">
-                  <h3>دسر</h3>
-                  <p>تازه و شیرین</p>
-               </div>
-               <div class="card__info--price">
-                  <p>600000 تومان</p>
-               </div>
-            </div>
-         </div>
-      </div>
+        </div>
+        <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            echo '<p>آیتمی یافت نشد</p>';
+        endif;
+        ?>
+    </div>
 </div>
+
+
 
 <?php get_template_part('pages/infofoodmodal', name: 'single'); ?>
