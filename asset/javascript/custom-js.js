@@ -43,42 +43,67 @@
 
   
 
-  function updateValue(val) {
-    document.getElementById('rangeValue').textContent = val;
+  document.addEventListener('DOMContentLoaded', function () {
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const foodItems = document.querySelectorAll('.card');
+    let selectedCategoryId = 'all'; // Initialize with 'all' for default view
+    const rangeInput = document.getElementById('rangeInput');
+    const rangeValueDisplay = document.getElementById('rangeValue');
+    
+    // Update visible items based on category and price range
+    function updateVisibleItems(maxPrice) {
+        let visibleItems = 0;
 
-    // فیلتر آیتم‌ها بر اساس قیمت
-    const items = document.querySelectorAll('.viewfood > div');
-    let visibleItems = 0; // شمارش تعداد آیتم‌های قابل مشاهده
+        foodItems.forEach(item => {
+            const itemCategories = item.getAttribute('data-categories').split(' ');
+            const itemPrice = parseInt(item.getAttribute('data-price'));
 
-    items.forEach(item => {
-        const price = parseInt(item.getAttribute('data-price'));
-        if (price <= val) {
-            item.style.display = 'flex'; // نمایش آیتم
-            visibleItems++;
+            // Check if the item matches the selected category and price range
+            const matchesCategory = (selectedCategoryId === 'all' || itemCategories.includes(selectedCategoryId));
+            const matchesPrice = itemPrice <= maxPrice;
+
+            if (matchesCategory && matchesPrice) {
+                item.style.display = 'flex'; // Display item
+                visibleItems++;
+            } else {
+                item.style.display = 'none'; // Hide item
+            }
+        });
+
+        // Show "No items available" message if no items are visible
+        const noItemsMessage = document.getElementById('noItemsMessage');
+        if (visibleItems === 0) {
+            if (!noItemsMessage) {
+                const messageElement = document.createElement('div');
+                messageElement.id = 'noItemsMessage';
+                messageElement.textContent = 'محصولی وجود ندارد';
+                messageElement.style.color = 'red';
+                messageElement.style.textAlign = 'center';
+                messageElement.style.width = '100%';
+                messageElement.style.marginTop = '100px';
+                document.querySelector('.viewfood').appendChild(messageElement);
+            }
         } else {
-            item.style.display = 'none'; // مخفی کردن آیتم
-        }
-    });
-
-    // نمایش پیام "محصولی وجود ندارد" اگر هیچ آیتمی قابل مشاهده نباشد
-    const noItemsMessage = document.getElementById('noItemsMessage');
-    if (visibleItems === 0) {
-        if (!noItemsMessage) {
-            const messageElement = document.createElement('div');
-            messageElement.id = 'noItemsMessage';
-            messageElement.textContent = 'محصولی وجود ندارد';
-            messageElement.style.color = 'red'; // رنگ پیام
-            messageElement.style.textAlign = 'center';
-            messageElement.style.width = '100%';
-            messageElement.style.marginTop = '100px';
-            document.querySelector('.viewfood').appendChild(messageElement);
-        }
-    } else {
-        if (noItemsMessage) {
-            noItemsMessage.remove();
+            if (noItemsMessage) {
+                noItemsMessage.remove();
+            }
         }
     }
-}
+
+    // Handle category button clicks
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            selectedCategoryId = this.getAttribute('data-category-id');
+            updateVisibleItems(rangeInput.value);
+        });
+    });
+
+    // Handle price range input change
+    rangeInput.addEventListener('input', function () {
+        rangeValueDisplay.textContent = this.value;
+        updateVisibleItems(this.value);
+    });
+});
 
 
 // گرفتن عناصر مودال و دکمه‌ها
