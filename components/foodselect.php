@@ -68,7 +68,7 @@
                <div class="card__info">
                   <div class="car__info--title">
                      <h3><?php echo esc_html($food_title); ?></h3>
-                     <p><?php echo esc_html(substr($food_description, 0, 30)); ?>...</p> <!-- فقط 10 حرف اول -->
+                     <p><?php echo esc_html(mb_substr($food_description, 0, 10, 'UTF-8'));?>...</p> <!-- فقط 10 حرف اول -->
                      <span class="hidden" >
                 <?php echo esc_html($food_description)  ?>
                   </span>
