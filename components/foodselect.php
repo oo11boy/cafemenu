@@ -96,4 +96,6 @@
    </div>
 </div>
 
+
+
 <?php get_template_part('pages/infofoodmodal', name: 'single'); ?>
