@@ -13,8 +13,8 @@
       <!-- دکمه "نمایش همه ایتم‌ها" -->
       <button class="category-btn" data-category-id="all">
          <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-               <img class="w-[100%] h-[60px]" src="<?php echo get_theme_image_url('all.png'); ?>" alt="نمایش همه">
+            <div class="bg-[#e3e3e3] w-[90px] h-[90px] flex justify-center items-center p-2 rounded-xl category-img">
+               <img class="w-[100%] object-cover " src="<?php echo get_theme_image_url('all.png'); ?>" alt="نمایش همه">
             </div>
             <p class="text-black"> همه</p>
          </div>
