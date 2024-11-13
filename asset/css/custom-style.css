@@ -98,6 +98,18 @@ html {
 
 /* کارت های صفحه اصلی */
 
+
+.card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.card.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
 .card-container {
   display: flex;
   justify-content: center;
@@ -185,6 +197,11 @@ html {
 .modal-exit-active {
   opacity: 0;
   transform: translateY(20px);
+}
+
+.active-category {
+  border: 2px solid #033400;
+  border-radius: 8px;
 }
 
 /* ********************************************** */

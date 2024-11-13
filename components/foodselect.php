@@ -1,16 +1,25 @@
 <div
    class="flex iransans gap-y-4 rounded-lg bg-[#4CAF50] z-10 shadow-lg  z-20 mt-5 items-center p-3 flex-row justify-between w-full">
-
    <input class="pricerange" style="accent-color: #1a543b" type="range" id="rangeInput" min="100000" step="100000"
-      max="1000000" value="300000" oninput="updateValue(this.value)" />
+      max="1000000" value="1000000" oninput="updateValue(this.value)" />
    <div class="w-1/2 text-sm sm:text-sm text-left  text-white">
-      زیر <span id="rangeValue" class="text-[10px] sm:text-sm">300000</span> تومان
+      زیر <span id="rangeValue" class="text-[10px] sm:text-sm">1000000</span> تومان
    </div>
-
-
 </div>
+
+<!-- دکمه "نمایش همه آیتم‌ها" -->
 <div class="w-full custom-scroll vazir p-4 shadow-lg overflow-x-auto sticky top-0 bg-white z-10">
    <div class="flex gap-4">
+      <!-- دکمه "نمایش همه ایتم‌ها" -->
+      <button class="category-btn" data-category-id="all">
+         <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+            <div class="bg-[#e3e3e3] w-[90px] h-[90px] flex justify-center items-center p-2 rounded-xl category-img">
+               <img class="w-[100%] object-cover " src="<?php echo get_theme_image_url('all.png'); ?>" alt="نمایش همه">
+            </div>
+            <p class="text-black"> همه</p>
+         </div>
+      </button>
+
       <?php
       // دریافت دسته‌بندی‌های غذا
       $categories = get_terms(array(
@@ -24,10 +33,10 @@
             $image_url = ($image_id) ? wp_get_attachment_url($image_id) : get_theme_image_url('default-image.jpg');
             ?>
             <button class="category-btn" data-category-id="<?php echo esc_attr($category->term_id); ?>">
-               <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-                  <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-                     <img class="w-[100%] h-[60px]" src="<?php echo esc_url($image_url); ?>"
-                        alt="<?php echo esc_attr($category->name); ?>">
+            <div class="min-w-[100px] w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+               <div class="bg-[#e3e3e3] w-[90px] h-[90px] flex justify-center items-center p-2 rounded-xl category-img">
+                  <img class="w-full h-full object-cover" src="<?php echo esc_url($image_url); ?>"
+                     alt="<?php echo esc_attr($category->name); ?>">
                   </div>
                   <p class="text-black"><?php echo esc_html($category->name); ?></p>
                </div>
@@ -37,7 +46,6 @@
       <?php endif; ?>
    </div>
 </div>
-
 
 
 <div class="card-container">
@@ -69,16 +77,14 @@
                   <div class="car__info--title">
                      <h3><?php echo esc_html($food_title); ?></h3>
                      <p><?php echo esc_html(mb_substr($food_description, 0, 10, 'UTF-8'));?>...</p> <!-- فقط 10 حرف اول -->
-                     <span class="hidden" >
-                <?php echo esc_html($food_description)  ?>
-                  </span>
+                     <span class="hidden">
+                        <?php echo esc_html($food_description)  ?>
+                     </span>
                   </div>
-              
                   <div class="card__info--price">
                      <p><?php echo esc_html($food_price); ?> تومان</p>
                   </div>
                </div>
-
             </div>
             <?php
          endwhile;
@@ -90,6 +96,3 @@
    </div>
 </div>
 
-
-
-<?php get_template_part('pages/infofoodmodal', name: 'single'); ?>
