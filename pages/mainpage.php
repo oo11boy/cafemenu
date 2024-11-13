@@ -13,10 +13,14 @@ get_header();
         alt="Default avatar">
 </div>
 
-<form action="" class="relative my-4">
-    <input placeholder="جستجو..." class="w-full  py-4 pr-16 rounded-3xl bg-[#e8e8e8]" type="text">
+<form action="" method="post" class="relative my-4">
+    <input id="search-input" placeholder="جستجو..." class="w-full py-4 pr-16 rounded-3xl bg-[#e8e8e8]" type="text">
     <i class="fa fa-search absolute right-6 text-[#848484] inset-y-[25%] text-3xl" aria-hidden="true"></i>
+    <div id="suggestions-container" class="absolute w-full bg-white mt-2 rounded-lg shadow-lg z-[90]">
+
+    </div>
 </form>
+
 
 <div class="relative">
     <img class="rounded-xl" src="<?php echo get_theme_image_url('foodbg.jpg'); ?>" alt="" srcset="">

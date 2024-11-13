@@ -18,7 +18,7 @@ add_action('after_setup_theme', 'my_theme_setup');
 
 // بارگذاری استایل‌ها و اسکریپت‌ها
 
-// بارگذاری استایل‌ها و اسکریپت‌ها
+
 function my_theme_scripts() {
     // بارگذاری استایل اصلی
     wp_enqueue_style('main-stylesheet', get_template_directory_uri() . '/asset/css/custom-style.css');
@@ -331,6 +331,59 @@ function save_food_category_image_and_icon($term_id, $tt_id) {
 }
 add_action('created_food_category', 'save_food_category_image_and_icon', 10, 2);
 add_action('edited_food_category', 'save_food_category_image_and_icon', 10, 2);
+
+
+// تابع Ajax برای جستجوی غذاها
+function ajax_search_food_items() {
+    if (isset($_POST['query'])) {
+        $query = sanitize_text_field($_POST['query']);
+        $args = array(
+            'post_type' => 'food_item',
+            's' => $query,
+            'posts_per_page' => 5, // Limit the results to 5
+        );
+        $search_query = new WP_Query($args);
+        if ($search_query->have_posts()) {
+            ?>
+            <div class="card-container">
+                <div class="art-board__container gap-y-4 viewfood yekan">
+            <?php
+            while ($search_query->have_posts()) {
+                $search_query->the_post();
+                $food_title = get_the_title();
+                $food_image = get_the_post_thumbnail_url();
+                $food_price = get_post_meta(get_the_ID(), 'food_price', true);
+                ?>
+                <div class="card cursor-pointer z-[999] flex shadow flex-col" data-price="<?php echo esc_html($food_price); ?>">
+                    <div class="card__image">
+                        <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
+                    </div>
+                    <div class="card__info">
+                        <div class="card__info--title">
+                            <h3><?php echo esc_html($food_title); ?></h3>
+                        </div>
+                        <div class="card__info--price">
+                            <p><?php echo esc_html($food_price); ?> تومان</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <?php
+            }
+            ?>
+                </div>
+            </div>
+            <?php
+            wp_reset_postdata();
+        } else {
+            echo '<p>نتیجه‌ای یافت نشد</p>';
+        }
+    }
+    wp_die();
+}
+
+add_action('wp_ajax_nopriv_ajax_search_food_items', 'ajax_search_food_items');
+add_action('wp_ajax_ajax_search_food_items', 'ajax_search_food_items');
 
 // پایان فایل functions.php
 ?>
