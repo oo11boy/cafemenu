@@ -25,10 +25,7 @@ get_header()
         </div>
         <small class="food-description">لورم ایپسوم متن ساختگی...</small>
         <div class="mt-5">
-          <h5 class="text-lg font-bold">اضافه:</h5>
-          <div class="flex justify-between mt-5">
-            <!-- اضافه کردن آیتم‌های اضافی به مودال -->
-          </div>
+        
           <div class=" text-center mt-10 mb-4">
             <a  id="open-modal" class=" cursor-pointer  text-white px-5 py-2 bg-[#210F59] rounded-xl">ثبت سفارش</a>
           </div>
