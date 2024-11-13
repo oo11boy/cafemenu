@@ -24,10 +24,10 @@
             $image_url = ($image_id) ? wp_get_attachment_url($image_id) : get_theme_image_url('default-image.jpg');
             ?>
             <button class="category-btn" data-category-id="<?php echo esc_attr($category->term_id); ?>">
-               <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-                  <div class="bg-[#e3e3e3] flex justify-center items-center p-2 rounded-xl">
-                     <img class="w-[100%] h-[60px]" src="<?php echo esc_url($image_url); ?>"
-                        alt="<?php echo esc_attr($category->name); ?>">
+            <div class="min-w-[100px] w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+               <div class="bg-[#e3e3e3] w-[90px] h-[90px] flex justify-center items-center p-2 rounded-xl category-img">
+                  <img class="w-full h-full object-cover" src="<?php echo esc_url($image_url); ?>"
+                     alt="<?php echo esc_attr($category->name); ?>">
                   </div>
                   <p class="text-black"><?php echo esc_html($category->name); ?></p>
                </div>

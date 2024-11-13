@@ -105,6 +105,22 @@
     });
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    const categoryButtons = document.querySelectorAll('.category-img');
+
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // حذف کلاس 'active-category' از تمامی دکمه‌ها
+            categoryButtons.forEach(btn => btn.classList.remove('active-category'));
+
+            // افزودن کلاس 'active-category' به دکمه‌ی انتخاب شده
+            this.classList.add('active-category');
+        });
+    });
+});
+
+
+
 
 // گرفتن عناصر مودال و دکمه‌ها
 var openModalBtn = document.getElementById('open-modal');

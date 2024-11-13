@@ -187,6 +187,11 @@ html {
   transform: translateY(20px);
 }
 
+.active-category {
+  border: 2px solid #033400;
+  border-radius: 8px;
+}
+
 /* ********************************************** */
 
 /* landingpage css start */
