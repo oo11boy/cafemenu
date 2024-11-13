@@ -234,5 +234,8 @@ function register_waiter_request_post_type() {
 }
 add_action('init', 'register_waiter_request_post_type');
 
+
+
+
 // پایان فایل functions.php
 ?>
