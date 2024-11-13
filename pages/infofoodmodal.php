@@ -14,7 +14,7 @@ get_header()
 
     <div>
       <div class="text-center flex justify-center food-container">
-        <img class="w-44 mt-12" src="" alt="Food Image">
+        <img class="w-44 mt-12 rounded-xl" src="" alt="Food Image">
       </div>
       <div class="bg-white p-5 pt-3 rounded-tl-[50px] fixed bottom-0 md:w-[650px]">
         <div class="flex justify-between mt-3">

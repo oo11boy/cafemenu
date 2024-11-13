@@ -17,7 +17,7 @@
   
   function openModal(foodData) {
     const modal = document.getElementById('modal');
-    
+
     // پر کردن اطلاعات داینامیک در مودال
     modal.querySelector('.food-container img').src = foodData.image;
     modal.querySelector('.food-container img').alt = foodData.title;
@@ -33,7 +33,7 @@
     card.addEventListener('click', () => {
       const foodData = {
         title: card.querySelector('.card__info h3').textContent,
-        description: card.querySelector('.card__info p').textContent,
+        description: card.querySelector('.card__info span').textContent,
         image: card.querySelector('.card__image img').src,
         price: card.dataset.price
       };
