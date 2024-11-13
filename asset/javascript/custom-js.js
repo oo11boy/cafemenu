@@ -46,11 +46,11 @@
   document.addEventListener('DOMContentLoaded', function () {
     const categoryButtons = document.querySelectorAll('.category-btn');
     const foodItems = document.querySelectorAll('.card');
-    let selectedCategoryId = 'all'; // Initialize with 'all' for default view
+    let selectedCategoryId = 'all'; // مقدار پیش‌فرض برای نمایش همه ایتم‌ها
     const rangeInput = document.getElementById('rangeInput');
     const rangeValueDisplay = document.getElementById('rangeValue');
     
-    // Update visible items based on category and price range
+    // به‌روزرسانی آیتم‌های قابل مشاهده بر اساس دسته‌بندی و رنج قیمت
     function updateVisibleItems(maxPrice) {
         let visibleItems = 0;
 
@@ -58,19 +58,19 @@
             const itemCategories = item.getAttribute('data-categories').split(' ');
             const itemPrice = parseInt(item.getAttribute('data-price'));
 
-            // Check if the item matches the selected category and price range
+            // بررسی تطابق با دسته‌بندی انتخابی و رنج قیمت
             const matchesCategory = (selectedCategoryId === 'all' || itemCategories.includes(selectedCategoryId));
             const matchesPrice = itemPrice <= maxPrice;
 
             if (matchesCategory && matchesPrice) {
-                item.style.display = 'flex'; // Display item
+                item.style.display = 'flex'; // نمایش آیتم
                 visibleItems++;
             } else {
-                item.style.display = 'none'; // Hide item
+                item.style.display = 'none'; // مخفی کردن آیتم
             }
         });
 
-        // Show "No items available" message if no items are visible
+        // نمایش پیام "محصولی وجود ندارد" اگر هیچ آیتمی پیدا نشد
         const noItemsMessage = document.getElementById('noItemsMessage');
         if (visibleItems === 0) {
             if (!noItemsMessage) {
@@ -90,7 +90,7 @@
         }
     }
 
-    // Handle category button clicks
+    // مدیریت کلیک روی دکمه‌های دسته‌بندی
     categoryButtons.forEach(button => {
         button.addEventListener('click', function () {
             selectedCategoryId = this.getAttribute('data-category-id');
@@ -98,13 +98,12 @@
         });
     });
 
-    // Handle price range input change
+    // مدیریت تغییرات رنج قیمت
     rangeInput.addEventListener('input', function () {
         rangeValueDisplay.textContent = this.value;
         updateVisibleItems(this.value);
     });
 });
-
 
 // گرفتن عناصر مودال و دکمه‌ها
 var openModalBtn = document.getElementById('open-modal');
