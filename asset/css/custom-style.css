@@ -218,6 +218,9 @@ html {
   text-decoration: none;
   color: #333;
 }
+#suggestions-container {
+  display: none;
+}
 
 .search-result-item:hover {
   background-color: #f4f4f4;
