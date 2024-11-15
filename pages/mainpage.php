@@ -17,7 +17,7 @@ get_header();
  
     <input id="search-input" placeholder="جستجو..." class="w-full focus:outline-none py-4 pr-16 rounded-3xl bg-[#e8e8e8]" type="text">
     <i class="fa fa-search absolute right-6 text-[#848484] inset-y-[23%] text-2xl" aria-hidden="true"></i>
-    <div id="suggestions-container" class="absolute max-h-[50vh] overflow-y-auto w-full bg-white mt-2 rounded-xl p-4 border-2 border-gray-300  shadow-lg z-[90]">
+    <div id="suggestions-container" class="custom-scrollsearch absolute max-h-[50vh] overflow-y-auto w-full bg-white mt-2 rounded-xl p-4 border-2 border-gray-300  shadow-lg z-[90]">
     <h2>نتایج:</h2>
     </div>
 </form>

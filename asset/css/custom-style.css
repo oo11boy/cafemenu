@@ -96,6 +96,22 @@ html {
   border-radius: 10px; /* گرد شدن گوشه‌ها */
 }
 
+
+/* تغییر ظاهر اسکرول افقی */
+.custom-scrollsearch::-webkit-scrollbar {
+  width: 3px; /* ارتفاع اسکرول افقی */
+}
+
+.custom-scrollsearch::-webkit-scrollbar-thumb {
+  background-color: #4caf50; /* رنگ اسکرول */
+  border-radius: 10px; /* گرد شدن گوشه‌ها */
+}
+
+.custom-scrollsearch::-webkit-scrollbar-track {
+  background: #f1f1f1; /* رنگ پس‌زمینه اسکرول */
+  border-radius: 10px; /* گرد شدن گوشه‌ها */
+}
+
 /* کارت های صفحه اصلی */
 
 
