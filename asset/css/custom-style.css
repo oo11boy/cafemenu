@@ -270,3 +270,39 @@ html {
 }
 
 /* ********************************************** */
+
+
+
+
+/* information page css start */
+
+
+@media only screen and (max-width: 390px) {
+.informationpage *{
+  font-size: 15px!important;
+}
+.imglogoinfo{
+ 
+  transform: translate(30%);
+}
+}
+
+
+
+@media only screen and (min-width: 390px) {
+  .imglogoinfo{
+ 
+    transform: translate(10%);
+  }
+
+}
+
+
+@media only screen and (max-width: 495px) {
+.mapaddress{
+  flex-direction: column!important;
+  gap: 15px;
+  width: 100%;
+}
+
+}
