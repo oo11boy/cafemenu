@@ -332,5 +332,276 @@ function save_food_category_image_and_icon($term_id, $tt_id) {
 add_action('created_food_category', 'save_food_category_image_and_icon', 10, 2);
 add_action('edited_food_category', 'save_food_category_image_and_icon', 10, 2);
 
+
+// ایجاد صفحه تنظیمات جدید
+function cafe_settings_menu() {
+    add_menu_page(
+        'اطلاعات کافه',       // عنوان صفحه
+        'اطلاعات کافه',       // عنوان منو
+        'manage_options',     // دسترسی به تنظیمات
+        'cafe-settings',      // شناسه صفحه
+        'cafe_settings_page', // تابع برای نمایش صفحه تنظیمات
+        'dashicons-store',    // آیکون منو
+        30                    // اولویت
+    );
+}
+add_action('admin_menu', 'cafe_settings_menu');
+
+// تابع نمایش صفحه تنظیمات
+function cafe_settings_page() {
+    ?>
+    <div class="wrap">
+        <h1>اطلاعات کافه</h1>
+        <form method="post" action="options.php" enctype="multipart/form-data">
+            <?php
+            settings_fields('cafe_settings_group');
+            do_settings_sections('cafe-settings');
+            submit_button();
+            ?>
+        </form>
+    </div>
+    <?php
+}
+
+// اضافه کردن تنظیمات و فیلدها
+function cafe_settings_init() {
+    // ثبت تنظیمات
+    register_setting('cafe_settings_group', 'cafe_name');
+    register_setting('cafe_settings_group', 'cafe_name_en');
+    register_setting('cafe_settings_group', 'cafe_logo');
+    register_setting('cafe_settings_group', 'cafe_image');
+    register_setting('cafe_settings_group', 'cafe_instagram');
+    register_setting('cafe_settings_group', 'cafe_phone');
+    register_setting('cafe_settings_group', 'cafe_description');
+    register_setting('cafe_settings_group', 'cafe_address');
+    // ایجاد بخش برای تنظیمات
+    add_settings_section(
+        'cafe_general_section', // شناسه بخش
+        'اطلاعات کافه',        // عنوان بخش
+        null,                   // توضیحات
+        'cafe-settings'         // صفحه‌ای که بخش در آن نمایش داده می‌شود
+    );
+
+    // فیلدهای ورودی
+    add_settings_field(
+        'cafe_name', 
+        'نام کافه', 
+        'cafe_name_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+    add_settings_field(
+        'cafe_name_en', 
+        'نام انگلیسی کافه', 
+        'cafe_name_en_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+    add_settings_field(
+        'cafe_logo', 
+        'لوگوی کافه', 
+        'cafe_logo_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+    add_settings_field(
+        'cafe_image', 
+        'تصویر کافه', 
+        'cafe_image_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+
+    add_settings_field(
+        'cafe_address', 
+        'آدرس کافه', 
+        'cafe_address_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+    add_settings_field(
+        'cafe_instagram', 
+        'اینستاگرام', 
+        'cafe_instagram_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+    add_settings_field(
+        'cafe_phone', 
+        'شماره تماس', 
+        'cafe_phone_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+    add_settings_field(
+        'cafe_description', 
+        'توصیف کوتاه کافه', 
+        'cafe_description_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+}
+add_action('admin_init', 'cafe_settings_init');
+
+// نمایش فیلدهای ورودی
+function cafe_name_field() {
+    $value = get_option('cafe_name');
+    echo '<input type="text" name="cafe_name" value="' . esc_attr($value) . '" class="regular-text" />';
+}
+
+function cafe_name_en_field() {
+    $value = get_option('cafe_name_en');
+    echo '<input type="text" name="cafe_name_en" value="' . esc_attr($value) . '" class="regular-text" />';
+}
+
+
+function cafe_address_field() {
+    $value = get_option('cafe_address');
+    echo '<input type="text" name="cafe_address" value="' . esc_attr($value) . '" class="regular-text" />';
+}
+
+
+function cafe_logo_field() {
+    $value = get_option('cafe_logo');
+    echo '<input type="text" name="cafe_logo" value="' . esc_attr($value) . '" class="regular-text" id="cafe_logo" />';
+    echo '<input type="button" class="button" value="انتخاب لوگو" id="upload_logo_button" />';
+}
+
+function cafe_image_field() {
+    $value = get_option('cafe_image');
+    echo '<input type="text" name="cafe_image" value="' . esc_attr($value) . '" class="regular-text" id="cafe_image" />';
+    echo '<input type="button" class="button" value="انتخاب تصویر" id="upload_image_button" />';
+}
+
+function cafe_instagram_field() {
+    $value = get_option('cafe_instagram');
+    echo '<input type="text" name="cafe_instagram" value="' . esc_attr($value) . '" class="regular-text" />';
+}
+
+function cafe_phone_field() {
+    $value = get_option('cafe_phone');
+    echo '<input type="text" name="cafe_phone" value="' . esc_attr($value) . '" class="regular-text" />';
+}
+
+function cafe_description_field() {
+    $value = get_option('cafe_description');
+    echo '<textarea name="cafe_description" class="regular-text" rows="5">' . esc_textarea($value) . '</textarea>';
+}
+
+
+
+// بارگذاری اسکریپت‌های مورد نیاز برای انتخاب رسانه
+function cafe_media_uploader_script() {
+    wp_enqueue_media(); // این خط به بارگذاری کتابخانه رسانه وردپرس کمک می‌کند
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            var mediaUploader;
+
+            $('#upload_logo_button').click(function(e) {
+                e.preventDefault();
+                if (mediaUploader) {
+                    mediaUploader.open();
+                    return;
+                }
+                mediaUploader = wp.media.frames.file_frame = wp.media({
+                    title: 'انتخاب لوگو',
+                    button: {
+                        text: 'انتخاب لوگو'
+                    },
+                    multiple: false
+                });
+
+                mediaUploader.on('select', function() {
+                    var attachment = mediaUploader.state().get('selection').first().toJSON();
+                    $('#cafe_logo').val(attachment.url);
+                });
+
+                mediaUploader.open();
+            });
+
+            $('#upload_image_button').click(function(e) {
+                e.preventDefault();
+                if (mediaUploader) {
+                    mediaUploader.open();
+                    return;
+                }
+                mediaUploader = wp.media.frames.file_frame = wp.media({
+                    title: 'انتخاب تصویر کافه',
+                    button: {
+                        text: 'انتخاب تصویر'
+                    },
+                    multiple: false
+                });
+
+                mediaUploader.on('select', function() {
+                    var attachment = mediaUploader.state().get('selection').first().toJSON();
+                    $('#cafe_image').val(attachment.url);
+                });
+
+                mediaUploader.open();
+            });
+        });
+    </script>
+    <?php
+}
+add_action('admin_enqueue_scripts', 'cafe_media_uploader_script');
+
+// بارگذاری رسانه‌ها (تصاویر)
+function cafe_media_uploader() {
+    ?>
+    <script type="text/javascript">
+        jQuery(document).ready(function($){
+            var mediaUploader;
+
+            $('#upload_logo_button').click(function(e) {
+                e.preventDefault();
+                if (mediaUploader) {
+                    mediaUploader.open();
+                    return;
+                }
+                mediaUploader = wp.media.frames.file_frame = wp.media({
+                    title: 'انتخاب لوگو',
+                    button: {
+                        text: 'انتخاب لوگو'
+                    },
+                    multiple: false
+                });
+
+                mediaUploader.on('select', function() {
+                    var attachment = mediaUploader.state().get('selection').first().toJSON();
+                    $('#cafe_logo').val(attachment.url);
+                });
+
+                mediaUploader.open();
+            });
+
+            $('#upload_image_button').click(function(e) {
+                e.preventDefault();
+                if (mediaUploader) {
+                    mediaUploader.open();
+                    return;
+                }
+                mediaUploader = wp.media.frames.file_frame = wp.media({
+                    title: 'انتخاب تصویر کافه',
+                    button: {
+                        text: 'انتخاب تصویر'
+                    },
+                    multiple: false
+                });
+
+                mediaUploader.on('select', function() {
+                    var attachment = mediaUploader.state().get('selection').first().toJSON();
+                    $('#cafe_image').val(attachment.url);
+                });
+
+                mediaUploader.open();
+            });
+        });
+    </script>
+    <?php
+}
+add_action('admin_footer', 'cafe_media_uploader');
+
 // پایان فایل functions.php
 ?>
