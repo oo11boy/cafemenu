@@ -26,4 +26,12 @@ get_header();
     <?php get_template_part('pages/aboutus', 'single'); ?>
 </div>
 
+
+
+<!-- test tab -->
+
+<div id="content-test" class="tab-content">
+  test
+</div>
+
 <?php get_footer(); ?>

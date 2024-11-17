@@ -28,7 +28,6 @@ jQuery(document).ready(function($) {
   });
 });
 
-  
 document.addEventListener('DOMContentLoaded', function () {
   const categoryButtons = document.querySelectorAll('.category-btn');
   const foodItems = document.querySelectorAll('.card');
