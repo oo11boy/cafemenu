@@ -191,7 +191,9 @@ html {
   text-align: right;
   color: orangered;
 }
-
+.card.hidden {
+  display: none !important;  /* کارت‌ها به‌طور کامل مخفی شوند */
+}
 
 .modal-enter {
   opacity: 0;
@@ -240,6 +242,33 @@ html {
 
 .search-result-item:hover {
   background-color: #f4f4f4;
+}
+
+.btn-load-more {
+  display: inline-block;
+  margin: 10px auto; /* فاصله از محتوا و تنظیم مرکزیت */
+  padding: 10px 20px; /* اندازه فضای داخلی دکمه */
+  font-size: 16px; /* اندازه فونت */
+  color: white; /* رنگ متن */
+  background-color: #183D3D; /* رنگ پس‌زمینه دکمه */
+  border: none; /* حذف حاشیه */
+  border-radius: 5px; /* گوشه‌های گرد */
+  cursor: pointer; /* نشانگر ماوس روی دکمه */
+  transition: background-color 0.3s ease; /* افکت تغییر رنگ */
+}
+
+.btn-load-more:hover {
+  background-color: #4caf50; /* تغییر رنگ هنگام هاور */
+}
+
+.btn-load-more.hidden {
+  display: none; /* مخفی کردن دکمه زمانی که کلاس hidden اضافه شده است */
+}
+
+.btn-load-more-container {
+  display: flex; /* استفاده از فلکس‌باکس */
+  justify-content: center; /* مرکزیت افقی */
+  margin-top: 8px; /* فاصله از بالا */
 }
 
 
