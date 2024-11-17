@@ -78,17 +78,18 @@
       ));
 
       if ($food_items_query->have_posts()):
+         $counter = 0; // شمارنده برای محصولات
          while ($food_items_query->have_posts()):
             $food_items_query->the_post();
             $food_title = get_the_title();
             $food_description = get_the_content();
             $food_image = get_the_post_thumbnail_url();
             $food_price = get_post_meta(get_the_ID(), 'food_price', true);
-            // گرفتن دسته‌بندی‌های غذا
             $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
             $category_ids = wp_list_pluck($food_categories, 'term_id');
             ?>
-            <div class="card flex shadow flex-col" data-price="<?php echo esc_html($food_price); ?>"
+            <div class="card flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
+               data-price="<?php echo esc_html($food_price); ?>"
                data-categories="<?php echo implode(' ', $category_ids); ?>">
                <div class="card__image">
                   <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
@@ -96,7 +97,7 @@
                <div class="card__info">
                   <div class="car__info--title">
                      <h3><?php echo esc_html($food_title); ?></h3>
-                     <p><?php echo esc_html(mb_substr($food_description, 0, 10, 'UTF-8')); ?>...</p> <!-- فقط 10 حرف اول -->
+                     <p><?php echo esc_html(mb_substr($food_description, 0, 10, 'UTF-8')); ?>...</p>
                      <span class="hidden">
                         <?php echo esc_html($food_description) ?>
                      </span>
@@ -107,6 +108,7 @@
                </div>
             </div>
             <?php
+            $counter++;
          endwhile;
          wp_reset_postdata();
       else:
@@ -114,6 +116,11 @@
       endif;
       ?>
    </div>
+</div>
+
+<!-- دکمه بارگذاری بیشتر -->
+<div class="btn-load-more-container">
+  <button id="loadMore" class="btn-load-more yekan hidden">بارگذاری بیشتر</button>
 </div>
 
 
