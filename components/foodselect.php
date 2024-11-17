@@ -69,7 +69,7 @@
 
 
 <div class="card-container">
-   <div class="art-board__container cursor-pointer gap-y-4 viewfood yekan">
+   <div class="art-board__container  gap-y-4 viewfood yekan">
       <?php
       // کوئری برای دریافت پست‌های نوع food_item
       $food_items_query = new WP_Query(array(
@@ -88,7 +88,7 @@
             $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
             $category_ids = wp_list_pluck($food_categories, 'term_id');
             ?>
-            <div class="card flex shadow flex-col" data-price="<?php echo esc_html($food_price); ?>"
+            <div class="card cursor-pointer   flex shadow flex-col" data-price="<?php echo esc_html($food_price); ?>"
                data-categories="<?php echo implode(' ', $category_ids); ?>">
                <div class="card__image">
                   <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
@@ -106,6 +106,7 @@
                   </div>
                </div>
             </div>
+            
             <?php
          endwhile;
          wp_reset_postdata();

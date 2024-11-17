@@ -96,6 +96,22 @@ html {
   border-radius: 10px; /* گرد شدن گوشه‌ها */
 }
 
+
+/* تغییر ظاهر اسکرول افقی */
+.custom-scrollsearch::-webkit-scrollbar {
+  width: 3px; /* ارتفاع اسکرول افقی */
+}
+
+.custom-scrollsearch::-webkit-scrollbar-thumb {
+  background-color: #4caf50; /* رنگ اسکرول */
+  border-radius: 10px; /* گرد شدن گوشه‌ها */
+}
+
+.custom-scrollsearch::-webkit-scrollbar-track {
+  background: #f1f1f1; /* رنگ پس‌زمینه اسکرول */
+  border-radius: 10px; /* گرد شدن گوشه‌ها */
+}
+
 /* کارت های صفحه اصلی */
 
 
@@ -208,6 +224,22 @@ html {
 
 .category-btn {
   transition: all 0.2s ease-in-out; /* تغییرات نرم برای رنگ، اندازه و موقعیت */
+}
+.search-result-item {
+  padding: 10px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.search-result-item a {
+  text-decoration: none;
+  color: #333;
+}
+#suggestions-container {
+  display: none;
+}
+
+.search-result-item:hover {
+  background-color: #f4f4f4;
 }
 
 
