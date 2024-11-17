@@ -1,10 +1,3 @@
-<?php
-/*
-Template Name: games page
-*/
-get_header()
-    ?>
-    <?php get_template_part('components/header', 'single'); ?>
 
     <div class="relative ">
         <img class="rounded-xl" src="https://4kwallpapers.com/images/walls/thumbs_2t/8571.jpg" alt="" srcset="">
@@ -60,6 +53,3 @@ get_header()
 
 
 
-
-
-<?php get_footer(); ?>

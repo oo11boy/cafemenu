@@ -1,11 +1,3 @@
-<?php
-/*
-Template Name: aboutus
-*/
-get_header();
-?>
-
-<?php get_template_part('components/header', 'single'); ?>
 
 <div class="w-full pt-3 yekan">
     <div class="relative w-full h-[250px]">
@@ -55,4 +47,4 @@ get_header();
 </div>
 
 <?php get_template_part('components/waitermodal', 'single'); ?>
-<?php get_footer(); ?>
+
