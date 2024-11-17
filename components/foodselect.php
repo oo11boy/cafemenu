@@ -69,7 +69,7 @@
 
 
 <div class="card-container">
-   <div class="art-board__container cursor-pointer gap-y-4 viewfood yekan">
+   <div class="art-board__container  gap-y-4 viewfood yekan">
       <?php
       // کوئری برای دریافت پست‌های نوع food_item
       $food_items_query = new WP_Query(array(
@@ -107,6 +107,7 @@
                   </div>
                </div>
             </div>
+            
             <?php
             $counter++;
          endwhile;
