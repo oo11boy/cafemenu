@@ -35,10 +35,15 @@ get_header();
 
     <div class="mt-4 mapaddress bg-[#1f9d7e] w-full items-center rounded-xl text-white flex justify-between p-4">
         <!-- آدرس کافه -->
-        <p class="text-sm"><?php echo esc_html(get_option('cafe_address')); ?></p>
-        <p class="border flex items-center gap-2 border-[#F8EEDA] py-1 px-2 text-sm">
+
+        <?php
+ $tol=get_option('cafe_latitude');
+ $arz=get_option('cafe_longitude')
+ ?>
+ <p class="text-sm"><?php echo esc_html(get_option('cafe_address')); ?></p>
+        <a target="_blank" href="<?php echo "https://www.google.com/maps?q=$tol,$arz" ?>" class="border flex items-center gap-2 border-[#F8EEDA] py-1 px-2 text-sm">
             <i class="fa fa-map-marker text-[#F8EEDA]" aria-hidden="true"></i> مشاهده روی نقشه
-        </p>
+</a>
     </div>
 
 

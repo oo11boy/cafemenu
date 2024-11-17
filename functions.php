@@ -347,21 +347,6 @@ function cafe_settings_menu() {
 }
 add_action('admin_menu', 'cafe_settings_menu');
 
-// تابع نمایش صفحه تنظیمات
-function cafe_settings_page() {
-    ?>
-    <div class="wrap">
-        <h1>اطلاعات کافه</h1>
-        <form method="post" action="options.php" enctype="multipart/form-data">
-            <?php
-            settings_fields('cafe_settings_group');
-            do_settings_sections('cafe-settings');
-            submit_button();
-            ?>
-        </form>
-    </div>
-    <?php
-}
 
 // اضافه کردن تنظیمات و فیلدها
 function cafe_settings_init() {
@@ -374,6 +359,9 @@ function cafe_settings_init() {
     register_setting('cafe_settings_group', 'cafe_phone');
     register_setting('cafe_settings_group', 'cafe_description');
     register_setting('cafe_settings_group', 'cafe_address');
+    register_setting('cafe_settings_group', 'cafe_latitude');
+register_setting('cafe_settings_group', 'cafe_longitude');
+
     // ایجاد بخش برای تنظیمات
     add_settings_section(
         'cafe_general_section', // شناسه بخش
@@ -382,6 +370,21 @@ function cafe_settings_init() {
         'cafe-settings'         // صفحه‌ای که بخش در آن نمایش داده می‌شود
     );
 
+
+    add_settings_field(
+        'cafe_latitude', 
+        'عرض جغرافیایی', 
+        'cafe_latitude_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
+    add_settings_field(
+        'cafe_longitude', 
+        'طول جغرافیایی', 
+        'cafe_longitude_field', 
+        'cafe-settings', 
+        'cafe_general_section'
+    );
     // فیلدهای ورودی
     add_settings_field(
         'cafe_name', 
@@ -442,6 +445,58 @@ function cafe_settings_init() {
     );
 }
 add_action('admin_init', 'cafe_settings_init');
+function cafe_latitude_field() {
+    $value = get_option('cafe_latitude');
+    echo '<input type="text" name="cafe_latitude" value="' . esc_attr($value) . '" class="regular-text" />';
+}
+
+function cafe_longitude_field() {
+    $value = get_option('cafe_longitude');
+    echo '<input type="text" name="cafe_longitude" value="' . esc_attr($value) . '" class="regular-text" />';
+}
+
+function cafe_admin_map_script() {
+    wp_enqueue_script('leaflet-js', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.js');
+    wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
+}
+add_action('admin_enqueue_scripts', 'cafe_admin_map_script');
+
+function cafe_settings_page() {
+    ?>
+    <div class="wrap">
+        <h1>اطلاعات کافه</h1>
+        <h2>انتخاب مکان کافه روی نقشه</h2>
+        <div id="map" style="height: 400px;"></div>
+        <script>
+           var defaultLatitude = <?php echo esc_js(get_option('cafe_latitude', 35.6892)); ?>;
+var defaultLongitude = <?php echo esc_js(get_option('cafe_longitude', 51.3890)); ?>;
+
+var map = L.map('map').setView([defaultLatitude, defaultLongitude], 13); // مرکزیت نقشه
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+var marker = L.marker([defaultLatitude, defaultLongitude]).addTo(map);
+
+map.on('click', function(e) {
+    marker.setLatLng(e.latlng);
+    document.querySelector('input[name="cafe_latitude"]').value = e.latlng.lat;
+    document.querySelector('input[name="cafe_longitude"]').value = e.latlng.lng;
+});
+
+        </script>
+    </div>
+        <form method="post" action="options.php">
+            <?php
+            settings_fields('cafe_settings_group');
+            do_settings_sections('cafe-settings');
+            submit_button();
+            ?>
+        </form>
+
+   
+    <?php
+}
 
 // نمایش فیلدهای ورودی
 function cafe_name_field() {
