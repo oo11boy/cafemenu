@@ -120,7 +120,7 @@
 
 <!-- دکمه بارگذاری بیشتر -->
 <div class="btn-load-more-container">
-  <button id="loadMore" class="btn-load-more hidden">بارگذاری بیشتر</button>
+  <button id="loadMore" class="btn-load-more yekan hidden">بارگذاری بیشتر</button>
 </div>
 
 
