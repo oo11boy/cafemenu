@@ -1,33 +1,36 @@
-<div id="cart-items" class="cart-container p-4 bg-white shadow rounded-lg">
-    <h2 class="text-xl font-bold mb-4">سبد خرید شما</h2>
+<div id="cart-items" class="cart-container p-6 bg-white shadow-lg rounded-lg max-w-xl mx-auto mt-8">
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">سبد خرید شما</h2>
     <!-- پیغام سبد خرید خالی -->
     <div id="empty-cart-message" class="hidden text-center text-lg text-gray-500">
         <p>سبد خرید شما خالی است!</p>
     </div>
     <div id="cart-list" class="flex flex-col gap-4"></div>
-    <div class="mt-4 text-lg font-semibold">
+    <div class="mt-6 text-lg font-semibold text-gray-700">
         <p>جمع کل: <span id="total-price">0</span> تومان</p>
     </div>
 </div>
 
-
 <!-- دکمه ثبت درخواست گارسون -->
-<button id="openGarsonModal" class="btn btn-primary">درخواست گارسون</button>
+<button id="openGarsonModal" class="mt-4 px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+    درخواست گارسون
+</button>
 
 <!-- مودال درخواست گارسون -->
-<div id="garsonModal" class="modal hidden">
-  <div class="modal-content">
-    <span id="closeModal" class="close">&times;</span>
-    <h2>درخواست گارسون</h2>
-    <label for="tableNumber">شماره میز:</label>
-    <input type="text" id="tableNumber" placeholder="شماره میز را وارد کنید">
-    <button id="submitGarsonRequest" class="btn btn-success">ثبت درخواست</button>
+<div id="garsonModal" class="modal hidden fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50">
+  <div class="modal-content bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <span id="closeModal" class="close absolute top-2 right-2 text-xl font-bold text-gray-500 cursor-pointer hover:text-gray-800">&times;</span>
+    <h2 class="text-2xl font-semibold mb-4">درخواست گارسون</h2>
+    <label for="tableNumber" class="text-lg text-gray-700">شماره میز:</label>
+    <input type="text" id="tableNumber" placeholder="شماره میز را وارد کنید" class="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <button id="submitGarsonRequest" class="mt-4 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300">
+        ثبت درخواست
+    </button>
   </div>
 </div>
 
 <script>
 document.getElementById('openGarsonModal').addEventListener('click', function() {
-    document.getElementById('garsonModal').style.display = 'block';
+    document.getElementById('garsonModal').style.display = 'flex';
 });
 
 document.getElementById('closeModal').addEventListener('click', function() {

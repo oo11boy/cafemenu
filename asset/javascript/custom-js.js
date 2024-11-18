@@ -208,6 +208,7 @@ loadMoreButton.addEventListener("click", () => {
 
 
 document.querySelectorAll('.add-to-cart').forEach(button => {
+  
   button.addEventListener('click', function() {
     // پیدا کردن بخش اینپوت تعداد و دکمه‌های + و - در نزدیکی دکمه + 
     const quantityInput = this.closest('.card__actions').querySelector('.quantity-input');
