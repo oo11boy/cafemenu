@@ -29,6 +29,14 @@ function my_theme_scripts()
     wp_enqueue_script('custom-js', get_template_directory_uri() . '/asset/javascript/custom-js.js', array('jquery'), null, true);
     // بارگذاری یک اسکریپت سفارشی
     wp_enqueue_script('foodmodal-js', get_template_directory_uri() . '/asset/javascript/openfoodmodal.js', array('jquery'), null, true);
+  // بارگذاری یک اسکریپت سفارشی
+    wp_enqueue_script('structure-js', get_template_directory_uri() . '/asset/javascript/structure.js', array('jquery'), null, true);
+  // بارگذاری یک اسکریپت سفارشی
+  wp_enqueue_script('garson-js', get_template_directory_uri() . '/asset/javascript/garson.js', array('jquery'), null, true);
+  // بارگذاری یک اسکریپت سفارشی
+  wp_enqueue_script('ajaxsearch-js', get_template_directory_uri() . '/asset/javascript/ajaxsearch.js', array('jquery'), null, true);
+  // بارگذاری یک اسکریپت سفارشی
+  wp_enqueue_script('cartshop-js', get_template_directory_uri() . '/asset/javascript/cartshop.js', array('jquery'), null, true);
 
     // اضافه کردن ajaxurl برای استفاده در جاوا اسکریپت
     wp_localize_script('custom-js', 'ajax_object', array(
