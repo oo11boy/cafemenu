@@ -30,8 +30,8 @@ get_header();
 
 <!-- test tab -->
 
-<div id="content-test" class="tab-content">
-  test
+<div id="content-cart" class="tab-content">
+<?php get_template_part('pages/shopcart', 'single'); ?>
 </div>
 
 <?php get_footer(); ?>

@@ -1,8 +1,8 @@
 
 
 <div class="flex reyhaneh justify-between items-center">
-    <p class="text-3xl">منو کافه یونیکد</p>
-    <img class="w-[80px] h-[80px] rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+    <p class="text-3xl"><?php echo esc_html(get_option('cafe_name')); ?></p>
+    <img class="w-[80px] h-[80px] rounded-full"   src="<?php echo esc_url(get_option('cafe_logo')); ?>"
         alt="Default avatar">
 </div>
 
