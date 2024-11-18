@@ -135,7 +135,6 @@ loadMoreButton.addEventListener("click", () => {
   categoryButtons.forEach(button => {
       button.addEventListener('click', function () {
           selectedCategoryId = this.getAttribute('data-category-id');
-          updateVisibleItems(rangeInput.value);
           // حذف کلاس 'active-category' از تمامی دکمه‌ها و افزودن به دکمه انتخاب شده
           categoryButtons.forEach(btn => btn.classList.remove('active-category'));
           this.classList.add('active-category');
