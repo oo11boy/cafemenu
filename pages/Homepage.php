@@ -33,5 +33,6 @@
 
 
 <?php get_template_part('components/foodselect', name: 'single'); ?>
+<?php get_template_part('components/specialOffers', name: 'single'); ?>
 
 
