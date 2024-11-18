@@ -1,17 +1,20 @@
 // مدیریت باز و بسته کردن مودال
-document.querySelectorAll('.card ').forEach(card => {
-    card.addEventListener('click', () => {
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      // اطمینان از این که فقط روی کارت کلیک شده و نه دکمه سبد خرید
+      if (!e.target.closest('.add-to-cart , .decrease, .increase , .countcart')) {
         const foodData = {
-            title: card.querySelector('.card__info h3').textContent,
-            description: card.querySelector('.card__info span') ? card.querySelector('.card__info span').textContent : '',
-            image: card.querySelector('.card__image img').src,
-            price: card.dataset.price
+          title: card.querySelector('.card__info h3').textContent,
+          description: card.querySelector('.card__info span') ? card.querySelector('.card__info span').textContent : '',
+          image: card.querySelector('.card__image img').src,
+          price: card.dataset.price
         };
-      
+        
         openModal(foodData); // فراخوانی تابع برای باز کردن مودال
+      }
     });
-});
-
+  });
+  
 // باز کردن مودال
 function openModal(foodData) {
     const modal = document.getElementById('modal');

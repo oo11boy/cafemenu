@@ -69,54 +69,87 @@
 
 
 <div class="card-container">
-   <div class="art-board__container  gap-y-4 viewfood yekan">
-      <?php
-      // کوئری برای دریافت پست‌های نوع food_item
-      $food_items_query = new WP_Query(array(
-         'post_type' => 'food_item',
-         'posts_per_page' => -1
-      ));
+   
+<div class="art-board__container  gap-y-4 viewfood yekan">
+  <?php
+  // کوئری برای دریافت پست‌های نوع food_item
+  $food_items_query = new WP_Query(array(
+    'post_type' => 'food_item',
+    'posts_per_page' => -1
+  ));
 
-      if ($food_items_query->have_posts()):
-         $counter = 0; // شمارنده برای محصولات
-         while ($food_items_query->have_posts()):
-            $food_items_query->the_post();
-            $food_title = get_the_title();
-            $food_description = get_the_content();
-            $food_image = get_the_post_thumbnail_url();
-            $food_price = get_post_meta(get_the_ID(), 'food_price', true);
-            $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
-            $category_ids = wp_list_pluck($food_categories, 'term_id');
-            ?>
-            <div class="card flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
-               data-price="<?php echo esc_html($food_price); ?>"
-               data-categories="<?php echo implode(' ', $category_ids); ?>">
-               <div class="card__image">
-                  <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
-               </div>
-               <div class="card__info">
-                  <div class="car__info--title">
-                     <h3><?php echo esc_html($food_title); ?></h3>
-                     <p><?php echo esc_html(mb_substr($food_description, 0, 10, 'UTF-8')); ?>...</p>
-                     <span class="hidden">
-                        <?php echo esc_html($food_description) ?>
-                     </span>
-                  </div>
-                  <div class="card__info--price">
-                     <p><?php echo esc_html($food_price); ?> تومان</p>
-                  </div>
-               </div>
-            </div>
-            
-            <?php
-            $counter++;
-         endwhile;
-         wp_reset_postdata();
-      else:
-         echo '<p>آیتمی یافت نشد</p>';
-      endif;
+  if ($food_items_query->have_posts()):
+    $counter = 0; // شمارنده برای محصولات
+    while ($food_items_query->have_posts()):
+      $food_items_query->the_post();
+      $food_title = get_the_title();
+      $food_description = get_the_content();
+      $food_image = get_the_post_thumbnail_url();
+      $food_price = get_post_meta(get_the_ID(), 'food_price', true);
+      $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
+      $category_ids = wp_list_pluck($food_categories, 'term_id');
       ?>
+      <div class=" relative card flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
+           data-id="<?php echo get_the_ID(); ?>"
+           data-price="<?php echo esc_html($food_price); ?>"
+           data-title="<?php echo esc_html($food_title); ?>">
+       
+       
+        <div class="card__image">
+          <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
+        </div>
+        <div class="card__info">
+          <div class="car__info--title">
+            <h3><?php echo esc_html($food_title); ?></h3>
+            <p><?php echo esc_html(mb_substr($food_description, 0, 10, 'UTF-8')); ?>...</p>
+            <span class="hidden">
+              <?php echo esc_html($food_description) ?>
+            </span>
+          </div>
+          <div class="card__info--price">
+            <p><?php echo esc_html($food_price); ?> تومان</p>
+          </div>
+
+      
+        </div>
+  
+        <div class=" card__actions absolute top-0 left-5 flex justify-between items-center mt-2">
+  <!-- دکمه + -->
+  <button class="add-to-cart bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg" 
+    data-food-id="<?php echo esc_attr(get_the_ID()); ?>" 
+    data-food-price="<?php echo esc_attr($food_price); ?>" 
+    data-food-title="<?php echo esc_attr($food_title); ?>" 
+    data-food-image="<?php echo esc_attr($food_image); ?>">
+    <i class="fa fa-plus text-lg" aria-hidden="true"></i>
+  </button>
+
+  <!-- اینپوت تعداد و دکمه‌های + و - -->
+  <div class="quantity-input flex justify-center !items-center  hidden items-center">
+
+
+    <button class="decrease bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg" >   <i class="fa fa-minus" aria-hidden="true"></i></button>
+  
+    <input type="number" id="quantity_<?php echo esc_attr(get_the_ID()); ?>" name="quantity" min="1" value="1" class="h-[40px] w-[40px] countcart rounded-lg bg-[#F7F8F9] flex justify-center items-center text-center" readonly>
+   <button class="increase bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg" >    <i class="fa fa-plus text-lg" aria-hidden="true"></i></button>
+  
    </div>
+</div>
+      </div>
+  
+   
+     
+
+
+      <?php
+      $counter++;
+    endwhile;
+    wp_reset_postdata();
+  else:
+    echo '<p>آیتمی یافت نشد</p>';
+  endif;
+  ?>
+</div>
+
 </div>
 
 <!-- دکمه بارگذاری بیشتر -->
