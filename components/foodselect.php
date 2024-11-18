@@ -129,7 +129,7 @@
 
                      <input type="number" id="quantity_<?php echo esc_attr(get_the_ID()); ?>" name="quantity" min="1"
                         value="1"
-                        class="h-[40px] w-[40px] countcart rounded-lg bg-[#F7F8F9] flex justify-center items-center text-center"
+                        class="h-[40px] w-[40px] countcart rounded-lg bg-[#F7F8F9] flex  justify-center items-center text-center"
                         readonly>
                      <button
                         class="increase bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg">

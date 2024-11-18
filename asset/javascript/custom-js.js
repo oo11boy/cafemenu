@@ -302,18 +302,21 @@ function displayCart() {
       totalPrice += itemTotal;
 
       const cartItemHTML = `
-        <div class="flex justify-between items-center border-b pb-2" id="cart-item-${item.id}">
-          <div class="cart-item-title">
-            <h3>${item.title}</h3>
-            <p>قیمت: ${item.price} تومان</p>
-            <p>تعداد: ${item.quantity}</p>
-          </div>
-          <div class="cart-item-total">
-            <p>مجموع: ${itemTotal} تومان</p>
-            <!-- دکمه حذف -->
-            <button class="remove-item" data-food-id="${item.id}">حذف</button>
-          </div>
+
+      
+    <div class="flex h-[100px] yekan relative justify-starth-[80px] w-full border shadow" id="cart-item-${item.id}">
+        <img class="w-[30%] h-[100%] object-cover"  src="${item.image}" >
+        <div class=" py-2 pr-2  justify-between flex flex-col">
+          <div class="flex justify-start"> <h2>${item.title}</h2></div> 
+          <div>تعداد: ${item.quantity}</div>
+            <p class="text-[green]">${item.price} تومان</p>
         </div>
+
+
+        <i  data-food-id="${item.id}" class="remove-item cursor-pointer fa text-xl text-[red] fa-trash absolute top-[40%] left-4" aria-hidden="true"></i>
+    </div> 
+
+      
       `;
       cartList.insertAdjacentHTML('beforeend', cartItemHTML);
     });
