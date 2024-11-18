@@ -1,9 +1,9 @@
 <div
    class="flex iransans gap-y-4 rounded-lg bg-[#4CAF50] z-10 shadow-lg  z-20 mt-5 items-center p-3 flex-row justify-between w-full">
    <input class="pricerange" style="accent-color: #1a543b" type="range" id="rangeInput" min="100000" step="100000"
-      max="1000000" value="1000000"  />
+      max="1000000" value="1000000" />
    <div class="w-1/2 text-sm sm:text-sm text-left  text-white">
-      زیر <span  id="rangeValue" class="text-[10px] sm:text-sm">1000000</span> تومان
+      زیر <span id="rangeValue" class="text-[10px] sm:text-sm">1000000</span> تومان
    </div>
 </div>
 
@@ -37,7 +37,7 @@
 
             // لیست آیکون‌ها (باید در اینجا آیکون‌های خود را مشخص کنید)
             $icons = get_food_category_icons(); // دریافت لیست آیکون‌ها
-
+      
             // اگر آیکونی برای دسته‌بندی موجود باشد، آن را دریافت کن
             if (isset($icons[$icon_value])) {
                $icon_url = get_theme_image_url($icons[$icon_value]);
@@ -46,9 +46,9 @@
             <button class="category-btn" data-category-id="<?php echo esc_attr($category->term_id); ?>">
                <div class="min-w-[100px] w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
                   <div class="bg-[#e3e3e3]  w-[90px] h-[90px] flex justify-center items-center p-4 rounded-xl category-img">
-                  <?php if ($icon_url) { ?>
-                        <img class="w-full h-full object-cover" src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($category->name); ?>"
-                         >
+                     <?php if ($icon_url) { ?>
+                        <img class="w-full h-full object-cover" src="<?php echo esc_url($icon_url); ?>"
+                           alt="<?php echo esc_attr($category->name); ?>">
                      <?php } else {
                         ?>
                         <img class="w-full h-full object-cover" src="<?php echo esc_url($image_url); ?>"
@@ -56,7 +56,7 @@
                      <?php }
                      ?>
                   </div>
-                
+
                   <p class="text-black"><?php echo esc_html($category->name); ?></p>
                </div>
             </button>
@@ -88,9 +88,8 @@
             $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
             $category_ids = wp_list_pluck($food_categories, 'term_id');
             ?>
-            <div class="card flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
-               data-price="<?php echo esc_html($food_price); ?>"
-               data-categories="<?php echo implode(' ', $category_ids); ?>">
+            <div class="card relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
+               data-price="<?php echo esc_html($food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
                <div class="card__image">
                   <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
                </div>
@@ -106,8 +105,40 @@
                      <p><?php echo esc_html($food_price); ?> تومان</p>
                   </div>
                </div>
+
+
+
+               <div class=" card__actions absolute top-0 left-5 flex justify-between items-center mt-2">
+                  <!-- دکمه + -->
+                  <button
+                     class="add-to-cart bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg"
+                     data-food-id="<?php echo esc_attr(get_the_ID()); ?>"
+                     data-food-price="<?php echo esc_attr($food_price); ?>"
+                     data-food-title="<?php echo esc_attr($food_title); ?>"
+                     data-food-image="<?php echo esc_attr($food_image); ?>">
+                     <i class="fa fa-plus text-lg" aria-hidden="true"></i>
+                  </button>
+
+                  <!-- اینپوت تعداد و دکمه‌های + و - -->
+                  <div class="quantity-input flex justify-center !items-center  hidden items-center">
+
+
+                     <button
+                        class="decrease bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg">
+                        <i class="fa fa-minus" aria-hidden="true"></i></button>
+
+                     <input type="number" id="quantity_<?php echo esc_attr(get_the_ID()); ?>" name="quantity" min="1"
+                        value="1"
+                        class="h-[40px] w-[40px] countcart rounded-lg bg-[#F7F8F9] flex justify-center items-center text-center"
+                        readonly>
+                     <button
+                        class="increase bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg">
+                        <i class="fa fa-plus text-lg" aria-hidden="true"></i></button>
+
+                  </div>
+               </div>
             </div>
-            
+
             <?php
             $counter++;
          endwhile;
@@ -121,7 +152,7 @@
 
 <!-- دکمه بارگذاری بیشتر -->
 <div class="btn-load-more-container">
-  <button id="loadMore" class="btn-load-more yekan hidden">بارگذاری بیشتر</button>
+   <button id="loadMore" class="btn-load-more yekan hidden">بارگذاری بیشتر</button>
 </div>
 
 

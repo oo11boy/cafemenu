@@ -29,7 +29,7 @@
 
 
      
-     <button id="tab-test" class="tab-button inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group" type="button">
+     <button id="tab-cart" class="tab-button inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group" type="button">
             <i class="" aria-hidden="true"></i>
              <i class="fa fa-inbox w-5 text-2xl h-5 mb-1 text-gray-500 group-hover:text-blue-600" aria-hidden="true"></i>
              <span class="sr-only">علاقه مندی </span>
