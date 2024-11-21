@@ -360,7 +360,7 @@ function ajax_search_food_items()
     width: 100%;
     border: 1px solid #E8E8E8;
     height: 80px;
-" class="flex card rounded-lg  items-center cursor-pointer z-[999] shadow">
+" class="flex card rounded-lg  items-center cursor-pointer z-[920] shadow">
 
                             <div class="card__image w-[100px]">
                                 <img class="h-[full] w-full" src="<?php echo esc_url($food_image); ?>"
