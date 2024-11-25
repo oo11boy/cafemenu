@@ -108,10 +108,10 @@
 
 
 
-               <div class=" card__actions absolute top-0 left-5 flex justify-between items-center mt-2">
+               <div class=" bg-[gray] rounded-lg p-1 card__actions absolute top-0 left-5 flex justify-between items-center mt-2">
                   <!-- دکمه + -->
                   <button
-                     class="add-to-cart bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg"
+                     class="add-to-cart bg-[gray] text-white flex justify-center items-center text-2xl   h-[35px] w-[35px]  rounded-lg"
                      data-food-id="<?php echo esc_attr(get_the_ID()); ?>"
                      data-food-price="<?php echo esc_attr($food_price); ?>"
                      data-food-title="<?php echo esc_attr($food_title); ?>"
@@ -124,15 +124,15 @@
 
 
                      <button
-                        class="decrease bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg">
+                        class="decrease bg-[gray] text-white flex justify-center items-center text-2xl   h-[35px] w-[35px]  rounded-lg">
                         <i class="fa fa-minus" aria-hidden="true"></i></button>
 
                      <input type="number" id="quantity_<?php echo esc_attr(get_the_ID()); ?>" name="quantity" min="1"
                         value="1"
-                        class="h-[40px] w-[40px] countcart rounded-lg bg-[#F7F8F9] flex  justify-center items-center text-center"
+                        class="h-[35px] w-[35px] countcart rounded-lg bg-[#F7F8F9] flex  justify-center items-center text-center"
                         readonly>
                      <button
-                        class="increase bg-[gray] text-white flex justify-center items-center text-2xl   h-[40px] w-[40px]  rounded-lg">
+                        class="increase bg-[gray] text-white flex justify-center items-center text-2xl   h-[35px] w-[35px]  rounded-lg">
                         <i class="fa fa-plus text-lg" aria-hidden="true"></i></button>
 
                   </div>

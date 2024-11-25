@@ -36,19 +36,36 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
       });
   
       // کاهش تعداد
-      quantityInputDiv.querySelector('.decrease').addEventListener('click', () => {
-        if (quantity > 1) {
-          quantity--;
-          quantityInput.value = quantity;
-          updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
-        }
-      });
+// کاهش تعداد
+quantityInputDiv.querySelector('.decrease').addEventListener('click', () => {
+  console.log(quantity);
+  if (quantity > 1) {
+      quantity--;
+      quantityInput.value = quantity;
+      updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
+  } else {
+      const addButton = document.querySelector(`.add-to-cart[data-food-id="${foodId}"]`);
+      const quantityInputDiv = addButton.closest('.card__actions').querySelector('.quantity-input');
+      addButton.classList.remove('hidden');
+      quantityInputDiv.classList.add('hidden');
+
+      // حذف آیتم از localStorage وقتی تعداد صفر می‌شود
+      removeFromCart(foodId);
+  }
+});
+
   
       // بروز رسانی سبد خرید
       updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
     });
   });
-  
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.length; // مجموع تعداد اقلام
+    document.getElementById('cart-count').textContent = totalItems; // نمایش تعداد اقلام
+console.log(totalItems)
+  }
+
   // تابع به‌روزرسانی سبد خرید
   function updateCart(foodId, foodPrice, foodTitle, foodImage, quantity) {
     const cartItem = {
@@ -66,12 +83,14 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     } else {
       cart.push(cartItem);
     }
-  
+  console.log(cart)
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart();
+
+    updateCartCount();
   }
   
-  
+
   // به‌روزرسانی سبد خرید و نمایش آن با دکمه حذف
   function displayCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -131,5 +150,6 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     cart = cart.filter(item => item.id !== foodId); // فیلتر کردن آیتم با id خاص
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart(); // نمایش دوباره سبد خرید بعد از حذف
+    updateCartCount();
   }
   
