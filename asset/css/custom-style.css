@@ -20,6 +20,37 @@ html {
   padding: 0 15px;
 
 }
+/* تغییر استایل رنج‌بار با دو رنگ */
+input[type="range"] {
+  --value: 100%; 
+  direction: rtl;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  
+  background: linear-gradient(to left, #394339 0%, #181a19 var(--value), #ddd var(--value), #ddd 100%);
+  border-radius: 5px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  background: url('https://freepngdesign.com/content/uploads/images/pizza-emoji-icon-9477.png') no-repeat center;
+  background-size: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 40px;
+  height: 40px;
+  background: url('https://png.pngtree.com/png-clipart/20221001/ourmid/pngtree-fast-food-big-ham-burger-png-image_6244235.png') no-repeat center;
+  background-size: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
 /* mainpage css start */
 

@@ -48,7 +48,13 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
       updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
     });
   });
-  
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.length; // مجموع تعداد اقلام
+    document.getElementById('cart-count').textContent = totalItems; // نمایش تعداد اقلام
+console.log(totalItems)
+  }
+
   // تابع به‌روزرسانی سبد خرید
   function updateCart(foodId, foodPrice, foodTitle, foodImage, quantity) {
     const cartItem = {
@@ -69,9 +75,11 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
   
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart();
+
+    updateCartCount();
   }
   
-  
+
   // به‌روزرسانی سبد خرید و نمایش آن با دکمه حذف
   function displayCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -131,5 +139,6 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     cart = cart.filter(item => item.id !== foodId); // فیلتر کردن آیتم با id خاص
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart(); // نمایش دوباره سبد خرید بعد از حذف
+    updateCartCount();
   }
   

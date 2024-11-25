@@ -107,7 +107,7 @@ document.getElementById('submitGarsonRequest').addEventListener('click', functio
     cursor: pointer;
 }
 
-button {
+.openGarsonModal button {
     margin-top: 10px;
 }
 

@@ -123,7 +123,7 @@ document.getElementById('submitGarsonRequest').addEventListener('click', functio
     cursor: pointer;
 }
 
-button {
+.cart-items button {
     margin-top: 10px;
 }
 
