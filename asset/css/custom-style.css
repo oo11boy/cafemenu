@@ -7,6 +7,21 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+   /* مخفی کردن علامت‌های بالا و پایین برای input range */
+  .card__actions input[type=number]::-webkit-outer-spin-button,
+   input[type=number]::-webkit-inner-spin-button {
+       -webkit-appearance: none;
+       margin: 0;
+   }
+
+  .card__actions input[type=number] {
+       -moz-appearance: textfield; /* برای فایرفاکس */
+   }
+   #noItemsMessage{
+    position: absolute;
+    top: 10%;
+    font-family: yekan;
+   }
 
 .container-content {
   max-width: 650px;

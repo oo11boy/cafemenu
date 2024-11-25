@@ -38,7 +38,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
       // کاهش تعداد
 // کاهش تعداد
 quantityInputDiv.querySelector('.decrease').addEventListener('click', () => {
-  console.log(quantity);
+ 
   if (quantity > 1) {
       quantity--;
       quantityInput.value = quantity;

@@ -68,7 +68,7 @@
 </div>
 
 
-<div class="card-container">
+<div class="card-container relative">
    <div class="art-board__container  gap-y-4 viewfood yekan">
       <?php
       // کوئری برای دریافت پست‌های نوع food_item
