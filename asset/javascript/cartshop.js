@@ -36,13 +36,24 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
       });
   
       // کاهش تعداد
-      quantityInputDiv.querySelector('.decrease').addEventListener('click', () => {
-        if (quantity > 1) {
-          quantity--;
-          quantityInput.value = quantity;
-          updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
-        }
-      });
+// کاهش تعداد
+quantityInputDiv.querySelector('.decrease').addEventListener('click', () => {
+  console.log(quantity);
+  if (quantity > 1) {
+      quantity--;
+      quantityInput.value = quantity;
+      updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
+  } else {
+      const addButton = document.querySelector(`.add-to-cart[data-food-id="${foodId}"]`);
+      const quantityInputDiv = addButton.closest('.card__actions').querySelector('.quantity-input');
+      addButton.classList.remove('hidden');
+      quantityInputDiv.classList.add('hidden');
+
+      // حذف آیتم از localStorage وقتی تعداد صفر می‌شود
+      removeFromCart(foodId);
+  }
+});
+
   
       // بروز رسانی سبد خرید
       updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
@@ -72,7 +83,7 @@ console.log(totalItems)
     } else {
       cart.push(cartItem);
     }
-  
+  console.log(cart)
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart();
 

@@ -48,7 +48,9 @@ function toggleModal() {
         }, 10); // برای انیمیشن صاف‌تر
     }
 }
-
+function opencart(){
+    
+}
 // بستن مودال با کلیک بر روی دکمه
 document.getElementById('close-modal').addEventListener('click', () => {
     toggleModal();
