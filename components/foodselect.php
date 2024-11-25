@@ -12,8 +12,8 @@
    <div class="flex gap-4">
       <!-- دکمه "نمایش همه ایتم‌ها" -->
       <button class="category-btn" data-category-id="all">
-         <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] w-[90px] h-[90px] flex justify-center items-center p-4 rounded-xl category-img">
+         <div class="min-w-[60px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+            <div class="bg-[#e3e3e3] w-[60px] h-[60px] flex justify-center items-center p-4 rounded-xl category-img">
                <img class="w-[100%] object-cover " src="<?php echo get_theme_image_url('all.png'); ?>" alt="نمایش همه">
             </div>
             <p class="text-black"> همه</p>
@@ -44,8 +44,8 @@
             }
             ?>
             <button class="category-btn" data-category-id="<?php echo esc_attr($category->term_id); ?>">
-               <div class="min-w-[100px] w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-                  <div class="bg-[#e3e3e3]  w-[90px] h-[90px] flex justify-center items-center p-4 rounded-xl category-img">
+               <div class="min-w-[60px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+                  <div class="bg-[#e3e3e3]  w-[60px] h-[60px] flex justify-center items-center p-4 rounded-xl category-img">
                      <?php if ($icon_url) { ?>
                         <img class="w-full h-full object-cover" src="<?php echo esc_url($icon_url); ?>"
                            alt="<?php echo esc_attr($category->name); ?>">
