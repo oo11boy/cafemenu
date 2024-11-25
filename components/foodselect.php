@@ -96,13 +96,13 @@
                <div class="card__info">
                   <div class="car__info--title">
                      <h3><?php echo esc_html($food_title); ?></h3>
-                     <p><?php echo esc_html(mb_substr($food_description, 0, 10, 'UTF-8')); ?>...</p>
+                     <p><?php echo esc_html(mb_substr($food_description, 0, 25, 'UTF-8')); ?>...</p>
                      <span class="hidden">
                         <?php echo esc_html($food_description) ?>
                      </span>
                   </div>
                   <div class="card__info--price">
-                     <p><?php echo esc_html($food_price); ?> تومان</p>
+                     <p class="!text-[13px]"><?php echo esc_html($food_price); ?> تومان</p>
                   </div>
                </div>
 

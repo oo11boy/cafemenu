@@ -226,11 +226,12 @@ input[type="range"]::-moz-range-thumb {
   padding: 10px 30px 20px 30px;
 }
 .card__info h3 {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 .card__info p {
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 600;
 }
 .card__info--price {
