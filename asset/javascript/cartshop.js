@@ -36,19 +36,36 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
       });
   
       // کاهش تعداد
-      quantityInputDiv.querySelector('.decrease').addEventListener('click', () => {
-        if (quantity > 1) {
-          quantity--;
-          quantityInput.value = quantity;
-          updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
-        }
-      });
+// کاهش تعداد
+quantityInputDiv.querySelector('.decrease').addEventListener('click', () => {
+ 
+  if (quantity > 1) {
+      quantity--;
+      quantityInput.value = quantity;
+      updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
+  } else {
+      const addButton = document.querySelector(`.add-to-cart[data-food-id="${foodId}"]`);
+      const quantityInputDiv = addButton.closest('.card__actions').querySelector('.quantity-input');
+      addButton.classList.remove('hidden');
+      quantityInputDiv.classList.add('hidden');
+
+      // حذف آیتم از localStorage وقتی تعداد صفر می‌شود
+      removeFromCart(foodId);
+  }
+});
+
   
       // بروز رسانی سبد خرید
       updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
     });
   });
-  
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.length; // مجموع تعداد اقلام
+    document.getElementById('cart-count').textContent = totalItems; // نمایش تعداد اقلام
+console.log(totalItems)
+  }
+
   // تابع به‌روزرسانی سبد خرید
   function updateCart(foodId, foodPrice, foodTitle, foodImage, quantity) {
     const cartItem = {
@@ -66,12 +83,14 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     } else {
       cart.push(cartItem);
     }
-  
+  console.log(cart)
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart();
+
+    updateCartCount();
   }
   
-  
+
   // به‌روزرسانی سبد خرید و نمایش آن با دکمه حذف
   function displayCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -97,7 +116,8 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
   
         
       <div class="flex h-[100px] yekan relative justify-starth-[80px] w-full border shadow" id="cart-item-${item.id}">
-          <img class="w-[30%] h-[100%] object-cover"  src="${item.image}" >
+        <img class="w-[30%] h-[100%] object-cover" src="${item.image || '../wp-content/themes/cafemenu/asset/image/dimg.png'}">
+
           <div class=" py-2 pr-2  justify-between flex flex-col">
             <div class="flex justify-start"> <h2>${item.title}</h2></div> 
             <div>تعداد: ${item.quantity}</div>
@@ -131,5 +151,6 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     cart = cart.filter(item => item.id !== foodId); // فیلتر کردن آیتم با id خاص
     localStorage.setItem('cart', JSON.stringify(cart));
     displayCart(); // نمایش دوباره سبد خرید بعد از حذف
+    updateCartCount();
   }
   

@@ -1,33 +1,17 @@
-<div id="cart-items" class="cart-container    bg-white rounded-lg mt-2  mx-auto ">
-<div class="flex w-full mb-2 bg-gray-200 border rounded-md p-2 reyhaneh justify-between items-center">
-    <p class="text-3xl text-black"><?php echo esc_html(get_option('cafe_name')); ?></p>
-    <img class="w-[50px] h-[50px] rounded-full"   src="<?php echo esc_url(get_option('cafe_logo')); ?>"
-        alt="Default avatar">
-</div> 
-<!-- پیغام سبد خرید خالی -->
-    <div id="empty-cart-message" class=" text-center text-lg text-gray-500">
-
-    <div class="h-[55vh] flex-col flex justify-center gap-2 items-center w-full">
-        
-   <i class="fa fa-2x text-gray-400 fa-shopping-cart" aria-hidden="true"></i>
-   <p class="text-gray-400   yekan" >سبد سفارشات شما خالی است! </p>
- 
-   </div>
-    </div>
-    <div id="cart-list" class="flex max-h-[55vh]  overflow-auto flex-col gap-4">
-
-  
-    
-    </div>
-    <div class="mt-6 yekan text-center text-lg font-semibold text-gray-700">
-        <p>جمع کل: <span id="total-price">0</span> تومان</p>
-    </div>
+<!-- مودال درخواست گارسون -->
+<div id="garsonModal" class="modal hidden yekan !z-[999] absolute top-0 inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50">
+  <div class="modal-content bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+    <span id="closeModal" class="close absolute top-2 right-2 text-xl font-bold text-[blue] cursor-pointer hover:text-gray-800">&times;</span>
+    <h2 class="text-2xl font-semibold mb-4">درخواست گارسون</h2>
+    <label for="tableNumber" class="text-lg text-gray-700">شماره میز:</label>
+    <input type="text" id="tableNumber" placeholder="شماره میز را وارد کنید" class="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+    <button id="submitGarsonRequest" class="mt-4 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300">
+        ثبت درخواست
+    </button>
+  </div>
 </div>
 
-<!-- دکمه ثبت درخواست گارسون -->
-<button class="openGarsonModal mt-4   w-full p-4 reyhaneh bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
-    درخواست گارسون
-</button>
+
 <script>
 
 // اضافه کردن Event Listener به تمام دکمه‌های باز کردن مودال
@@ -110,20 +94,29 @@ document.getElementById('submitGarsonRequest').addEventListener('click', functio
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    color: white;
+
+    font-size: 40px;
     font-weight: bold;
+    background-color: #00000096;
+    padding: 5px;
+    width: 50px;
+    padding-top: 13px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
 
-.cart-items button {
+.openGarsonModal button {
     margin-top: 10px;
 }
 
