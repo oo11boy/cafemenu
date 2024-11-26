@@ -88,11 +88,13 @@
             $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
             $category_ids = wp_list_pluck($food_categories, 'term_id');
             ?>
-            <div class="card relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
+            <div class="card cursor-pointer relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
                data-price="<?php echo esc_html($food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
                <div class="card__image">
-                  <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
-               </div>
+   <img src="<?php echo esc_url($food_image ? $food_image : get_theme_image_url('dimg.png')); ?>" 
+        alt="<?php echo esc_attr($food_title); ?>" />
+</div>
+
                <div class="card__info">
                   <div class="car__info--title">
                      <h3><?php echo esc_html($food_title); ?></h3>

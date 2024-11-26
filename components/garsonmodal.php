@@ -1,7 +1,7 @@
 <!-- مودال درخواست گارسون -->
 <div id="garsonModal" class="modal hidden yekan !z-[999] absolute top-0 inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50">
   <div class="modal-content bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-    <span id="closeModal" class="close absolute top-2 right-2 text-xl font-bold text-gray-500 cursor-pointer hover:text-gray-800">&times;</span>
+    <span id="closeModal" class="close absolute top-2 right-2 text-xl font-bold text-[blue] cursor-pointer hover:text-gray-800">&times;</span>
     <h2 class="text-2xl font-semibold mb-4">درخواست گارسون</h2>
     <label for="tableNumber" class="text-lg text-gray-700">شماره میز:</label>
     <input type="text" id="tableNumber" placeholder="شماره میز را وارد کنید" class="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -94,15 +94,24 @@ document.getElementById('submitGarsonRequest').addEventListener('click', functio
 }
 
 .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    color: white;
+
+    font-size: 40px;
     font-weight: bold;
+    background-color: #00000096;
+    padding: 5px;
+    width: 50px;
+    padding-top: 13px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
 }
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }

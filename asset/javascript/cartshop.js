@@ -116,7 +116,8 @@ console.log(totalItems)
   
         
       <div class="flex h-[100px] yekan relative justify-starth-[80px] w-full border shadow" id="cart-item-${item.id}">
-          <img class="w-[30%] h-[100%] object-cover"  src="${item.image}" >
+        <img class="w-[30%] h-[100%] object-cover" src="${item.image || '../wp-content/themes/cafemenu/asset/image/dimg.png'}">
+
           <div class=" py-2 pr-2  justify-between flex flex-col">
             <div class="flex justify-start"> <h2>${item.title}</h2></div> 
             <div>تعداد: ${item.quantity}</div>
