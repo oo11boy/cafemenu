@@ -7,6 +7,21 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
+   /* مخفی کردن علامت‌های بالا و پایین برای input range */
+  .card__actions input[type=number]::-webkit-outer-spin-button,
+   input[type=number]::-webkit-inner-spin-button {
+       -webkit-appearance: none;
+       margin: 0;
+   }
+
+  .card__actions input[type=number] {
+       -moz-appearance: textfield; /* برای فایرفاکس */
+   }
+   #noItemsMessage{
+    position: absolute;
+    top: 10%;
+    font-family: yekan;
+   }
 
 .container-content {
   max-width: 650px;
@@ -211,11 +226,12 @@ input[type="range"]::-moz-range-thumb {
   padding: 10px 30px 20px 30px;
 }
 .card__info h3 {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 .card__info p {
-  font-size: 14px;
+  font-size: 10px;
   font-weight: 600;
 }
 .card__info--price {
@@ -408,19 +424,11 @@ input[type="range"]::-moz-range-thumb {
 
 .card-container-offer {
   display: flex;
-  flex-wrap: wrap; /* این کار باعث می‌شود کارت‌ها در ردیف‌های جدید قرار بگیرند */
   justify-content: space-between;
-  gap: 1.5rem; /* فاصله بین کارت‌ها */
+  gap: 1rem; /* فاصله بین کارت‌ها */
 }
 
-@media (max-width: 475px) {
-  .card-container-offer {
-    flex-direction: column; /* برای صفحه‌های کوچک‌تر کارت‌ها در یک ستون قرار می‌گیرند */
-  }
-  .recipe-card-1 {
-    width: 100% !important; /* در موبایل کارت‌ها به صورت تمام عرض نمایش داده می‌شوند */
-  }
-}
+
 
 .recipe-card-1 {
   position: relative;
@@ -455,8 +463,9 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .recipe-info h3 {
-  font-size: 2rem;
+  font-size: 20px;
   text-align: right;
+  font-weight: 1000;
 }
 
 .recipe-ratings {
@@ -467,7 +476,17 @@ input[type="range"]::-moz-range-thumb {
   display: flex;
   flex-direction: row;
   align-items: center;
-  column-gap: 1.4rem;
+  justify-content: space-between;
+ 
   margin-top: 10px;
 }
 
+
+@media (max-width: 500px) {
+  .card-container-offer {
+    flex-direction: column; /* برای صفحه‌های کوچک‌تر کارت‌ها در یک ستون قرار می‌گیرند */
+  }
+  .recipe-card-1 {
+    width: 100% !important; /* در موبایل کارت‌ها به صورت تمام عرض نمایش داده می‌شوند */
+  }
+}

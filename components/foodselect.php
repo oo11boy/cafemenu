@@ -12,8 +12,8 @@
    <div class="flex gap-4">
       <!-- دکمه "نمایش همه ایتم‌ها" -->
       <button class="category-btn" data-category-id="all">
-         <div class="min-w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-            <div class="bg-[#e3e3e3] w-[90px] h-[90px] flex justify-center items-center p-4 rounded-xl category-img">
+         <div class="min-w-[60px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+            <div class="bg-[#e3e3e3] w-[60px] h-[60px] flex justify-center items-center p-4 rounded-xl category-img">
                <img class="w-[100%] object-cover " src="<?php echo get_theme_image_url('all.png'); ?>" alt="نمایش همه">
             </div>
             <p class="text-black"> همه</p>
@@ -44,8 +44,8 @@
             }
             ?>
             <button class="category-btn" data-category-id="<?php echo esc_attr($category->term_id); ?>">
-               <div class="min-w-[100px] w-[100px] text-white whitespace-nowrap flex flex-col justify-center items-center">
-                  <div class="bg-[#e3e3e3]  w-[90px] h-[90px] flex justify-center items-center p-4 rounded-xl category-img">
+               <div class="min-w-[60px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+                  <div class="bg-[#e3e3e3]  w-[60px] h-[60px] flex justify-center items-center p-4 rounded-xl category-img">
                      <?php if ($icon_url) { ?>
                         <img class="w-full h-full object-cover" src="<?php echo esc_url($icon_url); ?>"
                            alt="<?php echo esc_attr($category->name); ?>">
@@ -68,7 +68,7 @@
 </div>
 
 
-<div class="card-container">
+<div class="card-container relative">
    <div class="art-board__container  gap-y-4 viewfood yekan">
       <?php
       // کوئری برای دریافت پست‌های نوع food_item
@@ -88,21 +88,23 @@
             $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
             $category_ids = wp_list_pluck($food_categories, 'term_id');
             ?>
-            <div class="card relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
+            <div class="card  cursor-pointer relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
                data-price="<?php echo esc_html($food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
                <div class="card__image">
-                  <img src="<?php echo esc_url($food_image); ?>" alt="<?php echo esc_attr($food_title); ?>" />
-               </div>
+   <img src="<?php echo esc_url($food_image ? $food_image : get_theme_image_url('dimg.png')); ?>" 
+        alt="<?php echo esc_attr($food_title); ?>" />
+</div>
+
                <div class="card__info">
                   <div class="car__info--title">
                      <h3><?php echo esc_html($food_title); ?></h3>
-                     <p><?php echo esc_html(mb_substr($food_description, 0, 10, 'UTF-8')); ?>...</p>
+                     <p><?php echo esc_html(mb_substr($food_description, 0, 25, 'UTF-8')); ?>...</p>
                      <span class="hidden">
                         <?php echo esc_html($food_description) ?>
                      </span>
                   </div>
                   <div class="card__info--price">
-                     <p><?php echo esc_html($food_price); ?> تومان</p>
+                     <p class="!text-[13px]"><?php echo esc_html($food_price); ?> تومان</p>
                   </div>
                </div>
 
@@ -120,7 +122,7 @@
                   </button>
 
                   <!-- اینپوت تعداد و دکمه‌های + و - -->
-                  <div class="quantity-input flex justify-center !items-center  hidden items-center">
+                  <div class="quantity-input  flex justify-center !items-center  hidden items-center">
 
 
                      <button
