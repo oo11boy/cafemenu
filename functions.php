@@ -132,31 +132,6 @@ function save_special_offer_meta($post_id)
 add_action('save_post', 'save_special_offer_meta');
 
 
-function edit_food_category_image_field($term, $taxonomy)
-{
-    $image_id = get_term_meta($term->term_id, 'category_image', true);
-    ?>
-    <tr class="form-field term-group-wrap">
-        <th scope="row"><label for="category-image-id"><?php _e('تصویر دسته‌بندی', 'mytheme'); ?></label></th>
-        <td>
-            <input type="hidden" id="category-image-id" name="category-image-id" value="<?php echo esc_attr($image_id); ?>">
-            <div id="category-image-wrapper">
-                <?php if ($image_id) {
-                    echo wp_get_attachment_image($image_id, 'thumbnail');
-                } ?>
-            </div>
-            <p>
-                <input type="button" class="button button-secondary" id="category-image-button"
-                    value="<?php _e('تغییر تصویر', 'mytheme'); ?>">
-                <input type="button" class="button button-secondary" id="category-image-remove-button"
-                    value="<?php _e('حذف تصویر', 'mytheme'); ?>">
-            </p>
-        </td>
-    </tr>
-    <?php
-}
-add_action('food_category_edit_form_fields', 'edit_food_category_image_field', 10, 2);
-
 
 
 
