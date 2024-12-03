@@ -31,30 +31,34 @@ function ajax_search_food_items()
 
                         <div data-price="<?php echo esc_html($food_price); ?>"
                             data-categories="<?php echo implode(' ', $category_ids); ?>" style="
-    width: 100%;
-    border: 1px solid #E8E8E8;
-    height: 80px;
-" class="flex card rounded-lg  items-center cursor-pointer z-[920] shadow">
+                            width: 100%;
+                            border: 1px solid #E8E8E8;
+                            height: 80px;
+                            "class="flex card rounded-lg  items-center cursor-pointer z-[920] shadow"
+                            id="card">
 
-                            <div class="card__image w-[100px]">
+                            <div class="card__image w-[100px]" id="card__image">
                                 <img class="h-[full] w-full" src="<?php echo esc_url($food_image); ?>"
-                                    alt="<?php echo esc_attr($food_title); ?>" />
+                                alt="<?php echo esc_attr($food_title); ?>" />
                             </div>
 
 
-                            <div  class="card__info" style="
-    display: flex;
-    flex-direction: column;
-    align-items: unset;
-    height: 100%;
-    justify-content: space-between;
-    padding-right: 10px;
-">
+                            <div class="card__info" id="card__info" style="
+                                display: flex;
+                                flex-direction: column;
+                                align-items: unset;
+                                height: 100%;
+                                justify-content: space-between;
+                                padding-right: 10px;
+                            ">
    
                                 <div class="card__info--title">
                                     <h3><?php echo esc_html($food_title); ?></h3>
                                     <p><?php echo esc_html(mb_substr($food_description, 0, 20, 'UTF-8')); ?>...</p>
                                     <!-- فقط 10 حرف اول -->
+                                    <span class="hidden">
+                                        <?php echo esc_html($food_description) ?>
+                                    </span>
 
                                 </div>
 

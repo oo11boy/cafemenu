@@ -14,7 +14,6 @@ document.querySelectorAll('#card').forEach(card => {
         openModal(foodData); // فراخوانی تابع برای باز کردن مودال
         
       }
-      console.log('card', card);
       
     });
   });

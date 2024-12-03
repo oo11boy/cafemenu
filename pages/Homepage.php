@@ -15,7 +15,6 @@
     </div>
 </form>
 
-
 <div class="relative">
     <img class="rounded-xl" src="<?php echo get_theme_image_url('foodbg.jpg'); ?>" alt="" srcset="">
    <div class="absolute poster flex flex-col h-[100%] justify-between py-8 top-0  z-50 right-5">
