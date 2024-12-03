@@ -88,22 +88,22 @@
             $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
             $category_ids = wp_list_pluck($food_categories, 'term_id');
             ?>
-            <div class="card cursor-pointer relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
-               data-price="<?php echo esc_html($food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
-               <div class="card__image">
-   <img src="<?php echo esc_url($food_image ? $food_image : get_theme_image_url('dimg.png')); ?>" 
-        alt="<?php echo esc_attr($food_title); ?>" />
-</div>
+            <div class="card  cursor-pointer relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
+               id="card" data-price="<?php echo esc_html($food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
+               <div class="card__image" id="card__image">
+                  <img src="<?php echo esc_url($food_image ? $food_image : get_theme_image_url('dimg.png')); ?>" 
+                  alt="<?php echo esc_attr($food_title); ?>" />
+               </div>
 
-               <div class="card__info">
-                  <div class="car__info--title">
+               <div class="card__info" id="card__info">
+                  <div class="car__info--title" id="car__info--title">
                      <h3><?php echo esc_html($food_title); ?></h3>
                      <p><?php echo esc_html(mb_substr($food_description, 0, 25, 'UTF-8')); ?>...</p>
                      <span class="hidden">
                         <?php echo esc_html($food_description) ?>
                      </span>
                   </div>
-                  <div class="card__info--price">
+                  <div class="card__info--price" id="card__info--price">
                      <p class="!text-[13px]"><?php echo esc_html($food_price); ?> تومان</p>
                   </div>
                </div>
@@ -122,7 +122,7 @@
                   </button>
 
                   <!-- اینپوت تعداد و دکمه‌های + و - -->
-                  <div class="quantity-input flex justify-center !items-center  hidden items-center">
+                  <div class="quantity-input  flex justify-center !items-center  hidden items-center">
 
 
                      <button

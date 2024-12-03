@@ -414,3 +414,79 @@ input[type="range"]::-moz-range-thumb {
 }
 
 }
+
+
+/* پیشنهاد های ویژه */
+
+.special-offers {
+  margin-top: 2rem;
+}
+
+.card-container-offer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem; /* فاصله بین کارت‌ها */
+}
+
+
+
+.recipe-card-1 {
+  position: relative;
+  width: 48%; /* دو ستون در هر ردیف */
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card-1:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.recipe-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+.recipe-details-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 1.4rem;
+  color: white;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+  box-sizing: border-box;
+}
+
+.recipe-info h3 {
+  font-size: 20px;
+  text-align: right;
+  font-weight: 1000;
+}
+
+.recipe-ratings {
+  margin-top: 10px;
+}
+
+.recipe-overview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+ 
+  margin-top: 10px;
+}
+
+
+@media (max-width: 500px) {
+  .card-container-offer {
+    flex-direction: column; /* برای صفحه‌های کوچک‌تر کارت‌ها در یک ستون قرار می‌گیرند */
+  }
+  .recipe-card-1 {
+    width: 100% !important; /* در موبایل کارت‌ها به صورت تمام عرض نمایش داده می‌شوند */
+  }
+}

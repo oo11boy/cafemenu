@@ -103,6 +103,34 @@ add_action('wp_enqueue_scripts', 'add_custom_font');
 
 
 
+// افزودن فیلد متا برای پیشنهاد ویژه
+function add_food_item_special_offer_meta_box()
+{
+    add_meta_box('special_offer_meta_box', __('پیشنهاد ویژه', 'mytheme'), 'render_special_offer_meta_box', 'food_item', 'side', 'default');
+}
+add_action('add_meta_boxes', 'add_food_item_special_offer_meta_box');
+
+function render_special_offer_meta_box($post)
+{
+    $is_special_offer = get_post_meta($post->ID, 'special_offer', true);
+    ?>
+    <label for="special_offer"><?php _e('آیا این پیشنهاد ویژه است؟', 'mytheme'); ?></label>
+    <select name="special_offer" id="special_offer" style="width: 100%;">
+        <option value="1" <?php selected($is_special_offer, '1'); ?>>بله</option>
+        <option value="0" <?php selected($is_special_offer, '0'); ?>>خیر</option>
+    </select>
+    <?php
+}
+
+// ذخیره فیلد پیشنهاد ویژه
+function save_special_offer_meta($post_id)
+{
+    if (isset($_POST['special_offer'])) {
+        update_post_meta($post_id, 'special_offer', sanitize_text_field($_POST['special_offer']));
+    }
+}
+add_action('save_post', 'save_special_offer_meta');
+
 
 
 

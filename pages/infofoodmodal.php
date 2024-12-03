@@ -8,7 +8,7 @@ Template Name: foodmodal
 
 
 
-<div class="fixed z-[900] overflow-y-auto top-0 w-full left-0 hidden" id="modal">
+<div class="fixed z-[900] top-0 w-full left-0 hidden" id="modal">
   <div class="container-content yekan food-modal relative">
     <button type="button" class="py-2 px-4 bg-gray-500 text-white rounded hover:bg-gray-700 mr-2" onclick="toggleModal()"><i class="fas fa-times"></i> </button>
 
@@ -18,7 +18,7 @@ Template Name: foodmodal
       </div>
       <div class="bg-white p-5 pt-3 rounded-tl-[50px] fixed bottom-0 md:w-[650px]">
         <div class="flex justify-between mt-3">
-          <span class="text-lg food-price">100000 تومن</span>
+          <span class="text-lg food-price"></span>
         </div>
         <div class="flex justify-between items-center mt-5 mb-4">
           <span class="font-bold text-xl food-title">برگر یونیکد</span>
@@ -32,7 +32,7 @@ Template Name: foodmodal
         <div class=" bg-[gray] rounded-lg p-1 card__actions absolute top-0 left-5 flex justify-between items-center mt-2">
                   <!-- دکمه + -->
                   <button
-                     class="add-to-cart bg-[gray] text-white flex justify-center items-center text-2xl   h-[35px] w-[35px]  rounded-lg"
+                     class="add-to-cart bg-[gray] text-white flex justify-center items-center text-2xl h-[35px] w-[35px]  rounded-lg"
                      data-food-id="<?php echo esc_attr(get_the_ID()); ?>"
                      data-food-price="<?php echo esc_attr($food_price); ?>"
                      data-food-title="<?php echo esc_attr($food_title); ?>"
