@@ -3,7 +3,7 @@
    <input class="pricerange" style="accent-color: #1a543b" type="range" id="rangeInput" min="100000" step="100000"
       max="1000000" value="1000000" />
    <div class="w-1/2 text-sm sm:text-sm text-left  text-white">
-      زیر <span id="rangeValue" class="text-[10px] sm:text-sm">1000000</span> تومان
+      زیر <span id="rangeValue" class="text-[10px] sm:text-sm "></span>
    </div>
 </div>
 
@@ -104,7 +104,7 @@
                      </span>
                   </div>
                   <div class="card__info--price" id="card__info--price">
-                     <p class="!text-[13px]"><?php echo esc_html($food_price); ?> تومان</p>
+                     <p class="!text-[13px] recipe-price" data-raw-price="<?php echo esc_attr($food_price); ?>"></p>
                   </div>
                </div>
 

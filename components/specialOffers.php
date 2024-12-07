@@ -35,7 +35,7 @@
                             </span>
                             <div class="recipe-overview">
                                 
-                                <p class="recipe-price"><?php echo esc_html($food_price); ?> تومان</p>
+                            <p class="recipe-price" data-raw-price="<?php echo esc_attr($food_price); ?>"></p>
                             </div>
                         </div>
                     </div>

@@ -25,20 +25,18 @@ function my_theme_scripts()
     // بارگذاری استایل اصلی
     wp_enqueue_style('main-stylesheet', get_template_directory_uri() . '/asset/css/custom-style.css');
 
-    // بارگذاری یک اسکریپت سفارشی
-    wp_enqueue_script('custom-js', get_template_directory_uri() . '/asset/javascript/custom-js.js', array('jquery'), null, true);
-    // بارگذاری یک اسکریپت سفارشی
+    // بارگذاری اسکریپت‌های دیگر
+    wp_enqueue_script('custom-js', get_template_directory_uri() . '/asset/javascript/custom.js', array('jquery'), null, true);
     wp_enqueue_script('foodmodal-js', get_template_directory_uri() . '/asset/javascript/openfoodmodal.js', array('jquery'), null, true);
-  // بارگذاری یک اسکریپت سفارشی
     wp_enqueue_script('structure-js', get_template_directory_uri() . '/asset/javascript/structure.js', array('jquery'), null, true);
-  // بارگذاری یک اسکریپت سفارشی
-  wp_enqueue_script('garson-js', get_template_directory_uri() . '/asset/javascript/garson.js', array('jquery'), null, true);
-  // بارگذاری یک اسکریپت سفارشی
-  wp_enqueue_script('ajaxsearch-js', get_template_directory_uri() . '/asset/javascript/ajaxsearch.js', array('jquery'), null, true);
-  // بارگذاری یک اسکریپت سفارشی
-  wp_enqueue_script('cartshop-js', get_template_directory_uri() . '/asset/javascript/cartshop.js', array('jquery'), null, true);
+    wp_enqueue_script('garson-js', get_template_directory_uri() . '/asset/javascript/garson.js', array('jquery'), null, true);
+    wp_enqueue_script('ajaxsearch-js', get_template_directory_uri() . '/asset/javascript/ajaxsearch.js', array('jquery'), null, true);
+    wp_enqueue_script('cartshop-js', get_template_directory_uri() . '/asset/javascript/cartshop.js', array('jquery'), null, true);
 
-    // اضافه کردن ajaxurl برای استفاده در جاوا اسکریپت
+    // بارگذاری priceFormater به عنوان ماژول
+    wp_enqueue_script('priceFormater-js', get_template_directory_uri() . '/asset/javascript/priceFormater.js', array(), null, true);
+
+    // اضافه کردن ajaxurl برای استفاده در جاوااسکریپت
     wp_localize_script('custom-js', 'ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php')
     ));
