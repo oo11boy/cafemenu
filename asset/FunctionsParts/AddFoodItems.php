@@ -1,5 +1,53 @@
 <?php 
 
+
+function add_discount_column_to_food_items($columns) {
+    $columns['discount'] = __('تخفیف', 'mytheme');  // افزودن ستون تخفیف
+    return $columns;
+}
+add_filter('manage_food_item_posts_columns', 'add_discount_column_to_food_items');
+
+// نمایش وضعیت تخفیف در ستون جدید
+function display_discount_in_food_items_column($column, $post_id) {
+    if ($column === 'discount') {
+        // بررسی وجود قیمت تخفیف‌دار
+        $discount_price = get_post_meta($post_id, 'discount_price', true);
+        if (!empty($discount_price)) {
+            echo '
+            <style>
+
+            .discount-badge-container {
+    margin-top: 5px;
+}
+
+.discount-badge {
+    background-color: #FF5733;
+    color: white;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-left: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.discount-badge:hover {
+    background-color: #C0392B;
+}
+
+
+</style>
+            <span class="discount-badge">' . __('تخفیف‌دار', 'mytheme') . '</span>';
+        } else {
+            echo '<span style="color: black;">' . __('بدون تخفیف', 'mytheme') . '</span>';
+        }
+    }
+}
+add_action('manage_food_item_posts_custom_column', 'display_discount_in_food_items_column', 10, 2);
+
 // ثبت نوع پست سفارشی برای آیتم‌های غذا
 function register_food_post_type()
 {
@@ -188,8 +236,6 @@ function edit_food_category_icon_field($term, $taxonomy)
     <?php
 }
 add_action('food_category_edit_form_fields', 'edit_food_category_icon_field', 10, 2);
-
-
 
 
 
