@@ -95,43 +95,11 @@ add_action('wp_enqueue_scripts', 'add_custom_font');
 
 
 
-
-
-
-
-// افزودن متاباکس برای قیمت تخفیف‌دار
-function add_food_item_discount_price_meta_box()
-{
-    add_meta_box('discount_price_meta_box', __('قیمت تخفیف‌دار', 'mytheme'), 'render_discount_price_meta_box', 'food_item', 'side', 'default');
-}
-add_action('add_meta_boxes', 'add_food_item_discount_price_meta_box');
-
-// رندر متاباکس قیمت تخفیف‌دار
-function render_discount_price_meta_box($post)
-{
-    $discount_price = get_post_meta($post->ID, 'discount_price', true);
-    ?>
-    <label for="discount_price"><?php _e('قیمت با تخفیف', 'mytheme'); ?></label>
-    <input type="number" name="discount_price" id="discount_price" value="<?php echo esc_attr($discount_price); ?>" style="width: 100%;" />
-    <?php
-}
-
-// ذخیره فیلد قیمت تخفیف‌دار
-function save_discount_price_meta($post_id)
-{
-    if (isset($_POST['discount_price'])) {
-        update_post_meta($post_id, 'discount_price', sanitize_text_field($_POST['discount_price']));
-    }
-}
-add_action('save_post', 'save_discount_price_meta');
-
-
-
-
 require_once get_template_directory() . '/asset/FunctionsParts/AddFoodItems.php';
 require_once get_template_directory() . '/asset/FunctionsParts/Garson.php';
 require_once get_template_directory() . '/asset/FunctionsParts/AjaxSearch.php';
 require_once get_template_directory() . '/asset/FunctionsParts/CafeInformations.php';
+require_once get_template_directory() . '/asset/FunctionsParts/Discount_Price.php';
 
 
 // پایان فایل functions.php
