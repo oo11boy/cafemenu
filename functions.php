@@ -99,34 +99,31 @@ add_action('wp_enqueue_scripts', 'add_custom_font');
 
 
 
-// افزودن فیلد متا برای پیشنهاد ویژه
-function add_food_item_special_offer_meta_box()
+// افزودن متاباکس برای قیمت تخفیف‌دار
+function add_food_item_discount_price_meta_box()
 {
-    add_meta_box('special_offer_meta_box', __('پیشنهاد ویژه', 'mytheme'), 'render_special_offer_meta_box', 'food_item', 'side', 'default');
+    add_meta_box('discount_price_meta_box', __('قیمت تخفیف‌دار', 'mytheme'), 'render_discount_price_meta_box', 'food_item', 'side', 'default');
 }
-add_action('add_meta_boxes', 'add_food_item_special_offer_meta_box');
+add_action('add_meta_boxes', 'add_food_item_discount_price_meta_box');
 
-function render_special_offer_meta_box($post)
+// رندر متاباکس قیمت تخفیف‌دار
+function render_discount_price_meta_box($post)
 {
-    $is_special_offer = get_post_meta($post->ID, 'special_offer', true);
+    $discount_price = get_post_meta($post->ID, 'discount_price', true);
     ?>
-    <label for="special_offer"><?php _e('آیا این پیشنهاد ویژه است؟', 'mytheme'); ?></label>
-    <select name="special_offer" id="special_offer" style="width: 100%;">
-        <option value="1" <?php selected($is_special_offer, '1'); ?>>بله</option>
-        <option value="0" <?php selected($is_special_offer, '0'); ?>>خیر</option>
-    </select>
+    <label for="discount_price"><?php _e('قیمت با تخفیف', 'mytheme'); ?></label>
+    <input type="number" name="discount_price" id="discount_price" value="<?php echo esc_attr($discount_price); ?>" style="width: 100%;" />
     <?php
 }
 
-// ذخیره فیلد پیشنهاد ویژه
-function save_special_offer_meta($post_id)
+// ذخیره فیلد قیمت تخفیف‌دار
+function save_discount_price_meta($post_id)
 {
-    if (isset($_POST['special_offer'])) {
-        update_post_meta($post_id, 'special_offer', sanitize_text_field($_POST['special_offer']));
+    if (isset($_POST['discount_price'])) {
+        update_post_meta($post_id, 'discount_price', sanitize_text_field($_POST['discount_price']));
     }
 }
-add_action('save_post', 'save_special_offer_meta');
-
+add_action('save_post', 'save_discount_price_meta');
 
 
 
