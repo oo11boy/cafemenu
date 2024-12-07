@@ -84,12 +84,14 @@
             $food_title = get_the_title();
             $food_description = get_the_content();
             $food_image = get_the_post_thumbnail_url();
+            $discount_price = get_post_meta(get_the_ID(), 'discount_price', true); // قیمت با تخفیف
+               
             $food_price = get_post_meta(get_the_ID(), 'food_price', true);
             $food_categories = wp_get_post_terms(get_the_ID(), 'food_category');
             $category_ids = wp_list_pluck($food_categories, 'term_id');
             ?>
             <div class="card  cursor-pointer relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
-               id="card" data-price="<?php echo esc_html($food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
+               id="card" data-price="<?php echo esc_attr($discount_price ? $discount_price : $food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
                <div class="card__image" id="card__image">
                   <img src="<?php echo esc_url($food_image ? $food_image : get_theme_image_url('dimg.png')); ?>" 
                   alt="<?php echo esc_attr($food_title); ?>" />
@@ -104,8 +106,16 @@
                      </span>
                   </div>
                   <div class="card__info--price" id="card__info--price">
-                     <p class="!text-[13px] recipe-price" data-raw-price="<?php echo esc_attr($food_price); ?>"></p>
-                  </div>
+                  <p class="!text-[13px] recipe-price" data-raw-price="<?php echo esc_attr($discount_price ? $discount_price : $food_price); ?>">
+    <?php if ($discount_price) : ?>
+        <span class="line-through absolute top-0 text-red-500"><?php echo esc_attr($food_price); ?> تومان</span> <!-- قیمت اصلی -->
+        <span class="text-green-500"><?php echo esc_attr($discount_price); ?> تومان</span> <!-- قیمت تخفیف‌دار -->
+    <?php else : ?>
+        <span><?php echo esc_attr($food_price); ?> تومان</span> <!-- فقط قیمت اصلی -->
+    <?php endif; ?>
+</p>
+
+</div>
                </div>
 
 
@@ -115,7 +125,7 @@
                   <button
                      class="add-to-cart bg-[gray] text-white flex justify-center items-center text-2xl   h-[35px] w-[35px]  rounded-lg"
                      data-food-id="<?php echo esc_attr(get_the_ID()); ?>"
-                     data-food-price="<?php echo esc_attr($food_price); ?>"
+                     data-food-price="<?php echo esc_attr($discount_price ? $discount_price : $food_price); ?>"
                      data-food-title="<?php echo esc_attr($food_title); ?>"
                      data-food-image="<?php echo esc_attr($food_image); ?>">
                      <i class="fa fa-plus text-lg" aria-hidden="true"></i>
