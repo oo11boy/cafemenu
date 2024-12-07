@@ -32,8 +32,6 @@ function my_theme_scripts()
     wp_enqueue_script('garson-js', get_template_directory_uri() . '/asset/javascript/garson.js', array('jquery'), null, true);
     wp_enqueue_script('ajaxsearch-js', get_template_directory_uri() . '/asset/javascript/ajaxsearch.js', array('jquery'), null, true);
     wp_enqueue_script('cartshop-js', get_template_directory_uri() . '/asset/javascript/cartshop.js', array('jquery'), null, true);
-
-    // بارگذاری priceFormater به عنوان ماژول
     wp_enqueue_script('priceFormater-js', get_template_directory_uri() . '/asset/javascript/priceFormater.js', array(), null, true);
 
     // اضافه کردن ajaxurl برای استفاده در جاوااسکریپت

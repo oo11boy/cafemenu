@@ -11,7 +11,7 @@ function ajax_search_food_items()
             'posts_per_page' => 5, // Limit the results to 5
         );
         $search_query = new WP_Query($args);
-        if ($search_query->have_posts()) {
+        if ($search_query->have_posts()) { 
             ?>
             <div class="card-container  ">
                 <div class="art-board__container gap-4 viewfood yekan">
@@ -63,7 +63,7 @@ function ajax_search_food_items()
                                 </div>
 
                                 <div class="card__info--price">
-                                    <p><?php echo esc_html($food_price); ?> تومان</p>
+                                    <p class="recipe-price" data-raw-price="<?php echo esc_attr($food_price); ?>"></p>
                                 </div>
                             </div>
                         </div>

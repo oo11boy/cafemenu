@@ -23,7 +23,7 @@ function openModal(foodData) {
     const modal = document.getElementById('modal');
     modal.querySelector('.food-container img').src = foodData.image;
     modal.querySelector('.food-container img').alt = foodData.title;
-    modal.querySelector('.food-modal .food-price').textContent = foodData.price + ' تومان';
+    modal.querySelector('.food-modal .food-price').textContent = priceFormater(foodData.price)
     modal.querySelector('.food-modal .food-title').textContent = foodData.title;
     modal.querySelector('.food-modal .food-description').textContent = foodData.description;
  

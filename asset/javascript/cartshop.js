@@ -116,14 +116,14 @@ function displayCart() {
                     <div class="py-2 pr-2 justify-between flex flex-col">
                         <h2>${item.title}</h2>
                         <div>تعداد: ${item.quantity}</div>
-                        <p class="text-[green]">${item.price} تومان</p>
+                        <p class="text-[green]">${priceFormater(item.price)}</p>
                     </div>
                     <i data-food-id="${item.id}" class="remove-item cursor-pointer fa text-xl text-[red] fa-trash absolute top-[40%] left-4"></i>
                 </div>`;
             cartList.insertAdjacentHTML('beforeend', cartItemHTML);
         });
-        totalPriceElement.textContent = totalPrice;
-
+        totalPriceElement.textContent = priceFormater(totalPrice);
+        
         document.querySelectorAll('.remove-item').forEach(button => {
             button.addEventListener('click', function() {
                 const foodId = this.getAttribute('data-food-id');

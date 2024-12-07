@@ -20,7 +20,7 @@
     
     </div>
     <div class="mt-6 yekan text-center text-lg font-semibold text-gray-700">
-        <p>جمع کل: <span id="total-price">0</span> تومان</p>
+        <p>جمع کل: <span id="total-price">0</span></p>
     </div>
 </div>
 

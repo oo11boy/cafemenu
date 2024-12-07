@@ -10,13 +10,15 @@ jQuery(document).ready(function($) {
                     'query': query
                 },
                 success: function(data) {
-                    // اضافه کردن عنوان نتایج
-                    var resultsTitle = '<h2 style="padding: 5px; background-color: #e8e8e8;margin-bottom:5px;  color: #b49d9d; border-radius: 10px;">نتایج</h2>';
-                    $('#suggestions-container').html(resultsTitle + data).show(); // نمایش عنوان نتایج همراه با داده‌ها
+                    var resultsTitle = '<h2 style="padding: 5px; background-color: #e8e8e8; margin-bottom:5px; color: #b49d9d; border-radius: 10px;">نتایج</h2>';
+                    $('#suggestions-container').html(resultsTitle + data).show();
+    
+                    // ارسال رویداد به DOM
+                    document.dispatchEvent(new Event('ajaxContentLoaded'));
                 }
             });
         } else {
-            $('#suggestions-container').html('').hide(); // مخفی کردن پیشنهادات اگر کمتر از 3 حرف باشد
+            $('#suggestions-container').html('').hide();
         }
     });
   
