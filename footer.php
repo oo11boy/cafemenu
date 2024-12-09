@@ -1,86 +1,65 @@
 <?php get_template_part('components/endfooter', name: 'single'); ?>
 
-
 </div>
 
-
-<div class="footer">
-    
-
-    <div class="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-white border border-gray-200 rounded-full bottom-4 left-1/2 bg-gray-700 border-gray-600">
-        <div class="grid h-full max-w-lg grid-cols-5 mx-auto">
-            <!-- دکمه تب خانه -->
-            <button id="tab-home" class="tab-button  mt-[0]  inline-flex flex-col items-center justify-center px-5  group" type="button">
-             
-                    <i class="fa fa-home w-full text-2xl h-5 mb-1 text-gray-300 group-hover:text-blue-600" aria-hidden="true"></i>
-                    <span class="w-full iransans text-[12px] pt-2 text-gray-300 group-hover:text-blue-600">منو</span>
-           
-           
-            </button>
-            <?php get_template_part('pages/opengarson', 'single'); ?>
-
-            <!-- دکمه تب بازی -->
-            <button id="tab-game" class="tab-button mt-[0]  inline-flex flex-col items-center justify-center px-5  group" type="button">
-             
-                    <i class="fa fa-gamepad w-full text-2xl h-5 mb-1 text-gray-300 group-hover:text-blue-600" aria-hidden="true"></i>
-                    <span class="w-full iransans text-[12px] pt-2 text-gray-300 group-hover:text-blue-600">بازی</span>
-           
-           
-            </button>
-
-       
-
-
-     
-     <button id="tab-cart" class="tab-button relative mt-[0] rounded-full border border-white bg-[#183D3D]  inline-flex flex-col items-center justify-center px-5  group" type="button">
-        
-             <i class="fa  fa-list-alt w-full text-2xl h-5 mb-1 text-gray-300 group-hover:text-blue-600" aria-hidden="true"></i>
-             <span class="w-full iransans text-[12px] pt-2 text-gray-300 group-hover:text-blue-600">سفارشات</span>
-             <p id="cart-count" class="absolute top-1 left-12 text-[10px] w-6 h-6 flex justify-center items-center rounded-full bg-[green] text-white">0</p>
-
-           
-     </button>
-
-     
-     <button class="openGarsonModal mt-[0]  inline-flex flex-col items-center justify-center px-5  group" type="button">
-           
-             <i class="fa fa-bell w-full text-2xl h-5 mb-1 text-gray-300 group-hover:text-blue-600" aria-hidden="true"></i>
-
-             
-             <span class="w-full iransans text-[12px] pt-2 text-gray-300 group-hover:text-blue-600">گارسون</span>
-           
-     </button>
-     <button id="tab-info" class="tab-button mt-[0]  inline-flex flex-col items-center justify-center px-5  group" type="button">
-            <i class="" aria-hidden="true"></i>
-             <i class="fa fa-inbox w-full text-2xl h-5 mb-1 text-gray-300 group-hover:text-blue-600" aria-hidden="true"></i>
-             <span class="w-full iransans text-[12px] pt-2 text-gray-300 group-hover:text-blue-600">درباره</span>
-           
-     </button>
-        </div>
+<div class="footer max-w-[650px] relative">
+    <div class="absolute bottom-0 z-[50] w-full">
+    <div class="navigation">
+  <ul>
+    <li class="list active">
+      <a id="tab-home" href="#"  class="tab-button">
+        <span class="icon">
+          <ion-icon name="grid-outline"></ion-icon>
+        </span>
+        <span class="text">منو</span>
+      </a>
+    </li>
+    <li class="list">
+      <a id="tab-game"  href="#" class="tab-button">
+        <span class="icon">
+          <ion-icon name="game-controller-outline"></ion-icon>
+        </span>
+        <span class="text">بازی</span>
+      </a>
+    </li>
+    <li class="list">
+      <a id="tab-cart" href="#" class="tab-button">
+        <span class="icon">
+          <ion-icon name="cart-outline"></ion-icon>
+        </span>
+        <span class="text">سفارشات</span>
+      </a>
+    </li>
+    <li class="list">
+      <a class="openGarsonModal">
+        <span class="icon">
+          <ion-icon name="restaurant-outline"></ion-icon>
+        </span>
+        <span class="text">گارسون</span>
+      </a>
+    </li>
+     <li class="list">
+      <a id="tab-info" href="#" class="tab-button">
+        <span class="icon">
+          <ion-icon name="call-outline"></ion-icon>
+        </span>
+        <span class="text">ارتباط با ما</span>
+      </a>
+    </li>
+    <div class="indicator"></div>
+  </ul>
+</div>
+<?php get_template_part('components/garsonmodal', 'single'); ?>
+   
     </div>
 </div>
 
-<!-- استایل برای مخفی کردن تب‌ها -->
-<style>
-/* انیمیشن برای تغییر تب */
-.tab-content {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.active-tab {
-    display: block;
-    opacity: 1;
-}
-
-</style>
-<?php get_template_part('components/garsonmodal', 'single'); ?>
 
 <!-- اسکریپت jQuery برای مدیریت تب‌ها -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <?php wp_footer(); ?>
 </body>
 </html>
