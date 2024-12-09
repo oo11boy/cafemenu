@@ -1,8 +1,8 @@
 <!-- مودال درخواست گارسون -->
-<div id="garsonModal" class="modal hidden yekan !z-[999] absolute top-0 inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50">
-  <div class="modal-content bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+<div id="garsonModal" class="modal max-w-[650px] m-auto hidden yekan !z-[999] absolute top-0 inset-0 flex justify-center items-center !bg-white">
+  <div class="modal-content !bg-[#ffffff4a] p-6 rounded-lg shadow-lg w-full max-w-md">
     <span id="closeModal" class="close absolute top-2 right-2 text-xl font-bold text-[blue] cursor-pointer hover:text-gray-800">&times;</span>
-    <h2 class="text-2xl font-semibold mb-4">درخواست گارسون</h2>
+    <h2 class="text-2xl reyhaneh text-[darkmagenta] font-semibold mb-4">درخواست گارسون</h2>
     <label for="tableNumber" class="text-lg text-gray-700">شماره میز:</label>
     <input type="text" id="tableNumber" placeholder="شماره میز را وارد کنید" class="mt-2 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
     <button id="submitGarsonRequest" class="mt-4 px-6 py-3 bg-green-500 text-white font-semibold rounded-lg shadow-md hover:bg-green-600 transition duration-300">

@@ -43,7 +43,7 @@
         <span class="icon">
           <ion-icon name="call-outline"></ion-icon>
         </span>
-        <span class="text">ارتباط با ما</span>
+        <span class="text">ارتباط</span>
       </a>
     </li>
     <div class="indicator"></div>
