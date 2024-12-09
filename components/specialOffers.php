@@ -1,5 +1,9 @@
 <section class="special-offers">
-    <h2 class="section-title reyhaneh text-2xl mb-10">تخفیفات ویژه</h2>
+    <div class="chef-suggestion-title-container">
+
+    <hr class="chef-suggestion-title-line">
+<span class="chef-suggestion-title-text reyhaneh text-2xl absolute top-0">تخفیفات ویژه</span>
+    </div>
     <div class="card-container-offer yekan">
         <?php
         $args = array(
@@ -37,7 +41,9 @@
                     }
                     ?>
                     <div class="recipe-card-1 cursor-pointer" data-price="<?php echo esc_html($discount_price); ?>" id="card" data-categories="<?php echo implode(' ', $category_ids); ?>">
-                        <div id="card__image">
+                     <span class="line-through text-sm bg-[red] p-1 text-white absolute top-5 right-5"><?php echo esc_attr($food_price); ?> تومان</span> <!-- قیمت قبلی -->
+                                               
+                    <div id="card__image">
                             <img class="recipe-card-image object-cover" src="<?php echo esc_url($food_image ? $food_image : get_theme_image_url('dimg.png')); ?>" 
                             alt="<?php echo esc_attr($food_title); ?>" />
                         </div>
@@ -50,8 +56,8 @@
                                 </span>
                                 <div class="recipe-overview">
                                     <p class="recipe-price flex flex-col">
-                                        <span class="line-through text-red-500"><?php echo esc_attr($food_price); ?> تومان</span> <!-- قیمت قبلی -->
-                                        <span class="text-green-500"><?php echo esc_attr($discount_price); ?> تومان</span> <!-- قیمت تخفیف‌دار -->
+                                       <span class="text-white "><?php echo esc_attr($discount_price); ?> تومان</span> <!-- قیمت تخفیف‌دار -->
+                       
                                     </p>
                                 </div>
                             </div>
@@ -87,7 +93,14 @@
             wp_reset_postdata();
         } 
         if (!$has_posts) {
-            echo '<p>هیچ محصول تخفیف‌داری یافت نشد.</p>'; // پیام بعد از اتمام حلقه در صورت عدم وجود پست
+         ?>
+         <style>
+            .special-offers{
+                display:none;
+            }
+
+         </style>
+         <?php
         }
         ?>
         

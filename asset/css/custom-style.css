@@ -98,10 +98,14 @@ input[type="range"]::-moz-range-thumb {
     font-size: 24px !important;
     padding: 6px !important;
     margin-top: 10px !important;
+   
     width: 80%;
   }
 }
 @media only screen and (max-width: 450px) {
+  .chef-suggestion-title-text {
+    font-size: 16px!important;
+}
   .poster span {
     font-size: 25px !important;
     margin-top: 0px;
@@ -160,7 +164,28 @@ input[type="range"]::-moz-range-thumb {
 
 /* کارت های صفحه اصلی */
 
-
+.chef-suggestion-title-line{
+  border-top: rgba(6, 76, 79, 0.4) dashed 2px;
+  width: 100%;
+  background-color: transparent;
+}
+.chef-suggestion-title-container{
+  position: relative;
+  margin-block: 50px;
+  margin-inline: auto;
+}
+.chef-suggestion-title-text{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  background-color: white;
+    padding-inline: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 120%;
+    color: var(--Text-600, #4c4c4c);
+}
 .card {
   opacity: 1;
   transform: translateY(0);
