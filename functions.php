@@ -33,7 +33,8 @@ function my_theme_scripts()
     wp_enqueue_script('ajaxsearch-js', get_template_directory_uri() . '/asset/javascript/ajaxsearch.js', array('jquery'), null, true);
     wp_enqueue_script('cartshop-js', get_template_directory_uri() . '/asset/javascript/cartshop.js', array('jquery'), null, true);
     wp_enqueue_script('priceFormater-js', get_template_directory_uri() . '/asset/javascript/priceFormater.js', array(), null, true);
-
+    wp_enqueue_script('footer-js', get_template_directory_uri() . '/asset/javascript/footer.js', array('jquery'), null, true);
+   
     // اضافه کردن ajaxurl برای استفاده در جاوااسکریپت
     wp_localize_script('custom-js', 'ajax_object', array(
         'ajax_url' => admin_url('admin-ajax.php')
