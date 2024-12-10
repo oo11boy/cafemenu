@@ -94,6 +94,36 @@ function add_custom_font()
 }
 add_action('wp_enqueue_scripts', 'add_custom_font');
 
+// بارگذاری استایل فونت یکن برای کل داشبورد
+function custom_admin_fonts() {
+    echo '
+    <style>
+        @font-face {
+            font-family: "Yekan";
+            src: url("' . get_template_directory_uri() . '/asset/fonts/yekan.ttf") format("truetype");
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* اعمال فونت یکن به تمام بخش‌های داشبورد */
+        body, td, textarea, input, select, .wp-core-ui .button, .wrap h1, .wrap p, .wrap a {
+            font-family: "Yekan", sans-serif !important;
+        }
+
+        /* بهبود نمایش برخی بخش‌های خاص */
+        .wp-core-ui .button-primary {
+            background-color: #0073aa;
+            border-color: #0073aa;
+            color: #ffffff;
+        }
+
+        .wp-core-ui .button-primary:hover {
+            background-color: #005177;
+        }
+    </style>
+    ';
+}
+add_action('admin_head', 'custom_admin_fonts');
 
 // اضافه کردن یک آیتم جدید به منوی داشبورد
 function add_qr_code_menu_item() {

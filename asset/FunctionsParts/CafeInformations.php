@@ -130,7 +130,7 @@ add_action('admin_enqueue_scripts', 'cafe_admin_map_script');
 
 function cafe_settings_page() {
     ?>
-    <div class="wrap">
+    <div style="" class="wrap">
         <h1>اطلاعات کافه</h1>
         <h2>انتخاب مکان کافه روی نقشه</h2>
         <div id="map" style="height: 400px;"></div>
