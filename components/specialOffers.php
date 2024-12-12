@@ -42,7 +42,8 @@
                     ?>
                     <div class="recipe-card-1 cursor-pointer" data-price="<?php echo esc_html($discount_price); ?>" id="card" data-categories="<?php echo implode(' ', $category_ids); ?>">
                      <span class="line-through text-sm bg-[red] p-1 text-white absolute top-5 right-5"><?php echo esc_attr($food_price); ?> تومان</span> <!-- قیمت قبلی -->
-                                               
+                     <p class="foodid hidden"><?php echo esc_attr(get_the_ID()); ?></p>
+                                     
                     <div id="card__image">
                             <img class="recipe-card-image object-cover" src="<?php echo esc_url($food_image ? $food_image : get_theme_image_url('dimg.png')); ?>" 
                             alt="<?php echo esc_attr($food_title); ?>" />
