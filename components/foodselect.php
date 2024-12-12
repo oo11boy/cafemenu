@@ -92,6 +92,7 @@
             ?>
             <div class="card  cursor-pointer relative flex shadow flex-col <?php echo ($counter >= 6) ? 'hidden' : ''; ?>"
                id="card" data-price="<?php echo esc_attr($discount_price ? $discount_price : $food_price); ?>" data-categories="<?php echo implode(' ', $category_ids); ?>">
+               <p class="foodid hidden"><?php echo esc_attr(get_the_ID()); ?></p>
                <div class="card__image" id="card__image">
                   <img src="<?php echo esc_url($food_image ? $food_image : get_theme_image_url('dimg.png')); ?>" 
                   alt="<?php echo esc_attr($food_title); ?>" />

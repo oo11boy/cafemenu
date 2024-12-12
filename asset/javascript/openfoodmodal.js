@@ -4,13 +4,15 @@ document.querySelectorAll('#card').forEach(card => {
     card.addEventListener('click', (e) => {
       // اطمینان از این که فقط روی کارت کلیک شده و نه دکمه سبد خرید
       if (!e.target.closest('.add-to-cart, .increase , .decrease ,.countcart')) {
+   
         const foodData = {
+            id: card.querySelector('.foodid').textContent,
           title: card.querySelector('#card__info h3').textContent,
           description: card.querySelector('#card__info span') ? card.querySelector('#card__info span').textContent : '',
           image: card.querySelector('#card__image img').src,
           price: card.dataset.price
         };
-        
+    
         openModal(foodData); // فراخوانی تابع برای باز کردن مودال
         
       }
@@ -27,9 +29,27 @@ function openModal(foodData) {
     modal.querySelector('.food-modal .food-title').textContent = foodData.title;
     modal.querySelector('.food-modal .food-description').textContent = foodData.description;
  
+// پیدا کردن دکمه add-to-cart و ست کردن اتریبیوت‌ها
+const addToCartButton = modal.querySelector('.add-to-cart');
+addToCartButton.setAttribute('data-food-id', foodData.id);
+addToCartButton.setAttribute('data-food-price', foodData.price);
+addToCartButton.setAttribute('data-food-title', foodData.title);
+addToCartButton.setAttribute('data-food-image', foodData.image);
     toggleModal(); // باز کردن مودال
 }
-
+// بازنشانی دکمه‌ها و اینپوت‌ها هنگام بسته شدن مودال
+function resetCartButtons() {
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        const quantityInputDiv = button.closest('.card__actions').querySelector('.quantity-input');
+        const addButton = button;
+       
+        // مخفی کردن اینپوت تعداد و دکمه‌های + و - و نمایش دکمه "افزودن به سبد خرید"
+        quantityInputDiv.classList.add('hidden');
+        const quantityInput = quantityInputDiv.querySelector('input');
+        quantityInput.value = 1;
+        addButton.classList.remove('hidden');
+    });
+}
 // تغییر حالت مودال
 function toggleModal() {
     const modal = document.getElementById('modal');
@@ -41,6 +61,7 @@ function toggleModal() {
         setTimeout(() => {
             modal.style.display = 'none';
             modal.classList.remove('hide');
+            resetCartButtons(); // بازنشانی دکمه‌ها و اینپوت‌ها
         }, 300); // زمان انیمیشن
     } else {
     
@@ -51,10 +72,6 @@ function toggleModal() {
     }
 }
 
-// بستن مودال با کلیک بر روی دکمه
-document.getElementById('close-modal').addEventListener('click', () => {
-    toggleModal();
-});
 
 // بستن مودال با کلیک خارج از آن
 document.getElementById('modal').addEventListener('click', (e) => {
