@@ -1,5 +1,5 @@
 
-
+<div class="pt-[3%] pb-[23%]">
 <div class="flex reyhaneh justify-between items-center">
     <p class="text-3xl"><?php echo esc_html(get_option('cafe_name')); ?></p>
     <img class="w-[80px] h-[80px] rounded-full"   src="<?php echo esc_url(get_option('cafe_logo')); ?>"
@@ -35,3 +35,4 @@
 <?php get_template_part('components/specialOffers', name: 'single'); ?>
 
 
+</div>

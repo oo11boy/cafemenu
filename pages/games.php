@@ -10,7 +10,7 @@
 
         </div>
     </div>
-    <div class="flex  flex-wrap">
+    <div class="flex  pb-[22%] flex-wrap">
         <a class="h-[200px] rounded-lg shadow-lg mt-4 border-4 border-white w-1/2  "
             href="https://html5.gamemonetize.co/lmu6lwc87rj10aam9gx5t9p8o6icuodh/">
             <img class="w-full rounded-lg h-full object-cover" src="<?php echo get_theme_image_url('g1.jpg'); ?>"

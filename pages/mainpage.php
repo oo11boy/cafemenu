@@ -13,7 +13,10 @@ get_header();
     <?php get_template_part('pages/Homepage', 'single'); ?>
 </div>
 
-
+<!-- garson tab -->
+<div id="content-garson" class="tab-content">
+    <?php get_template_part('pages/garson', 'single'); ?>
+</div>
 <!-- game tab -->
 <div id="content-game" class="tab-content">
     <?php get_template_part('pages/games', 'single'); ?>

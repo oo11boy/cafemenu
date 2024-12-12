@@ -32,9 +32,9 @@ html {
 
 .tab-content{
 
-  padding: 0 15px;
+  padding: 0 15px 0 15px;
 }
-#garsonModal{
+#content-garson{
 background-image: url(https://png.pngtree.com/background/20210711/original/pngtree-gourmet-delicious-poster-background-material-picture-image_1086655.jpg);
 width: 100%;
 height: 100vh;

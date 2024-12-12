@@ -9,7 +9,9 @@
     <li class="list active">
       <a id="tab-home" href="#"  class="tab-button">
         <span class="icon">
-          <ion-icon name="grid-outline"></ion-icon>
+     
+          <ion-icon name="restaurant-outline"></ion-icon>
+          
         </span>
         <span class="text">منو</span>
       </a>
@@ -30,14 +32,17 @@
         <span class="text">سفارشات</span>
       </a>
     </li>
+
     <li class="list">
-      <a class="openGarsonModal">
+      <a id="tab-garson" href="#" class="tab-button">
         <span class="icon">
-          <ion-icon name="restaurant-outline"></ion-icon>
+        <img width="24" height="24" src="https://img.icons8.com/?size=100&id=XLIocFCXawoN&format=png&color=ffffff" alt="waiter"/>
+       
         </span>
-        <span class="text">گارسون</span>
+        <span class="text">ارتباط</span>
       </a>
     </li>
+ 
      <li class="list">
       <a id="tab-info" href="#" class="tab-button">
         <span class="icon">
