@@ -61,11 +61,13 @@ document.getElementById('submitGarsonRequest').addEventListener('click', functio
 <style>
 .modal-content {
     background-color: #fff;
-    margin: 15% auto;
+
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
     max-width: 400px;
+    margin-bottom: 25%;
+    font-family: yekan;
 }
 
 

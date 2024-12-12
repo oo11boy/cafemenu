@@ -1,5 +1,5 @@
 
-    <div class="relative ">
+    <div class="relative pt-[3%] ">
         
         <img class="rounded-xl" src="https://4kwallpapers.com/images/walls/thumbs_2t/8571.jpg" alt="" srcset="">
         <div class="absolute poster flex flex-col h-[100%] justify-between py-8 top-0  z-50 right-5">
