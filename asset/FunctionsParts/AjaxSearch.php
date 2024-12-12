@@ -18,7 +18,7 @@ function ajax_search_food_items()
                     <?php
                     while ($search_query->have_posts()) {
                         $search_query->the_post();
-
+                     
                         $food_title = get_the_title();
                         $food_description = get_the_content();
                         $food_image = get_the_post_thumbnail_url();
@@ -36,7 +36,7 @@ function ajax_search_food_items()
                             height: 80px;
                             "class="flex card rounded-lg  items-center cursor-pointer z-[920] shadow"
                             id="card">
-
+                              <p class="foodid hidden"><?php echo esc_attr(get_the_ID()); ?></p>
                             <div class="card__image w-[100px]" id="card__image">
                                 <img class="h-[full] w-full" src="<?php echo esc_url($food_image); ?>"
                                 alt="<?php echo esc_attr($food_title); ?>" />

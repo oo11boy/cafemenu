@@ -21,6 +21,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         
         // دریافت اطلاعات غذا
         const foodId = this.getAttribute('data-food-id');
+       
         const foodPrice = parseFloat(this.getAttribute('data-food-price'));
         const foodTitle = this.getAttribute('data-food-title');
         const foodImage = this.getAttribute('data-food-image');
@@ -41,6 +42,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
             quantity++;
             quantityInput.value = quantity;
             updateCart(foodId, foodPrice, foodTitle, foodImage, quantity);
+     
         };
 
         decreaseButton.onclick = () => {
@@ -79,9 +81,8 @@ function updateCart(foodId, foodPrice, foodTitle, foodImage, quantity) {
         image: foodImage,
         quantity: quantity
     };
-
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const existingItemIndex = cart.findIndex(item => item.id === foodId);
+    const existingItemIndex = cart.findIndex(item => item.id == foodId);
     if (existingItemIndex !== -1) {
         cart[existingItemIndex].quantity = quantity;
     } else {
@@ -102,7 +103,7 @@ function displayCart() {
     cartList.innerHTML = ''; 
     let totalPrice = 0;
 
-    if (cart.length === 0) {
+    if (cart.length == 0) {
         emptyCartMessage.classList.remove('hidden');
         totalPriceElement.textContent = '0';
     } else {
