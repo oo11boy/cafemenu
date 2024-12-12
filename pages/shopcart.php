@@ -26,7 +26,7 @@
 </div>
 
 <!-- دکمه ثبت درخواست گارسون -->
-<button class="mt-4   w-full p-4 reyhaneh bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+<button id="tab-garson" class="mt-4  tab-button  w-full p-4 reyhaneh bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
     درخواست گارسون
 </button>
 </div>

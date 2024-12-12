@@ -74,6 +74,7 @@ function updateCartCount() {
 
 // تابع به‌روزرسانی سبد خرید
 function updateCart(foodId, foodPrice, foodTitle, foodImage, quantity) {
+    const currentTime = new Date().getTime(); // زمان فعلی
     const cartItem = {
         id: foodId,
         title: foodTitle,
@@ -89,10 +90,30 @@ function updateCart(foodId, foodPrice, foodTitle, foodImage, quantity) {
         cart.push(cartItem);
     }
     localStorage.setItem('cart', JSON.stringify(cart));
+
+     localStorage.setItem('cartTimestamp', currentTime); // ذخیره زمان فعلی
     displayCart();
     updateCartCount();
 }
+// بررسی انقضای سبد خرید و پاکسازی آن پس از 30 ثانیه
+function checkCartExpiry() {
+    const cartTimestamp = localStorage.getItem('cartTimestamp');
+    if (cartTimestamp) {
+        const currentTime = new Date().getTime();
+        const timeDifference = currentTime - cartTimestamp;
+        const expiryTime = 3 * 60 * 60 * 1000; // 3 ساعت به میلی‌ثانیه
 
+        if (timeDifference > expiryTime) { // اگر بیش از 30 ثانیه گذشته باشد
+            localStorage.removeItem('cart'); // پاک کردن سبد خرید
+            localStorage.removeItem('cartTimestamp'); // پاک کردن زمان
+            displayCart(); // به‌روزرسانی نمایش سبد خرید
+            updateCartCount(); // به‌روزرسانی تعداد اقلام سبد خرید
+        }
+    }
+}
+
+// بررسی انقضای سبد خرید در زمان بارگذاری صفحه
+window.addEventListener('load', checkCartExpiry);
 // تابع نمایش سبد خرید
 function displayCart() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
