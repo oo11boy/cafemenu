@@ -305,12 +305,12 @@ input[type="range"]::-moz-range-thumb {
 .active-category {
   background-color: #A7D397;
   border: 1px dashed #183D3D;
-  padding: 4px;
+  padding:4px 0px;
   border-radius: 8px;
 }
 
 .category-btn {
-  transition: all 0.2s ease-in-out; /* تغییرات نرم برای رنگ، اندازه و موقعیت */
+  transition: all 0.2s ease; /* تغییرات نرم برای رنگ، اندازه و موقعیت */
 }
 .search-result-item {
   padding: 10px;

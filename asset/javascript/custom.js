@@ -1,3 +1,25 @@
+
+function scrollToCenter(button) {
+    const container = document.querySelector('.custom-scroll'); // عنصر والد که دارای overflow است
+    const containerWidth = container.offsetWidth;
+    const buttonOffset = button.offsetLeft + (button.offsetWidth / 2);
+    const scrollPosition = buttonOffset - (containerWidth / 2);
+  
+    container.scrollTo({
+      left: scrollPosition,
+      behavior: 'smooth' // حرکت نرم هنگام اسکرول
+    });
+  }
+  function scrollToCardContainer() {
+    const cardContainer = document.querySelector('.ranger');
+    if (cardContainer) {
+      cardContainer.scrollIntoView({
+        behavior: 'smooth',  // حرکت نرم هنگام اسکرول
+        block: 'start'       // اسکرول به ابتدای بخش
+      });
+    }
+  }
+  
 document.addEventListener('DOMContentLoaded', function () {
   const categoryButtons = document.querySelectorAll('.category-btn');
   const foodItems = document.querySelectorAll('.card');
@@ -78,6 +100,13 @@ document.addEventListener('DOMContentLoaded', function () {
           categoryButtons.forEach((btn) => btn.classList.remove("active-category"));
           this.classList.add("active-category");
           updateCardVisibility();
+           
+   
+    // اسکرول به ابتدای card-container
+    scrollToCardContainer();
+    // فراخوانی تابع اسکرول برای قرار دادن دکمه در وسط
+    scrollToCenter(this);
+
           if (activeCategory === "all") {
               loadMoreButton.classList.remove('hidden');
           } else {

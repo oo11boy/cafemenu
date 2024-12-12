@@ -1,5 +1,5 @@
 <div
-   class="flex iransans gap-y-4 rounded-lg bg-[#4CAF50] z-10 shadow-lg  z-20 mt-5 items-center p-3 flex-row justify-between w-full">
+   class="flex ranger iransans gap-y-4 rounded-lg bg-[#4CAF50] z-10 shadow-lg  z-20 mt-5 items-center p-3 flex-row justify-between w-full">
    <input class="pricerange" style="accent-color: #1a543b" type="range" id="rangeInput" min="100000" step="100000"
       max="1000000" value="1000000" />
    <div class="w-1/2 text-sm sm:text-sm text-left  text-white">
@@ -8,11 +8,11 @@
 </div>
 
 <!-- دکمه "نمایش همه آیتم‌ها" -->
-<div class="w-full custom-scroll vazir p-4 shadow-lg overflow-x-auto sticky top-0 bg-white z-10">
+<div id="categories-container" class="w-full custom-scroll vazir p-4 shadow-lg overflow-x-auto sticky top-0 bg-white z-10">
    <div class="flex gap-4">
       <!-- دکمه "نمایش همه ایتم‌ها" -->
       <button class="category-btn" data-category-id="all">
-         <div class="min-w-[60px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+         <div class="w-[80px] text-white whitespace-nowrap flex flex-col justify-center items-center">
             <div class="bg-[#e3e3e3] w-[60px] h-[60px] flex justify-center items-center p-4 rounded-xl category-img">
                <img class="w-[100%] object-cover " src="<?php echo get_theme_image_url('all.png'); ?>" alt="نمایش همه">
             </div>
@@ -44,7 +44,7 @@
             }
             ?>
             <button class="category-btn" data-category-id="<?php echo esc_attr($category->term_id); ?>">
-               <div class="min-w-[60px] text-white whitespace-nowrap flex flex-col justify-center items-center">
+               <div class="w-[80px] text-white whitespace-nowrap flex flex-col justify-center items-center">
                   <div class="bg-[#e3e3e3]  w-[60px] h-[60px] flex justify-center items-center p-4 rounded-xl category-img">
                      <?php if ($icon_url) { ?>
                         <img class="w-full h-full object-cover" src="<?php echo esc_url($icon_url); ?>"
@@ -66,7 +66,6 @@
 
    </div>
 </div>
-
 
 <div class="card-container relative">
    <div class="art-board__container  gap-y-4 viewfood yekan">
