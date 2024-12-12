@@ -1,6 +1,5 @@
 const list = document.querySelectorAll(".list");
 const indicators = document.querySelectorAll(".indicator");
-const navigation = document.querySelectorAll(".navigation");
 
 function activeLink() {
   // حذف کلاس‌های active از تمام تب‌ها

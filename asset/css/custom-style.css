@@ -687,18 +687,16 @@ width: 100%!important;
 
 @keyframes rotateOutline {
   0% {
-    outline-color: red;
-    background-position: 0% 50%;
+  
+    background-position:100% 50%;
   }
   50% {
-    outline-color: yellow;
-    background-position: 100% 50%;
+   
+    background-position: 0% 50%;
   }
 
 
-  100% {
-    outline-color: BLACK;
-  }
+
 }
 
 .indicator {

@@ -3,7 +3,7 @@
 </div>
 
 <div class="footer max-w-[650px] relative">
-    <div class="absolute bottom-0 z-[50] w-full">
+    <div class="fixed   inset-x-0 bottom-0 z-[50] w-full">
     <div class="navigation">
   <ul>
     <li class="list active">
