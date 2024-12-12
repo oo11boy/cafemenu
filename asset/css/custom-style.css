@@ -624,6 +624,7 @@ width: 100%!important;
   display: flex;
   justify-content: center;
   outline: 6px solid white;
+
   align-items: center;
   border-radius: 25px 25px 0 0 !important;
 }
@@ -677,6 +678,29 @@ width: 100%!important;
   opacity: 1;
   transform: translateY(10px);
 }
+
+.indicatoranim{
+  animation: rotateOutline 1s linear;
+
+}
+
+
+@keyframes rotateOutline {
+  0% {
+    outline-color: red;
+    background-position: 0% 50%;
+  }
+  50% {
+    outline-color: yellow;
+    background-position: 100% 50%;
+  }
+
+
+  100% {
+    outline-color: BLACK;
+  }
+}
+
 .indicator {
   position: absolute;
   top: -50%;
@@ -684,12 +708,18 @@ width: 100%!important;
   height: 70px;
   background: tomato;
   border-radius: 50%;
-
+  
   transition: 0.5s;
   border: 6px solid white;
-
+  
   outline: 6px solid black;
+  background: linear-gradient(45deg, red, yellow, green, blue, purple);
+  background-size: 300% 300%;
+
 }
+
+
+
 
 .indicator::before {
   content: "";
