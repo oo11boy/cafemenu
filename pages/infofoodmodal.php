@@ -16,7 +16,7 @@ Template Name: foodmodal
       <div class="text-center flex justify-center food-container">
         <img class="w-44 mt-12 rounded-xl bg-white" src="" alt="Food Image">
       </div>
-      <div class="bg-white p-5 pt-3 rounded-tl-[50px] fixed bottom-0 md:w-[650px]">
+      <div class="bg-white p-5 pt-3 rounded-tl-[50px] fixed bottom-0 max-w-[350px] w-[100%]">
         <div class="flex justify-between mt-3">
           <span class="text-lg food-price"></span>
         </div>
@@ -33,10 +33,10 @@ Template Name: foodmodal
                   <!-- دکمه + -->
                   <button
                      class="add-to-cart bg-[gray] text-white flex justify-center items-center text-2xl h-[35px] w-[35px]  rounded-lg"
-                     data-food-id="<?php echo esc_attr(get_the_ID()); ?>"
-                     data-food-price="<?php echo esc_attr($food_price); ?>"
-                     data-food-title="<?php echo esc_attr($food_title); ?>"
-                     data-food-image="<?php echo esc_attr($food_image); ?>">
+                     data-food-id=""
+                     data-food-price=""
+                     data-food-title=""
+                     data-food-image="">
                      <i class="fa fa-plus text-lg" aria-hidden="true"></i>
                   </button>
 
