@@ -37,5 +37,6 @@
 
 <?php get_template_part('components/comments', name: 'single'); ?>
 
+<?php get_template_part('components/branchs', name: 'single'); ?>
 
 </div>

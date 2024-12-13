@@ -814,3 +814,32 @@ width: 100%!important;
 }
 
 
+
+
+
+.branch-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  opacity: 0; /* ابتدا مودال محو است */
+  transform: scale(0.7); /* ابتدا کوچک است */
+  transition: opacity 0.3s, transform 0.3s; /* انیمیشن نرمی برای باز و بسته شدن */
+}
+
+/* زمانی که مودال باز می‌شود */
+.branch-modal.show {
+  display: flex !important;
+  opacity: 1; /* نمایش مودال */
+  transform: scale(1); /* حالت نرمال */
+}
+
+/* زمانی که مودال بسته می‌شود */
+.branch-modal.modal-close {
+  opacity: 0; /* محو شدن مودال */
+  transform: scale(0.7); /* کوچک شدن */
+}
+
