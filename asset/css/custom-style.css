@@ -184,14 +184,25 @@ input[type="range"]::-moz-range-thumb {
 }
 .chef-suggestion-title-container{
   position: relative;
-  margin-block: 50px;
+  margin: 50px 0 40px 0;
   margin-inline: auto;
+}
+.chef-suggestion-add{
+  position: absolute;
+  top: 50%;
+
+  transform: translate(0, -50%);
+background-color: white;
+  padding-inline: 10px;
+
+  font-weight: 600;
+  line-height: 120%;
+  color: var(--Text-600, #4c4c4c);
 }
 .chef-suggestion-title-text{
   position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(0, -50%);
   background-color: white;
     padding-inline: 20px;
     font-size: 20px;
@@ -199,6 +210,18 @@ input[type="range"]::-moz-range-thumb {
     line-height: 120%;
     color: var(--Text-600, #4c4c4c);
 }
+.star {
+  font-size: 30px;
+  color: gray; /* Default color (empty stars) */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.star.gold {
+  color: gold; /* Filled star (gold color) */
+}
+
+
 .card {
   opacity: 1;
   transform: translateY(0);
@@ -472,7 +495,7 @@ input[type="range"]::-moz-range-thumb {
 
 
 
-.swiper {
+.myswiper{
   width: 100%;
   height: 220px;
   padding: 3% 0!important;
@@ -480,7 +503,7 @@ input[type="range"]::-moz-range-thumb {
   font-family: yekan;
 }
 
-.swiper-slide {
+.myswiper .swiper-slide {
   text-align: center;
   font-size: 18px;
   background: #fff;

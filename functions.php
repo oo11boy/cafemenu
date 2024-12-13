@@ -173,7 +173,9 @@ require_once get_template_directory() . '/asset/FunctionsParts/Garson.php';
 require_once get_template_directory() . '/asset/FunctionsParts/AjaxSearch.php';
 require_once get_template_directory() . '/asset/FunctionsParts/CafeInformations.php';
 require_once get_template_directory() . '/asset/FunctionsParts/Discount_Price.php';
-
+require_once get_template_directory() . '/asset/FunctionsParts/persiandateandnumber.php';
+require_once get_template_directory() . '/asset/FunctionsParts/jdf.php';
+require_once get_template_directory() . '/asset/FunctionsParts/comments.php';
 
 // پایان فایل functions.php
 ?>

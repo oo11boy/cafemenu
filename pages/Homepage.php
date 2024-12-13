@@ -35,4 +35,7 @@
 <?php get_template_part('components/specialOffers', name: 'single'); ?>
 
 
+<?php get_template_part('components/comments', name: 'single'); ?>
+
+
 </div>
