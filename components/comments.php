@@ -39,7 +39,7 @@
 
 
 
-    </div>
+    
     <!-- Swiper -->
     <div class="swiper mySwiper">
 
@@ -70,7 +70,7 @@
             ?>
         </div>
         
-        <p class="text-[10px] text-gray-500 leading-8 h-16 transition-all duration-500 mb-9 group-hover:text-gray-800">
+        <p class="text-[12px] text-gray-500 leading-2 h-16 transition-all duration-500 mb-9 group-hover:text-gray-800">
             <?php echo $comment->comment_content; ?>
         </p>
         

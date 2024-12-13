@@ -1,4 +1,3 @@
-<?php get_template_part('components/endfooter', name: 'single'); ?>
 
 </div>
 

@@ -42,10 +42,10 @@ background-size: cover;
 background-position: center;
 }
 .content {
-  height: 100%;
+
   background-color: white;
   overflow-y: auto;
- 
+ height: 100%;
 
 }
 /* تغییر استایل رنج‌بار با دو رنگ */
@@ -116,9 +116,7 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 @media only screen and (max-width: 450px) {
-  .chef-suggestion-title-text {
-    font-size: 16px!important;
-}
+
   .poster span {
     font-size: 25px !important;
     margin-top: 0px;
@@ -279,7 +277,9 @@ background-color: white;
   object-fit: cover;
   object-position: center;
 }
-
+#content-info{
+  background-color: white;
+}
 .card__info {
   display: flex;
   align-items: flex-end;
