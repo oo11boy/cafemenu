@@ -17,101 +17,164 @@ add_action('admin_menu', 'cafe_settings_menu');
 
 // اضافه کردن تنظیمات و فیلدها
 function cafe_settings_init() {
-    // ثبت تنظیمات
-    register_setting('cafe_settings_group', 'cafe_name');
-    register_setting('cafe_settings_group', 'cafe_name_en');
-    register_setting('cafe_settings_group', 'cafe_logo');
-    register_setting('cafe_settings_group', 'cafe_image');
-    register_setting('cafe_settings_group', 'cafe_instagram');
-    register_setting('cafe_settings_group', 'cafe_phone');
-    register_setting('cafe_settings_group', 'cafe_description');
-    register_setting('cafe_settings_group', 'cafe_address');
-    register_setting('cafe_settings_group', 'cafe_latitude');
-register_setting('cafe_settings_group', 'cafe_longitude');
+    // ثبت تنظیمات برای هر تب به صورت جداگانه
+    register_setting('cafe_general_settings_group', 'cafe_name');
+    register_setting('cafe_general_settings_group', 'cafe_name_en');
+    register_setting('cafe_general_settings_group', 'cafe_logo');
+    register_setting('cafe_general_settings_group', 'cafe_image');
+    register_setting('cafe_general_settings_group', 'cafe_instagram');
+    register_setting('cafe_general_settings_group', 'cafe_phone');
+    register_setting('cafe_general_settings_group', 'cafe_description');
+    register_setting('cafe_general_settings_group', 'cafe_address');
+    
+    register_setting('cafe_location_settings_group', 'cafe_latitude');
+    register_setting('cafe_location_settings_group', 'cafe_longitude');
+    
+    register_setting('cafe_activation_settings_group', 'comments_visibility');
+    register_setting('cafe_activation_settings_group', 'branch_visibility');
+    register_setting('cafe_activation_settings_group', 'takhfif_visibility');
 
-    // ایجاد بخش برای تنظیمات
+    // ایجاد بخش‌ها برای تنظیمات
+
+    // بخش برای تنظیمات عمومی
     add_settings_section(
-        'cafe_general_section', // شناسه بخش
-        'اطلاعات کافه',        // عنوان بخش
-        null,                   // توضیحات
-        'cafe-settings'         // صفحه‌ای که بخش در آن نمایش داده می‌شود
+        'cafe_general_section', 
+        '',        
+        null,                   
+        'cafe-settings'         
     );
-
-
-    add_settings_field(
-        'cafe_latitude', 
-        'عرض جغرافیایی', 
-        'cafe_latitude_field', 
-        'cafe-settings', 
-        'cafe_general_section'
+    
+    // فیلدهای مربوط به تنظیمات عمومی
+    add_settings_field('cafe_name', 'نام کافه', 'cafe_name_field', 'cafe-settings', 'cafe_general_section');
+    add_settings_field('cafe_name_en', 'نام انگلیسی کافه', 'cafe_name_en_field', 'cafe-settings', 'cafe_general_section');
+    add_settings_field('cafe_logo', 'لوگوی کافه', 'cafe_logo_field', 'cafe-settings', 'cafe_general_section');
+    add_settings_field('cafe_image', 'تصویر کافه', 'cafe_image_field', 'cafe-settings', 'cafe_general_section');
+    add_settings_field('cafe_address', 'آدرس کافه', 'cafe_address_field', 'cafe-settings', 'cafe_general_section');
+    add_settings_field('cafe_instagram', 'اینستاگرام', 'cafe_instagram_field', 'cafe-settings', 'cafe_general_section');
+    add_settings_field('cafe_phone', 'شماره تماس', 'cafe_phone_field', 'cafe-settings', 'cafe_general_section');
+    add_settings_field('cafe_description', 'توصیف کوتاه کافه', 'cafe_description_field', 'cafe-settings', 'cafe_general_section');
+    
+    // بخش برای تنظیمات مکان
+    add_settings_section(
+        'loc_activation_section', 
+        'مکان', 
+        null,                       
+        'loc-settings'             
     );
-    add_settings_field(
-        'cafe_longitude', 
-        'طول جغرافیایی', 
-        'cafe_longitude_field', 
-        'cafe-settings', 
-        'cafe_general_section'
+    
+    // فیلدهای مربوط به تنظیمات مکان
+    add_settings_field('cafe_latitude', 'عرض جغرافیایی', 'cafe_latitude_field', 'loc-settings', 'loc_activation_section');
+    add_settings_field('cafe_longitude', 'طول جغرافیایی', 'cafe_longitude_field', 'loc-settings', 'loc_activation_section');
+    
+    // بخش برای تنظیمات فعال‌سازی
+    add_settings_section(
+        'cafe_activation_section', 
+        '', 
+        null,                       
+        'status-settings'             
     );
-    // فیلدهای ورودی
-    add_settings_field(
-        'cafe_name', 
-        'نام کافه', 
-        'cafe_name_field', 
-        'cafe-settings', 
-        'cafe_general_section'
-    );
-    add_settings_field(
-        'cafe_name_en', 
-        'نام انگلیسی کافه', 
-        'cafe_name_en_field', 
-        'cafe-settings', 
-        'cafe_general_section'
-    );
-    add_settings_field(
-        'cafe_logo', 
-        'لوگوی کافه', 
-        'cafe_logo_field', 
-        'cafe-settings', 
-        'cafe_general_section'
-    );
-    add_settings_field(
-        'cafe_image', 
-        'تصویر کافه', 
-        'cafe_image_field', 
-        'cafe-settings', 
-        'cafe_general_section'
-    );
-
-    add_settings_field(
-        'cafe_address', 
-        'آدرس کافه', 
-        'cafe_address_field', 
-        'cafe-settings', 
-        'cafe_general_section'
-    );
-    add_settings_field(
-        'cafe_instagram', 
-        'اینستاگرام', 
-        'cafe_instagram_field', 
-        'cafe-settings', 
-        'cafe_general_section'
-    );
-    add_settings_field(
-        'cafe_phone', 
-        'شماره تماس', 
-        'cafe_phone_field', 
-        'cafe-settings', 
-        'cafe_general_section'
-    );
-    add_settings_field(
-        'cafe_description', 
-        'توصیف کوتاه کافه', 
-        'cafe_description_field', 
-        'cafe-settings', 
-        'cafe_general_section'
-    );
+    
+    // فیلدهای مربوط به تنظیمات فعال‌سازی
+    add_settings_field('comments_visibility', 'فعال/غیرفعال سازی بخش نظرات', 'comments_visibility_field', 'status-settings', 'cafe_activation_section');
+    add_settings_field('branch_visibility', 'فعال/غیرفعال سازی بخش شعبه‌ها', 'branch_visibility_field', 'status-settings', 'cafe_activation_section');
+    add_settings_field('takhfif_visibility', 'فعال/غیرفعال سازی بخش تخفیفات ویژه', 'takhfif_visibility_field', 'status-settings', 'cafe_activation_section');
 }
 add_action('admin_init', 'cafe_settings_init');
+
+
+function comments_visibility_field() {
+    $value = get_option('comments_visibility', 'enabled'); // پیش‌فرض فعال باشد
+
+    echo '<label class="switch">';
+    echo '<input type="checkbox" name="comments_visibility" value="enabled" ' . checked($value, 'enabled', false) . '>';
+    echo '<span class="slider round"></span>';
+    echo '</label>';
+
+  ?>
+
+<style>
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Optional: Add rounded corners to the switch */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+</style>
+<?php
+}
+
+function takhfif_visibility_field() {
+    $value = get_option('takhfif_visibility', 'enabled'); // پیش‌فرض فعال باشد
+
+    echo '<label class="switch">';
+    echo '<input type="checkbox" name="takhfif_visibility" value="enabled" ' . checked($value, 'enabled', false) . '>';
+    echo '<span class="slider round"></span>';
+    echo '</label>';
+
+
+}
+
+
+function branch_visibility_field() {
+    $value = get_option('branch_visibility', 'enabled'); // پیش‌فرض فعال باشد
+
+    echo '<label class="switch">';
+    echo '<input type="checkbox" name="branch_visibility" value="enabled" ' . checked($value, 'enabled', false) . '>';
+    echo '<span class="slider round"></span>';
+    echo '</label>';
+
+}
+
+
+
 function cafe_latitude_field() {
     $value = get_option('cafe_latitude');
     echo '<input type="text" name="cafe_latitude" value="' . esc_attr($value) . '" class="regular-text" />';
@@ -127,14 +190,33 @@ function cafe_admin_map_script() {
     wp_enqueue_style('leaflet-css', 'https://unpkg.com/leaflet@1.7.1/dist/leaflet.css');
 }
 add_action('admin_enqueue_scripts', 'cafe_admin_map_script');
-
 function cafe_settings_page() {
     ?>
-    <div style="" class="wrap">
-        <h1>اطلاعات کافه</h1>
-        <h2>انتخاب مکان کافه روی نقشه</h2>
-        <div id="map" style="height: 400px;"></div>
-        <script>
+    <div class="wrap">
+ 
+
+        <!-- ایجاد تب‌ها -->
+        <div class="tabs">
+            <button class="tablinks" onclick="openTab(event, 'general')">اطلاعات عمومی</button>
+            <button class="tablinks" onclick="openTab(event, 'location')">مکان کافه</button>
+           <button class="tablinks" onclick="openTab(event, 'activation')">فعال‌سازی/غیرفعال‌سازی</button> <!-- تب فعال‌سازی -->
+        </div>
+
+        <!-- محتویات تب‌ها -->
+        <div id="general" class="tabcontent">
+    <form method="post" action="options.php">
+        <?php
+        settings_fields('cafe_general_settings_group'); // تغییر به گروه تنظیمات جداگانه
+        do_settings_sections('cafe-settings');
+        submit_button();
+        ?>
+    </form>
+</div>
+
+<div id="location" class="tabcontent">
+    <h2>انتخاب مکان کافه روی نقشه</h2>
+    <div id="map" style="height: 400px;"></div>
+    <script>
            var defaultLatitude = <?php echo esc_js(get_option('cafe_latitude', 35.6892)); ?>;
 var defaultLongitude = <?php echo esc_js(get_option('cafe_longitude', 51.3890)); ?>;
 
@@ -152,18 +234,194 @@ map.on('click', function(e) {
 });
 
         </script>
-    </div>
-        <form method="post" action="options.php">
-            <?php
-            settings_fields('cafe_settings_group');
-            do_settings_sections('cafe-settings');
-            submit_button();
-            ?>
-        </form>
+    <form method="post" action="options.php">
+        <?php
+        settings_fields('cafe_location_settings_group'); // تغییر به گروه تنظیمات جداگانه
+        do_settings_sections('loc-settings');
+        submit_button();
+        ?>
+    </form>
+</div>
 
-   
+<div id="activation" class="tabcontent">
+    <form method="post" action="options.php">
+        <?php
+        settings_fields('cafe_activation_settings_group'); // تغییر به گروه تنظیمات جداگانه
+        do_settings_sections('status-settings');
+        submit_button();
+        ?>
+    </form>
+</div>
+
+    </div>
+
+    <!-- استایل تب‌ها -->
+    <style>
+        .wrap{
+            width: 80%;
+            margin:10% auto;
+            
+        }
+    /* طراحی تب‌ها */
+    .tabs {
+        display: flex;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+    }
+
+    .tablinks {
+        background-color: #f1f1f1;
+        border: 1px solid #ddd;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-right: 5px;
+        font-size: 16px;
+        border-radius: 4px 4px 0 0;
+        transition: background-color 0.3s ease;
+        text-align: center;
+        flex: 1;
+    }
+
+    .tablinks:hover {
+        background-color: #e0e0e0;
+    }
+
+    .tablinks.active {
+        background-color: #2196F3;
+        color: white;
+        border-color: #2196F3;
+    }
+
+    .tabcontent {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        margin-top: -1px;
+    }
+
+    .tabcontent.active {
+        display: block;
+    }
+
+    /* طراحی دکمه‌ها */
+    .button {
+        background-color: #2196F3;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #1976d2;
+    }
+
+    /* طراحی ورودی‌ها */
+    .regular-text {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+
+    .regular-text:focus {
+        border-color: #2196F3;
+        outline: none;
+    }
+
+    /* طراحی سوئیچ‌ها */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+    }
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+        border-radius: 34px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+    /* طراحی نقشه */
+    #map {
+        height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+
+
+    </style>
+
+    <!-- جاوا اسکریپت برای عملکرد تب‌ها -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // پیش‌فرض باز کردن اولین تب
+        document.querySelector('.tablinks').click();
+    </script>
     <?php
 }
+
+
 
 // نمایش فیلدهای ورودی
 function cafe_name_field() {

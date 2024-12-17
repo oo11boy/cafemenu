@@ -1,3 +1,9 @@
+<?php 
+
+if (get_option('branch_visibility') === 'enabled') {
+    ?>
+
+
 <div class="w-full">
     <div class="chef-suggestion-title-container">
         <hr class="chef-suggestion-title-line">
@@ -89,3 +95,5 @@
         </div>
     </div>
 </div>
+
+<?php } ?>
