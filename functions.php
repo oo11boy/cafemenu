@@ -130,16 +130,16 @@ add_action('admin_head', 'custom_admin_fonts');
 
 
 
-require_once get_template_directory() . '/asset/FunctionsParts/AddFoodItems.php';
-require_once get_template_directory() . '/asset/FunctionsParts/Garson.php';
-require_once get_template_directory() . '/asset/FunctionsParts/AjaxSearch.php';
-require_once get_template_directory() . '/asset/FunctionsParts/CafeInformations.php';
-require_once get_template_directory() . '/asset/FunctionsParts/Discount_Price.php';
-require_once get_template_directory() . '/asset/FunctionsParts/persiandateandnumber.php';
-require_once get_template_directory() . '/asset/FunctionsParts/jdf.php';
-require_once get_template_directory() . '/asset/FunctionsParts/comments.php';
-require_once get_template_directory() . '/asset/FunctionsParts/branchlist.php';
-require_once get_template_directory() . '/asset/FunctionsParts/qrcode.php';
+require_once get_template_directory() . '/FunctionsParts/AddFoodItems.php';
+require_once get_template_directory() . '/FunctionsParts/Garson.php';
+require_once get_template_directory() . '/FunctionsParts/AjaxSearch.php';
+require_once get_template_directory() . '/FunctionsParts/CafeInformations.php';
+require_once get_template_directory() . '/FunctionsParts/Discount_Price.php';
+require_once get_template_directory() . '/FunctionsParts/persiandateandnumber.php';
+require_once get_template_directory() . '/FunctionsParts/jdf.php';
+require_once get_template_directory() . '/FunctionsParts/comments.php';
+require_once get_template_directory() . '/FunctionsParts/branchlist.php';
+require_once get_template_directory() . '/FunctionsParts/qrcode.php';
 
 // پایان فایل functions.php
 ?>
