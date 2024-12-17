@@ -1,3 +1,8 @@
+<?php 
+
+if (get_option('takhfif_visibility') === 'enabled') {
+    ?>
+
 <div class="spdiv">
 
 <div class="chef-suggestion-title-container">
@@ -136,3 +141,4 @@ delay: 3000, // مدت زمان بین هر تغییر اسلاید (۵۰۰۰ م
 });
 </script>
 
+<?php } ?>

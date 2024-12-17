@@ -1,3 +1,8 @@
+<?php 
+
+if (get_option('comments_visibility') === 'enabled') {
+    ?>
+
 <div class="spdiv">
 <div class="chef-suggestion-title-container">
     <hr class="chef-suggestion-title-line">
@@ -122,3 +127,5 @@
         },
     });
 </script>
+
+<?php } ?>
